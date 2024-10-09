@@ -1,0 +1,313 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Environmental Compliance Management System
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8eadf;
+        }
+
+        .bg-olive {
+            background-color: #8a9a5b;
+        }
+
+        .bg-light-olive {
+            background-color: #b3c18b;
+        }
+
+        .bg-teal {
+            background-color: #008080;
+        }
+
+        .bg-light-teal {
+            background-color: #20b2aa;
+        }
+
+        .bg-lighter-teal {
+            background-color: #48d1cc;
+        }
+
+        #pieChart,
+        #barChart {
+            width: 200px !important;
+            /* Set the width */
+            height: 200px !important;
+            /* Set the height */
+        }
+    </style>
+</head>
+
+<body>
+<div class="container mx-auto p-4">
+    <header class="bg-olive text-white p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img alt="Enveng Group logo" class="mr-2" height="40"
+                 src="https://replicate.delivery/yhqm/nUvNKgKLhqLwPZAeoB8yNhdcZet6NzFbIgkAnVeHZZbdYOBnA/out-0.png"
+                 width="40"/>
+            <h1 class="text-xl font-bold">
+                Environmental Compliance Management System
+            </h1>
+        </div>
+        <div class="flex items-center">
+            <i class="fas fa-question-circle text-2xl mr-4">
+            </i>
+            <i class="fas fa-cog text-2xl mr-4">
+            </i>
+            <img alt="User profile picture" class="rounded-full" height="32"
+                 src="https://replicate.delivery/yhqm/q495Vw3o3yokK94EvnRU6JnrhErXF0Larxfld1ZeRzwOMngTA/out-0.png"
+                 width="32"/>
+        </div>
+    </header>
+    <nav class="bg-olive mt-2 p-2">
+        <ul class="flex justify-center space-x-8">
+            <li>
+                <a class="text-white" href="#">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a class="text-white" href="#">
+                    Forms
+                </a>
+            </li>
+            <li>
+                <a class="text-white" href="#">
+                    Responsible
+                </a>
+            </li>
+            <li>
+                <a class="text-white" href="#">
+                    GIS Map
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container mx-auto p-4">
+        <div class="bg-olive text-white p-2 flex items-center mb-4 ">
+            <h1 class="text-lg font-medium text-center"> SCJV - Pilbara Ports</h1>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+            <!-- Left Column -->
+            <div class="col-span-1">
+                <div class="bg-olive p-4 mb-4 rounded">
+                    <h2 class="font-bold mb-2">Project Phase Selection</h2>
+                    <select class="w-full p-2 mb-2 bg-white border border-gray-300 rounded">
+                        <option>SELECT PROJECT PHA</option>
+                    </select>
+                    <select class="w-full p-2 mb-2 bg-white border border-gray-300 rounded">
+                        <option>SELECT RESPONSIBILI</option>
+                    </select>
+                    <div class="space-y-1">
+                        <div class="bg-green-300 p-1 rounded">All</div>
+                        <div class="bg-green-300 p-1 rounded">Completed</div>
+                        <div class="bg-orange-300 p-1 rounded">In Progress</div>
+                        <div class="bg-green-300 p-1 rounded">Not Started</div>
+                    </div>
+                    <div class="mt-4 text-sm">
+                        <span class="bg-green-400 px-2 py-1 rounded mr-1">29 Completed</span>
+                        <span class="bg-orange-400 px-2 py-1 rounded mr-1">28% Progression</span>
+                        <span class="bg-green-400 px-2 py-1 rounded">76 Left</span>
+                    </div>
+                    <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded w-full">Further Details</button>
+                </div>
+
+                <div class="bg-olive p-4 rounded">
+                    <h2 class="font-bold mb-2">Compliance Responsibility By Role</h2>
+                    <div id="responsibilityBarChartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-span-3 grid grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Env Performance Report</h3>
+                    <div class="flex justify-center">
+                        <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Threatened Species</h3>
+                    <div class="flex justify-center">
+                        <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold relative">
+                            4
+                            <div class="absolute top-0 right-0 w-4 h-4 bg-orange-400 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Limitations & Extent of Proposal</h3>
+                    <div class="flex justify-center">
+                        <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Air Quality</h3>
+                    <div class="flex justify-center">
+                        <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold">
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Env Offsets</h3>
+                    <div class="flex justify-center">
+                        <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold relative">
+                            6
+                            <div class="absolute top-0 right-0 w-4 h-4 bg-orange-400 rounded-full"></div>
+                            <div class="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Administration</h3>
+                    <div class="flex justify-center">
+                        <canvas id="pieChart"></canvas>
+                        <!-- <div class="w-24 h-24 rounded-full bg-blue-300 flex items-center justify-center text-2xl font-bold relative">
+                            7
+                            <div class="absolute top-0 right-0 w-4 h-4 bg-orange-400 rounded-full"></div>
+                            <div class="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full"></div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-bold mb-2">Cultural Heritage</h3>
+                    <div class="flex justify-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<!-- <canvas id="barChart"></canvas> -->
+<script>
+    async function fetchResponsibilities() {
+        try {
+            const response = await fetch('/api/responsibility');
+            const responsibilities = await response.json();
+
+            // Container where the bars will be displayed
+            const container = document.getElementById('responsibilityBarChartContainer');
+            container.innerHTML = ''; // Clear the container before adding new bars
+
+            responsibilities.forEach(item => {
+                // Create the bar wrapper
+                const barWrapper = document.createElement('div');
+                barWrapper.className = 'flex items-center mb-2'; // Flex layout for bar and label
+
+                // Create the bar element
+                const bar = document.createElement('div');
+                const barLength = item.count * 10; // Example: each responsibility count * 10 for width scaling
+                bar.style.width = `${barLength}px`; // Set bar width based on count
+                bar.style.height = '20px'; // Bar height
+                bar.style.backgroundColor = '#20b2aa'; // Bar color
+                bar.className = 'rounded-full mr-2'; // Add rounded corners and margin
+
+                // Create the label element
+                const label = document.createElement('span');
+                label.textContent = `${item.Responsibility} (${item.count})`; // Label with responsibility and count
+                label.className = 'text-white'; // Text color
+
+                // Append bar and label to the wrapper
+                barWrapper.appendChild(bar);
+                barWrapper.appendChild(label);
+
+                // Append the wrapper to the container
+                container.appendChild(barWrapper);
+            });
+
+        } catch (error) {
+            console.error('Error fetching responsibilities:', error);
+        }
+    }
+
+
+    async function fetchChartData() {
+        try {
+            const response = await fetch('/api/chart-data');
+            const {data} = await response.json();  // Get the data from API
+
+            // Extract labels and counts
+            const labels = data.map(item => item.Environmental_Aspect);
+            const counts = data.map(item => item.count);
+
+            // Pie Chart
+            const pieCtx = document.getElementById('pieChart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        label: 'Environmental Aspects',
+                        data: counts,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            // Bar Chart
+            // const barCtx = document.getElementById('barChart').getContext('2d');
+            // new Chart(barCtx, {
+            //     type: 'bar',
+            //     data: {
+            //         labels: labels,
+            //         datasets: [{
+            //             label: 'Count of Environmental Aspects',
+            //             data: counts,
+            //             backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            //             borderColor: 'rgba(54, 162, 235, 1)',
+            //             borderWidth: 1
+            //         }]
+            //     },
+            //     options: {
+            //         scales: {
+            //             y: {
+            //                 beginAtZero: true
+            //             }
+            //         }
+            //     }
+            // });
+
+        } catch (error) {
+            console.error('Error fetching chart data:', error);
+        }
+    }
+
+    // Fetch the data and render the charts when the page loads
+    window.onload = function () {
+        fetchResponsibilities();
+        fetchChartData();
+    };
+</script>
+
+</html>

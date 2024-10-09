@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- Include the CSS stylesheet located at static/css/style.css -->
+    <style>
+        input[type=checkbox] {
+            accent-color: #808d67;
+        }
+
+        /* Style for checkboxes with custom accent color */
+    </style>
+</head>
+
+<body>
+<div class="responsible">
+    <div class="div">
+        {% include 'dashboard/header.html
+        <!-- Include header from dashboard folder -->
+
+        <header class="header">
+            <div class="overlap">
+                <div class="text-wrapper">Environmental Compliance Management System</div>
+                <!-- Title text for the Environmental Compliance Management System -->
+                <img class="enveng-logo" src="img/enveng-logo-1.svg"/>
+                <!-- Logo image -->
+                <div class="overlap-group">
+                    <div class="avatar-block">
+                        <div class="avatar">
+                            <img src="img/shape-1.png'%}"
+                                 style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;" alt="">
+                            <!-- User avatar image with styling -->
+                        </div>
+                        <div class="info">
+                            <div class="text-wrapper-2">Title</div>
+                            <!-- User title -->
+                            <div class="text-wrapper-3">Description</div>
+                            <!-- User description -->
+                        </div>
+                    </div>
+                    <div class="settings">
+                        <img class="enveng-logo"
+                             style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"
+                             src="img/settings-1.svg"/>
+                        <!-- Settings icon image -->
+                    </div>
+                    <img class="help-circle" src="img/help-circle.svg"/>
+                    <!-- Help icon image -->
+                </div>
+            </div>
+
+            <div class="navigation-bar-wrapper">
+                <div class="navigation-bar">
+                    <div class="overlap-group-2">
+                        <div class="div-wrapper">
+                            <div class="text-wrapper-4"><a href="/responsible">Responsible</a></div>
+                            <!-- Link to Responsible page -->
+                        </div>
+                        <div class="text-wrapper-5"><a href="/form">Forms</a></div>
+                        <!-- Link to Forms page -->
+                        <div class="text-wrapper-6"><a href="/">Dashboard</a></div>
+                        <!-- Link to Dashboard page -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="body">
+            <div class="rectangle"></div>
+            <!-- Decorative rectangle -->
+
+            <div class="form-list-icons">
+                <div class="rectangle-2"></div>
+                <!-- Decorative rectangle -->
+
+                <div class="settings-icon">
+                    <div class="settings-2">
+                        <img class="img" style="height: 90%;width: auto;;margin:  auto;"
+                             src="img/settings-1.svg"/>
+                        <!-- Settings icon image -->
+                    </div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img class="search" src="img/search-2.svg"/>
+                    <!-- Search icon image -->
+                </div>
+
+                <div class="img-wrapper" onclick="newform()">
+                    <img class="img" src="img/plus-2.svg"/>
+                    <!-- Add new form icon image, triggers newform() function -->
+                </div>
+
+                <div class="img-wrapper">
+                    <img class="img" src="img/trash-2-2.svg"/>
+                    <!-- Trash icon image -->
+                </div>
+
+                <div class="img-wrapper">
+                    <img class="img" src="img/refresh-cw-3.svg"/>
+                    <!-- Refresh icon image -->
+                </div>
+            </div>
+
+            <div class="navbar">
+                <div class="checkboxes">
+                    <div class="state-layer">
+                        <div class="container"></div>
+                    </div>
+                    <!-- Checkbox container -->
+                </div>
+                <div class="text-wrapper-7">Title</div>
+                <!-- Column header for Title -->
+                <img class="chevron-down" src="img/chevron-down-4.svg"/>
+                <!-- Dropdown icon -->
+                <div class="rectangle-3"></div>
+                <!-- Decorative rectangle -->
+
+                <div class="text-wrapper-7">First Name</div>
+                <!-- Column header for First Name -->
+                <img class="chevron-down" src="img/chevron-down-4.svg"/>
+                <!-- Dropdown icon -->
+                <div class="rectangle-4"></div>
+                <!-- Decorative rectangle -->
+
+                <div class="text-wrapper-7">Last Name</div>
+                <!-- Column header for Last Name -->
+                <img class="chevron-down" src="img/chevron-down-4.svg"/>
+                <!-- Dropdown icon -->
+                <div class="rectangle-5"></div>
+                <!-- Decorative rectangle -->
+
+                <div class="text-wrapper-7">RspEmail</div>
+                <!-- Column header for RspEmail -->
+                <img class="chevron-down" src="img/chevron-down-4.svg"/>
+                <!-- Dropdown icon -->
+                <div class="rectangle-6"></div>
+                <!-- Decorative rectangle -->
+
+                <div class="text-wrapper-7">Accountability</div>
+                <!-- Column header for Accountability -->
+                <img class="chevron-down" src="img/chevron-down-4.svg"/>
+                <!-- Dropdown icon -->
+                <div class="rectangle-7"></div>
+                <!-- Decorative rectangle -->
+            </div>
+
+            <!-- Example row -->
+            <div class="navbar-2">
+                <div class="checkboxes">
+                    <div class="state-layer">
+                        <div class="container-2"></div>
+                        <img class="check-small" src="img/check-small.svg"/>
+                        <!-- Checkbox with checkmark -->
+                    </div>
+                </div>
+                <div class="text-wrapper-8">Construction Manager</div>
+                <!-- User role -->
+                <div class="obligation-number">John</div>
+                <!-- First Name -->
+                <div class="due-date">Doe</div>
+                <!-- Last Name -->
+                <div class="status">john.doe@clough.com.au</div>
+                <!-- Email -->
+                <div class="responsibility">SCJV</div>
+                <!-- Responsibility -->
+            </div>
+
+            {% for user in users %}
+            <!-- Loop through users and display each user's information -->
+            <div class="navbar-2">
+                <div class="checkboxes">
+                    <div class="state-layer">
+                        <input type="checkbox" class="container-2" name="" id="">
+                        <!-- Checkbox for user selection -->
+                    </div>
+                </div>
+                <div class="text-wrapper-8">{{ user.username }}</div>
+                <!-- User's username -->
+                <div class="obligation-number">{{ user.first_name }}</div>
+                <!-- User's first name -->
+                <div class="due-date">{{ user.last_name }}</div>
+                <!-- User's last name -->
+                <div class="status">{{ user.email }}</div>
+                <!-- User's email -->
+                <div class="responsibility">?</div>
+                <!-- Placeholder for responsibility -->
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function newform() {
+        window.location.replace('/newform');
+        // Redirect to the new form page
+    }
+</script>
+</body>
+
+</html>

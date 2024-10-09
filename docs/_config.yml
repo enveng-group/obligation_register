@@ -1,0 +1,11 @@
+theme: jekyll-theme-slate
+
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Docs"
+    url: "/Docs/"
+  - title: "About Us"
+    url: "/about/"
+  - title: "Contact Us"
+    url: "/contact/"

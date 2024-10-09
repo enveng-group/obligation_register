@@ -1,0 +1,56 @@
+<header class="header">
+    <!-- Header section with navigation and user details -->
+    <img class="rectangle-9" src="{% static 'img/rectangle-2.svg' %}"/>
+    <!-- Decorative rectangle image -->
+    <div class="rectangle-10"></div>
+    <!-- Placeholder rectangle -->
+    <div class="text-wrapper-2">Environmental Compliance Management System</div>
+    <!-- Title of the system -->
+    <div class="navigation-bar">
+        <!-- Navigation bar with links -->
+        <div class="overlap-group">
+            <div class="overlap">
+                <div class="text-wrapper-3">
+                    <a href="{% url 'dashboard' %}" style="text-decoration: none;">Dashboard</a>
+                    <!-- Navigation link to Dashboard -->
+                </div>
+            </div>
+            <div class="text-wrapper-4">
+                <a href="forms.html" style="text-decoration: none;">Forms</a>
+                <!-- Navigation link to Forms -->
+            </div>
+            <div class="text-wrapper-5">
+                <a href="responsible.html" style="text-decoration: none;">Responsible</a>
+                <!-- Navigation link to Responsible -->
+            </div>
+        </div>
+    </div>
+    <img class="enveng-logo" src="{% static 'img/enveng-logo-1-1.svg' %}"/>
+    <!-- Logo image -->
+    <div class="user-details">
+        <!-- Section displaying user details -->
+        <div class="avatar-block">
+            <div class="avatar">
+                <img alt=""
+                     src="{% static 'img/shape-1.png'%}"
+                     style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;">
+                <!-- User avatar image -->
+            </div>
+            <div class="info">
+                <div class="text-wrapper-5">Title</div>
+                <!-- Placeholder for user title -->
+                <div class="text-wrapper-6">Description</div>
+                <!-- Placeholder for user description -->
+            </div>
+        </div>
+        <div class="settings">
+            <img class="enveng-logo"
+                 src="{% static 'img/settings-1.svg' %}"
+                 style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"/>
+            <!-- Settings icon -->
+        </div>
+        <i class="fa-regular fa-circle-question help-circle fa-2x"></i>
+        <!-- <img class="help-circle" src="{% static 'img/help-circle-1.svg' %}" /> -->
+        <!-- Help icon -->
+    </div>
+</header>
