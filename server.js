@@ -99,7 +99,7 @@ app.post("/loginuser", (req, res) => {
 
         // User authenticated, save user ID in session
         req.session.userId = user.id;
-        res.redirect("/"); // Redirect to a protected page after login
+        res.redirect("/form"); // Redirect to a protected page after login
     });
 });
 
