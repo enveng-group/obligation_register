@@ -1,0 +1,72 @@
+<div class="body">
+    <div class="rectangle"></div>
+
+    <div class="form-list-icons">
+        <div class="rectangle-2"></div>
+
+        <div class="settings-icon">
+            <div class="settings-2">
+                <img class="img" style="height: 90%;width: auto;;margin:  auto;" src="img/settings-1.svg" />
+            </div>
+        </div>
+
+        <div class="img-wrapper">
+            <img class="search" src="img/search-2.svg" />
+        </div>
+
+        <div class="img-wrapper" onclick="newform()">
+            <img class="img" src="img/plus-2.svg" />
+        </div>
+
+        <div class="img-wrapper">
+            <img class="img" src="img/trash-2-2.svg" />
+        </div>
+
+        <div class="img-wrapper">
+            <img class="img" src="img/refresh-cw-3.svg" />
+        </div>
+    </div>
+
+    <div class="navbar">
+        <div class="checkboxes">
+            <div class="state-layer">
+                <div class="container"></div>
+            </div>
+        </div>
+        <div class="text-wrapper-7">Title</div>
+        <img class="chevron-down" src="img/chevron-down-4.svg" />
+        <div class="rectangle-3"></div>
+
+        <div class="text-wrapper-7">First Name</div>
+        <img class="chevron-down" src="img/chevron-down-4.svg" />
+        <div class="rectangle-4"></div>
+
+        <div class="text-wrapper-7">Last Name</div>
+        <img class="chevron-down" src="img/chevron-down-4.svg" />
+        <div class="rectangle-5"></div>
+
+        <div class="text-wrapper-7">RspEmail</div>
+        <img class="chevron-down" src="img/chevron-down-4.svg" />
+        <div class="rectangle-6"></div>
+
+        <div class="text-wrapper-7">Accountability</div>
+        <img class="chevron-down" src="img/chevron-down-4.svg" />
+        <div class="rectangle-7"></div>
+    </div>
+
+    <!-- Loop through the users array -->
+    <% users.forEach(user => { %>
+    <div class="navbar-2">
+        <div class="checkboxes">
+            <div class="state-layer">
+                <input type="checkbox" class="container-2" name="" id="">
+            </div>
+        </div>
+        <div class="text-wrapper-8"><%= user.username %></div> <!-- Display Title -->
+        <div class="text-wrapper-8"><%= user.first_name %></div> <!-- Display First Name -->
+        <div class="text-wrapper-8"><%= user.last_name %></div> <!-- Display Last Name -->
+        <div class="text-wrapper-8"><%= user.email %></div> <!-- Display Email -->
+        <div class="text-wrapper-8"><%= user.accountability %></div> <!-- Display Username -->
+    </div>
+    <% }); %>
+</div>

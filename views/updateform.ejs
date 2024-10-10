@@ -2,15 +2,18 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- <title>New Form</title> -->
     <!-- Include jQuery and jQuery Validation Plugin -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"
-            integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         .error {
             color: red;
@@ -80,136 +83,137 @@
 </head>
 
 <body>
-<div class="forms-new">
-    <div class="div">
-        <header class="header">
-            <img class="rectangle" src="/img/rectangle-2.svg"/>
-            <div class="rectangle-2"></div>
-            <div class="text-wrapper">Environmental Compliance Management System</div>
-            <div class="navigation-bar">
-                <div class="overlap-group">
-                    <div class="overlap">
-                        <div class="text-wrapper-2"><a href="/form">Forms</a></div>
+    <div class="forms-new">
+        <div class="div">
+            <header class="header">
+                <img class="rectangle" src="/img/rectangle-2.svg" />
+                <div class="rectangle-2"></div>
+                <div class="text-wrapper">Environmental Compliance Management System</div>
+                <div class="navigation-bar">
+                    <div class="overlap-group">
+                        <div class="overlap">
+                            <div class="text-wrapper-2"><a href="/form">Obligations</a></div>
+                        </div>
+                        <div class="text-wrapper-3"><a href="/responsible">Responsible</a></div>
+                        <div class="text-wrapper-4"><a href="/">Dashboard</a></div>
                     </div>
-                    <div class="text-wrapper-3"><a href="/responsible">Responsible</a></div>
-                    <div class="text-wrapper-4"><a href="/">Dashboard</a></div>
                 </div>
-            </div>
-            <img class="enveng-logo" src="/img/enveng-logo-1.svg"/>
-            <div class="rectangle-3"></div>
-            <div class="avatar-block">
-                <div class="avatar">
-                    <img src="/img/shape-1.png" style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"
-                         alt="">
+                <img class="enveng-logo" src="/img/enveng-logo-1.svg" />
+                <div class="rectangle-3"></div>
+                <div class="avatar-block">
+                    <a class="btn btn-warning" href="/logout">  Logout</a>
+                    <div class="avatar">
+                        <img src="/img/shape-1.png" style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"
+                            alt="">
+                    </div>
+                    <div class="info">
+                        <div class="text-wrapper-5">Title</div>
+                        <div class="text-wrapper-6">Description</div>
+                    </div>
                 </div>
-                <div class="info">
-                    <div class="text-wrapper-5">Title</div>
-                    <div class="text-wrapper-6">Description</div>
+                <div class="settings">
+                    <img class="enveng-logo" style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"
+                        src="/img/settings-1.svg" />
                 </div>
-            </div>
-            <div class="settings">
-                <img class="enveng-logo"
-                     style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;"
-                     src="/img/settings-1.svg"/></div>
-            <img class="help-circle" src="/img/help-circle.svg"/>
-        </header>
-        <div class="body">
-            <div class="rectangle-4"></div>
-            <div class="new-form-icons">
-                <div class="rectangle-5"></div>
-                <div class="img-wrapper"><img class="img" src="/img/external-link-2.svg"/></div>
-                <div class="img-wrapper"><img class="img" src="/img/save-5.svg"/></div>
+                <img class="help-circle" src="/img/help-circle.svg" />
+            </header>
+            <div class="body">
+                <div class="rectangle-4"></div>
+                <div class="new-form-icons">
+                    <div class="rectangle-5"></div>
+                    <div class="img-wrapper"><img class="img" src="/img/external-link-2.svg" /></div>
+                    <div class="img-wrapper"><img class="img" src="/img/save-5.svg" /></div>
 
-                <div class="img-wrapper"><img class="img" onclick="newform()" src="/img/plus-2.svg"/></div>
-            </div>
-            <form id="obligationForm" method="post" action="/submitupdateform">
-                <input type="hidden" name="responsibility_id" value="2"/>
-                <!-- <input type="hidden" name="id" id="idd"  /> execute query using ID  -->
-                <input type="hidden" name="modified_by_id" value="2"/>
+                    <div class="img-wrapper"><img class="img" onclick="newform()" src="/img/plus-2.svg" /></div>
+                </div>
+                <form id="obligationForm" method="post" action="/submitupdateform">
+                    <input type="hidden" name="responsibility_id" value="2" />
+                    <!-- <input type="hidden" name="id" id="idd"  /> execute query using ID  -->
+                    <input type="hidden" name="modified_by_id" value="2" />
 
-                <div class="frame">
-                    <div class="project-info-section">
-                        <div class="text-wrapper-8">Project Information</div>
-                        <div class="div-2" data-color-mode="SDS-light">
-                            <div class="label">Obligation Number *</div>
-                            <input type="number" required class="input" name="obligation_number"/>
-                        </div>
-                        <div class="div-2" data-color-mode="SDS-light">
-                            <div class="label">Date Granted</div>
-                            <input type="date" required class="input-2" name="date_granted"/>
-                        </div>
-                        <div class="div-2" data-color-mode="SDS-light">
-                            <div class="label">Environmental Aspect</div>
-                            <select required class="input-3" id="environmental_aspect" name="environmental_aspect">
-                                <option value="">Select an Aspect</option>
-                            </select>
-                        </div>
-                        <div class="drop-down-field" data-color-mode="SDS-light">
-                            <div class="label">Project Phase</div>
-                            <select required class="input-3" id="project_phase" name="project_phase">
-                                <option value="">Select a Phase</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Responsibility</div>
-                            <select required class="input-3" id="responsibility" name="responsibility">
-                                <option value="">Select a Responsibility</option>
-                                <option value="">fgdgdf</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Primary Environmental Mechanism</div>
-                            <select required class="input-3" id="primary_environmental_mechanism"
+                    <div class="frame">
+                        <div class="project-info-section">
+                            <div class="text-wrapper-8">Project Information</div>
+                            <div class="div-2" data-color-mode="SDS-light">
+                                <div class="label">Obligation Number *</div>
+                                <input type="number" required class="input" name="obligation_number" />
+                            </div>
+                            <div class="div-2" data-color-mode="SDS-light">
+                                <div class="label">Date Granted</div>
+                                <input type="date" required class="input-2" name="date_granted" />
+                            </div>
+                            <div class="div-2" data-color-mode="SDS-light">
+                                <div class="label">Environmental Aspect</div>
+                                <select required class="input-3" id="environmental_aspect" name="environmental_aspect">
+                                    <option value="">Select an Aspect</option>
+                                </select>
+                            </div>
+                            <div class="drop-down-field" data-color-mode="SDS-light">
+                                <div class="label">Project Phase</div>
+                                <select required class="input-3" id="project_phase" name="project_phase">
+                                    <option value="">Select a Phase</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Responsibility</div>
+                                <select required class="input-3" id="responsibility" name="responsibility">
+                                    <option value="">Select a Responsibility</option>
+                                    <option value="">fgdgdf</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Primary Environmental Mechanism</div>
+                                <select required class="input-3" id="primary_environmental_mechanism"
                                     name="primary_environmental_mechanism">
-                                <option value="">Select a Mechanism</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Accountability</div>
-                            <select required class="input-3" id="accountability" name="accountability">
-                                <option value="">Select Accountability</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Obligation</div>
-                            <input required type="text" class="input-3" name="obligation"/>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Obligation Type</div>
-                            <select required class="input-3" id="obligation_type" name="obligation_type">
-                                <option value="">Select Type</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="div-4">
-                        <div class="text-wrapper-8">Recurring Obligations</div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Recurring Obligation</div>
-                            <div class="input-4">
-                                <div class="text-wrapper-10">
-                                    <label>
-                                        <input required type="radio" name="recurring_obligation" value="true"/> Yes
-                                    </label>
-                                </div>
-                                <div class="text-wrapper-10">
-                                    <label>
-                                        <input type="radio" required name="recurring_obligation" value="false"/> No
-                                    </label>
-                                </div>
+                                    <option value="">Select a Mechanism</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Accountability</div>
+                                <select required class="input-3" id="accountability" name="accountability">
+                                    <option value="">Select Accountability</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Obligation</div>
+                                <input required type="text" class="input-3" name="obligation" />
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Obligation Type</div>
+                                <select required class="input-3" id="obligation_type" name="obligation_type">
+                                    <option value="">Select Type</option>
+                                </select>
                             </div>
                         </div>
-                        <!-- Update the hidden recurring_forecast_date to a default value (can be today or any fixed date) -->
-                        <!-- <input type="hidden" name="recurring_forecast_date" value="{% now 'Y-m-d" />
+                        <div class="div-4">
+                            <div class="text-wrapper-8">Recurring Obligations</div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Recurring Obligation</div>
+                                <div class="input-4">
+                                    <div class="text-wrapper-10">
+                                        <label>
+                                            <input required type="radio" name="recurring_obligation" value="true" /> Yes
+                                        </label>
+                                    </div>
+                                    <div class="text-wrapper-10">
+                                        <label>
+                                            <input type="radio" required name="recurring_obligation" value="false" /> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Update the hidden recurring_forecast_date to a default value (can be today or any fixed date) -->
+                            <!-- <input type="hidden" name="recurring_forecast_date" value="{% now 'Y-m-d" />
 
                         <input type="hidden" name="recurring_start_date" value="" />
                         <input type="hidden" name="recurring_end_date" value="" />
                         <input type="hidden" name="recurring_repeat_frequency" value="" /> -->
-                        <!-- <button class="button" type="submit">Submit</button> -->
+                            <!-- <button class="button" type="submit">Submit</button> -->
 
-                        <!-- <button id="openPopupBtn" class="button">Set Recurring</button> -->
+                            <!-- <button id="openPopupBtn" class="button">Set Recurring</button> -->
 
-                        <!-- Pop-up HTML Structure: TODO: IS better way to do this with django or python? app.js -->
-                        <!-- <div id="popupWindow" class="popup">
+                            <!-- Pop-up HTML Structure: TODO: IS better way to do this with django or python? app.js -->
+                            <!-- <div id="popupWindow" class="popup">
                           <div class="popup-content">
                             <span id="closePopupBtn" class="close">&times;</span>
                             <h2>Set Recurring</h2>
@@ -237,19 +241,19 @@
                           </div>
                         </div> -->
 
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Recurring Frequency</div>
-                            <select required class="input-3" id="recurring_frequency" name="recurring_frequency">
-                                <option value="">Select a Frequency</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Recurring Status</div>
-                            <select required class="input-3" id="recurring_status" name="recurring_status">
-                                <option value="">Select a Status</option>
-                            </select>
-                        </div>
-                        <!-- <div class="date-input-field" data-color-mode="SDS-light">
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Recurring Frequency</div>
+                                <select required class="input-3" id="recurring_frequency" name="recurring_frequency">
+                                    <option value="">Select a Frequency</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Recurring Status</div>
+                                <select required class="input-3" id="recurring_status" name="recurring_status">
+                                    <option value="">Select a Status</option>
+                                </select>
+                            </div>
+                            <!-- <div class="date-input-field" data-color-mode="SDS-light">
                           <div class="label">Recurring Forecast Date</div>
                           <div class="input-5">
                             <div class="text-wrapper-9">Date</div>
@@ -258,409 +262,410 @@
                             </div>
                           </div>
                         </div> -->
-                    </div>
-                    <div class="div-4">
-                        <div class="text-wrapper-8">Compliance</div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Compliance Comment</div>
-                            <input required type="text" class="input-2" name="compliance_comments"/>
                         </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Non-Compliance Comment</div>
-                            <input required type="text" class="input-2" name="noncompliance_comments"/>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Audit Type</div>
-                            <select required class="input-3" id="audit" name="audit">
-                                <option value="">Select a Type</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="div-4">
-                        <div class="text-wrapper-8">Actions and Comments</div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Due Date</div>
-                            <div class="input-2">
-                                <div class="text-wrapper-9">Date</div>
-                                <div class="calender-icon">
-                                    <input required type="date" value="2027-01-01" class="input-2" name="due_date"/>
-                                </div>
+                        <div class="div-4">
+                            <div class="text-wrapper-8">Compliance</div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Compliance Comment</div>
+                                <input required type="text" class="input-2" name="compliance_comments" />
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Non-Compliance Comment</div>
+                                <input required type="text" class="input-2" name="noncompliance_comments" />
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Audit Type</div>
+                                <select required class="input-3" id="audit" name="audit">
+                                    <option value="">Select a Type</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Completion Date</div>
-                            <div class="input-2">
-                                <div class="text-wrapper-9">Date</div>
-                                <div class="calender-icon">
-                                    <input required type="date" class="input-2" name="completion_date"/>
+                        <div class="div-4">
+                            <div class="text-wrapper-8">Actions and Comments</div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Due Date</div>
+                                <div class="input-2">
+                                    <div class="text-wrapper-9">Date</div>
+                                    <div class="calender-icon">
+                                        <input required type="date" value="2027-01-01" class="input-2"
+                                            name="due_date" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Status</div>
-                            <select required class="input-3" id="status" name="status">
-                                <option value="">Select a Status</option>
-                            </select>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Supporting Information</div>
-                            <input required type="text" class="input-2" name="supporting_information"/>
-                        </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Evidence</div>
-                            <input required type="text" class="input-2" name="evidence"/>
-                        </div>
-                    </div>
-                    <div class="div-4">
-                        <div class="text-wrapper-8">Inspection Scheduling</div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Inspections</div>
-                            <div class="input-4">
-                                <div class="text-wrapper-10">
-                                    <label>
-                                        <input required type="radio" name="inspections" value="true"/> Yes
-                                    </label>
-                                </div>
-                                <div class="text-wrapper-10">
-                                    <label>
-                                        <input required type="radio" name="inspections" value="false"/> No
-                                    </label>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Completion Date</div>
+                                <div class="input-2">
+                                    <div class="text-wrapper-9">Date</div>
+                                    <div class="calender-icon">
+                                        <input required type="date" class="input-2" name="completion_date" />
+                                    </div>
                                 </div>
                             </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Status</div>
+                                <select required class="input-3" id="status" name="status">
+                                    <option value="">Select a Status</option>
+                                </select>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Supporting Information</div>
+                                <input required type="text" class="input-2" name="supporting_information" />
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Evidence</div>
+                                <input required type="text" class="input-2" name="evidence" />
+                            </div>
                         </div>
-                        <div class="div-3" data-color-mode="SDS-light">
-                            <div class="label">Inspection Frequency</div>
-                            <select required class="input-3" id="inspection_frequency" name="inspection_frequency">
-                                <option value="">Select a Frequency</option>
-                                <option value="option1">Option-1</option>
-                            </select>
+                        <div class="div-4">
+                            <div class="text-wrapper-8">Inspection Scheduling</div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Inspections</div>
+                                <div class="input-4">
+                                    <div class="text-wrapper-10">
+                                        <label>
+                                            <input required type="radio" name="inspections" value="true" /> Yes
+                                        </label>
+                                    </div>
+                                    <div class="text-wrapper-10">
+                                        <label>
+                                            <input required type="radio" name="inspections" value="false" /> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-3" data-color-mode="SDS-light">
+                                <div class="label">Inspection Frequency</div>
+                                <select required class="input-3" id="inspection_frequency" name="inspection_frequency">
+                                    <option value="">Select a Frequency</option>
+                                    <option value="option1">Option-1</option>
+                                </select>
+                            </div>
                         </div>
+                        <button class="button" type="submit" id="updateform">Update</button>
                     </div>
-                    <button class="button" type="submit" id="updateform">Update</button>
-                </div>
-            </form>
-            <div id="formResponse"></div>
+                </form>
+                <div id="formResponse"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    $("#updateForm").on("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
+    <script>
+        $("#updateForm").on("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
 
-        // Prepare the data
-        const formData = {
-            id: $("input[name='id']").val(),
-            obligation_number: $("input[name='obligation_number']").val(),
-            date_granted: $("input[name='date_granted']").val(),
-            environmental_aspect: $("#environmental_aspect").val(),
-            project_phase: $("#project_phase").val(),
-            responsibility: $("#responsibility").val(),
-            primary_environmental_mechanism: $("#primary_environmental_mechanism").val(),
-            accountability: $("#accountability").val(),
-            obligation: $("input[name='obligation']").val(),
-            obligation_type: $("#obligation_type").val(),
-            recurring_obligation: $("input[name='recurring_obligation']:checked").val(),
-            recurring_frequency: $("#recurring_frequency").val(),
-            recurring_status: $("#recurring_status").val(),
-            compliance_comments: $("input[name='compliance_comments']").val(),
-            noncompliance_comments: $("input[name='noncompliance_comments']").val(),
-            audit: $("#audit").val(),
-            due_date: $("input[name='due_date']").val(),
-            completion_date: $("input[name='completion_date']").val(),
-            status: $("#status").val(),
-            supporting_information: $("input[name='supporting_information']").val(),
-            evidence: $("input[name='evidence']").val(),
-            inspections: $("input[name='inspections']:checked").val(),
-            inspection_frequency: $("#inspection_frequency").val(),
-        };
+            // Prepare the data
+            const formData = {
+                id: $("input[name='id']").val(),
+                obligation_number: $("input[name='obligation_number']").val(),
+                date_granted: $("input[name='date_granted']").val(),
+                environmental_aspect: $("#environmental_aspect").val(),
+                project_phase: $("#project_phase").val(),
+                responsibility: $("#responsibility").val(),
+                primary_environmental_mechanism: $("#primary_environmental_mechanism").val(),
+                accountability: $("#accountability").val(),
+                obligation: $("input[name='obligation']").val(),
+                obligation_type: $("#obligation_type").val(),
+                recurring_obligation: $("input[name='recurring_obligation']:checked").val(),
+                recurring_frequency: $("#recurring_frequency").val(),
+                recurring_status: $("#recurring_status").val(),
+                compliance_comments: $("input[name='compliance_comments']").val(),
+                noncompliance_comments: $("input[name='noncompliance_comments']").val(),
+                audit: $("#audit").val(),
+                due_date: $("input[name='due_date']").val(),
+                completion_date: $("input[name='completion_date']").val(),
+                status: $("#status").val(),
+                supporting_information: $("input[name='supporting_information']").val(),
+                evidence: $("input[name='evidence']").val(),
+                inspections: $("input[name='inspections']:checked").val(),
+                inspection_frequency: $("#inspection_frequency").val(),
+            };
 
-        // Send the data to the server
-        $.ajax({
-            url: "/updateformsubmit", // Change this URL to your update endpoint
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(formData),
-            success: function (response) {
-                alert("Update successful!"); // Handle success response
-                // Optionally redirect or refresh the page
-                window.location.href = '/form';
-            },
-            error: function (error) {
-                console.error("Error updating data:", error);
-                alert("Failed to update data.");
-            },
-        });
-    });
-
-
-    $(document).ready(function () {
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const obligationId = urlParams.get('id'); // Adjust according to your URL structure
-
-        $(document).ready(function () {
-            const obligationId = window.location.pathname.split('/').pop(); // Get ID from URL
-
-            // Fetch obligation details based on ID
+            // Send the data to the server
             $.ajax({
-                url: `/obligation/${obligationId}`, // Endpoint to fetch obligation details
-                method: 'GET',
-                success: function (data) {
-                    console.log(data);
-                    // Prefill input fields
-                    $('input[name="obligation_number"]').val(data.obligation_number);
-                    $('input[name="date_granted"]').val(data.date_granted);
-                    $('input[name="obligation"]').val(data.obligation);
-                    $('input[name="due_date"]').val(data.due_date);
-                    $('input[name="completion_date"]').val(data.completion_date);
-                    $('input[name="compliance_comments"]').val(data.compliance_comments);
-                    $('input[name="noncompliance_comments"]').val(data.noncompliance_comments);
-                    $('input[name="supporting_information"]').val(data.supporting_information);
-                    $('input[name="evidence"]').val(data.evidence);
-
-                    // Prefill select dropdowns
-                    $('#environmental_aspect').val(data.environmental_aspect);
-                    $('#project_phase').val(data.project_phase);
-                    $('#responsibility').val(data.responsibility);
-                    $('#primary_environmental_mechanism').val(data.primary_environmental_mechanism);
-                    $('#accountability').val(data.accountability);
-                    $('#obligation_type').val(data.obligation_type);
-                    $('#recurring_frequency').val(data.recurring_frequency);
-                    $('#recurring_status').val(data.recurring_status);
-                    $('#audit').val(data.audit);
-                    $('#status').val(data.status);
-                    $('#inspection_frequency').val(data.inspection_frequency);
-                    // Assuming data is the object returned from the server
-                    const recurringObligation = data.recurring_obligation === 1 ? 'true' : 'false';
-                    const inspections = data.inspections === 1 ? 'true' : 'false';
-
-                    // Prefill radio buttons (ensure the right button is checked)
-                    $(`input[name="recurring_obligation"][value="${recurringObligation}"]`).prop('checked', true);
-                    $(`input[name="inspections"][value="${inspections}"]`).prop('checked', true);
+                url: "/updateformsubmit", // Change this URL to your update endpoint
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function (response) {
+                    alert("Update successful!"); // Handle success response
+                    // Optionally redirect or refresh the page
+                    window.location.href = '/form';
                 },
-                error: function (err) {
-                    console.error('Error fetching obligation details:', err);
-                }
+                error: function (error) {
+                    console.error("Error updating data:", error);
+                    alert("Failed to update data.");
+                },
             });
         });
 
-        // Fetch choices from the server
-        $.ajax({
-            url: "/choices",
-            method: "GET",
-            success: function (data) {
-                // Assuming your database returns the choices as an array of objects
-                console.log(data);
 
-                // Clear existing options in the dropdowns
-                $("#environmental_aspect")
-                    .empty()
-                    .append('<option value="">Select an Aspect</option>');
-                $("#project_phase")
-                    .empty()
-                    .append('<option value="">Select a Phase</option>');
-                $("#primary_environmental_mechanism")
-                    .empty()
-                    .append('<option value="">Select a Mechanism</option>');
-                $("#accountability")
-                    .empty()
-                    .append('<option value="">Select Accountability</option>');
-                $("#obligation_type")
-                    .empty()
-                    .append('<option value="">Select Type</option>');
-                $("#recurring_frequency")
-                    .empty()
-                    .append('<option value="">Select a Frequency</option>');
-                $("#recurring_status")
-                    .empty()
-                    .append('<option value="">Select a Status</option>');
-                $("#audit").empty().append('<option value="">Select a Type</option>');
-                $("#status").empty().append('<option value="">Select a status</option>');
-                $("#inspection_frequency")
-                    .empty()
-                    .append('<option value="">Select a Frequency</option>');
+        $(document).ready(function () {
 
-                // Map through the response and populate the dropdowns
-                data.forEach(function (choice) {
-                    // Populate environmental aspect dropdown
-                    if (choice.field === "ENVIRONMENTAL_ASPECT_CHOICES") {
-                        choice.choices.forEach((aspect) => {
-                            $("#environmental_aspect").append(
-                                `<option value="${aspect}">${aspect}</option>`
-                            );
-                        });
-                    }
+            const urlParams = new URLSearchParams(window.location.search);
+            const obligationId = urlParams.get('id'); // Adjust according to your URL structure
 
-                    // Populate project phase dropdown
-                    if (choice.field === "PROJECT_PHASE_CHOICES") {
-                        choice.choices.forEach((phase) => {
-                            $("#project_phase").append(
-                                `<option value="${phase}">${phase}</option>`
-                            );
-                        });
-                    }
+            $(document).ready(function () {
+                const obligationId = window.location.pathname.split('/').pop(); // Get ID from URL
 
-                    // Populate responsibility dropdown
-                    if (choice.field === "RESPONSIBILITY_CHOICES") {
-                        choice.choices.forEach((responsibility) => {
-                            $("#responsibility").append(
-                                `<option value="${responsibility}">${responsibility}</option>`
-                            );
-                        });
-                    }
+                // Fetch obligation details based on ID
+                $.ajax({
+                    url: `/obligation/${obligationId}`, // Endpoint to fetch obligation details
+                    method: 'GET',
+                    success: function (data) {
+                        console.log(data);
+                        // Prefill input fields
+                        $('input[name="obligation_number"]').val(data.obligation_number);
+                        $('input[name="date_granted"]').val(data.date_granted);
+                        $('input[name="obligation"]').val(data.obligation);
+                        $('input[name="due_date"]').val(data.due_date);
+                        $('input[name="completion_date"]').val(data.completion_date);
+                        $('input[name="compliance_comments"]').val(data.compliance_comments);
+                        $('input[name="noncompliance_comments"]').val(data.noncompliance_comments);
+                        $('input[name="supporting_information"]').val(data.supporting_information);
+                        $('input[name="evidence"]').val(data.evidence);
 
-                    // Populate primary environmental mechanism dropdown
-                    if (choice.field === "PRIMARY_ENVIRONMENTAL_MECHANISM_CHOICES") {
-                        choice.choices.forEach((mechanism) => {
-                            $("#primary_environmental_mechanism").append(
-                                `<option value="${mechanism}">${mechanism}</option>`
-                            );
-                        });
-                    }
+                        // Prefill select dropdowns
+                        $('#environmental_aspect').val(data.environmental_aspect);
+                        $('#project_phase').val(data.project_phase);
+                        $('#responsibility').val(data.responsibility);
+                        $('#primary_environmental_mechanism').val(data.primary_environmental_mechanism);
+                        $('#accountability').val(data.accountability);
+                        $('#obligation_type').val(data.obligation_type);
+                        $('#recurring_frequency').val(data.recurring_frequency);
+                        $('#recurring_status').val(data.recurring_status);
+                        $('#audit').val(data.audit);
+                        $('#status').val(data.status);
+                        $('#inspection_frequency').val(data.inspection_frequency);
+                        // Assuming data is the object returned from the server
+                        const recurringObligation = data.recurring_obligation === 1 ? 'true' : 'false';
+                        const inspections = data.inspections === 1 ? 'true' : 'false';
 
-                    // Populate accountability dropdown
-                    if (choice.field === "ACCOUNTABILITY_CHOICES") {
-                        choice.choices.forEach((accountability) => {
-                            $("#accountability").append(
-                                `<option value="${accountability}">${accountability}</option>`
-                            );
-                        });
-                    }
-
-                    // Populate obligation type dropdown
-                    if (choice.field === "OBLIGATION_TYPE_CHOICES") {
-                        choice.choices.forEach((type) => {
-                            $("#obligation_type").append(
-                                `<option value="${type}">${type}</option>`
-                            );
-                        });
-                    }
-
-                    // Populate recurring frequency dropdown
-                    if (choice.field === "RECURRING_FREQUENCY_CHOICES") {
-                        choice.choices.forEach((frequency) => {
-                            $("#recurring_frequency").append(
-                                `<option value="${frequency}">${frequency}</option>`
-                            );
-                        });
-                    }
-
-                    // Populate recurring frequency dropdown
-                    if (choice.field === "STATUS_CHOICES") {
-                        choice.choices.forEach((status) => {
-                            $("#status").append(`<option value="${status}">${status}</option>`);
-                        });
-                    }
-
-                    // Populate recurring status dropdown
-                    if (choice.field === "RECURRING_STATUS_CHOICES") {
-                        choice.choices.forEach((status) => {
-                            $("#recurring_status").append(
-                                `<option value="${status}">${status}</option>`
-                            );
-                        });
-                    }
-
-                    // Populate audit dropdown
-                    if (choice.field === "AUDIT_CHOICES") {
-                        choice.choices.forEach((auditType) => {
-                            $("#audit").append(
-                                `<option value="${auditType}">${auditType}</option>`
-                            );
-                        });
-                    }
-
-                    // Populate inspection frequency dropdown
-                    if (choice.field === "INSPECTION_FREQUENCY_CHOICES") {
-                        choice.choices.forEach((frequency) => {
-                            $("#inspection_frequency").append(
-                                `<option value="${frequency}">${frequency}</option>`
-                            );
-                        });
+                        // Prefill radio buttons (ensure the right button is checked)
+                        $(`input[name="recurring_obligation"][value="${recurringObligation}"]`).prop('checked', true);
+                        $(`input[name="inspections"][value="${inspections}"]`).prop('checked', true);
+                    },
+                    error: function (err) {
+                        console.error('Error fetching obligation details:', err);
                     }
                 });
-            },
-            error: function (err) {
-                console.error("Error fetching choices:", err);
-            },
+            });
+
+            // Fetch choices from the server
+            $.ajax({
+                url: "/choices",
+                method: "GET",
+                success: function (data) {
+                    // Assuming your database returns the choices as an array of objects
+                    console.log(data);
+
+                    // Clear existing options in the dropdowns
+                    $("#environmental_aspect")
+                        .empty()
+                        .append('<option value="">Select an Aspect</option>');
+                    $("#project_phase")
+                        .empty()
+                        .append('<option value="">Select a Phase</option>');
+                    $("#primary_environmental_mechanism")
+                        .empty()
+                        .append('<option value="">Select a Mechanism</option>');
+                    $("#accountability")
+                        .empty()
+                        .append('<option value="">Select Accountability</option>');
+                    $("#obligation_type")
+                        .empty()
+                        .append('<option value="">Select Type</option>');
+                    $("#recurring_frequency")
+                        .empty()
+                        .append('<option value="">Select a Frequency</option>');
+                    $("#recurring_status")
+                        .empty()
+                        .append('<option value="">Select a Status</option>');
+                    $("#audit").empty().append('<option value="">Select a Type</option>');
+                    $("#status").empty().append('<option value="">Select a status</option>');
+                    $("#inspection_frequency")
+                        .empty()
+                        .append('<option value="">Select a Frequency</option>');
+
+                    // Map through the response and populate the dropdowns
+                    data.forEach(function (choice) {
+                        // Populate environmental aspect dropdown
+                        if (choice.field === "ENVIRONMENTAL_ASPECT_CHOICES") {
+                            choice.choices.forEach((aspect) => {
+                                $("#environmental_aspect").append(
+                                    `<option value="${aspect}">${aspect}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate project phase dropdown
+                        if (choice.field === "PROJECT_PHASE_CHOICES") {
+                            choice.choices.forEach((phase) => {
+                                $("#project_phase").append(
+                                    `<option value="${phase}">${phase}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate responsibility dropdown
+                        if (choice.field === "RESPONSIBILITY_CHOICES") {
+                            choice.choices.forEach((responsibility) => {
+                                $("#responsibility").append(
+                                    `<option value="${responsibility}">${responsibility}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate primary environmental mechanism dropdown
+                        if (choice.field === "PRIMARY_ENVIRONMENTAL_MECHANISM_CHOICES") {
+                            choice.choices.forEach((mechanism) => {
+                                $("#primary_environmental_mechanism").append(
+                                    `<option value="${mechanism}">${mechanism}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate accountability dropdown
+                        if (choice.field === "ACCOUNTABILITY_CHOICES") {
+                            choice.choices.forEach((accountability) => {
+                                $("#accountability").append(
+                                    `<option value="${accountability}">${accountability}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate obligation type dropdown
+                        if (choice.field === "OBLIGATION_TYPE_CHOICES") {
+                            choice.choices.forEach((type) => {
+                                $("#obligation_type").append(
+                                    `<option value="${type}">${type}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate recurring frequency dropdown
+                        if (choice.field === "RECURRING_FREQUENCY_CHOICES") {
+                            choice.choices.forEach((frequency) => {
+                                $("#recurring_frequency").append(
+                                    `<option value="${frequency}">${frequency}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate recurring frequency dropdown
+                        if (choice.field === "STATUS_CHOICES") {
+                            choice.choices.forEach((status) => {
+                                $("#status").append(`<option value="${status}">${status}</option>`);
+                            });
+                        }
+
+                        // Populate recurring status dropdown
+                        if (choice.field === "RECURRING_STATUS_CHOICES") {
+                            choice.choices.forEach((status) => {
+                                $("#recurring_status").append(
+                                    `<option value="${status}">${status}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate audit dropdown
+                        if (choice.field === "AUDIT_CHOICES") {
+                            choice.choices.forEach((auditType) => {
+                                $("#audit").append(
+                                    `<option value="${auditType}">${auditType}</option>`
+                                );
+                            });
+                        }
+
+                        // Populate inspection frequency dropdown
+                        if (choice.field === "INSPECTION_FREQUENCY_CHOICES") {
+                            choice.choices.forEach((frequency) => {
+                                $("#inspection_frequency").append(
+                                    `<option value="${frequency}">${frequency}</option>`
+                                );
+                            });
+                        }
+                    });
+                },
+                error: function (err) {
+                    console.error("Error fetching choices:", err);
+                },
+            });
         });
-    });
-    // function newform() {
+        // function newform() {
 
-    //   window.location.replace('/newform');
-    // }
-
-
-    // $(document).ready(function () {
-    //   $("#obligationForm").validate({
-    //     rules: {
-    //       obligation_number: {
-    //         required: true,
-    //         number: true
-    //       },
-    //       date_granted: {
-    //         required: true,
-    //         date: true
-    //       },
-    //       environmental_aspect: {
-    //         required: true
-    //       },
-    //       project_phase: {
-    //         required: true
-    //       },
-    //       responsibility: {
-    //         required: true
-    //       },
-    //       primary_environmental_mechanism: {
-    //         required: true
-    //       },
-    //       accountability: {
-    //         required: true
-    //       },
-    //       obligation: {
-    //         required: true
-    //       },
-    //       recurring_obligation: {
-    //         required: true
-    //       },
-    //       recurring_frequency: {
-    //         required: true
-    //       },
-    //       recurring_status: {
-    //         required: true
-    //       },
-    //       due_date: {
-    //         required: true,
-    //         date: true
-    //       },
-    //       completion_date: {
-    //         required: true,
-    //         date: true
-    //       },
-    //       status: {
-    //         required: true
-    //       },
-    //       supporting_information: {
-    //         required: true
-    //       },
-    //       evidence: {
-    //         required: true
-    //       },
-    //       inspections: {
-    //         required: true
-    //       },
-    //       inspection_frequency: {
-    //         required: true
-    //       }
-    //     }
-    //   });
+        //   window.location.replace('/newform');
+        // }
 
 
-    // });
+        // $(document).ready(function () {
+        //   $("#obligationForm").validate({
+        //     rules: {
+        //       obligation_number: {
+        //         required: true,
+        //         number: true
+        //       },
+        //       date_granted: {
+        //         required: true,
+        //         date: true
+        //       },
+        //       environmental_aspect: {
+        //         required: true
+        //       },
+        //       project_phase: {
+        //         required: true
+        //       },
+        //       responsibility: {
+        //         required: true
+        //       },
+        //       primary_environmental_mechanism: {
+        //         required: true
+        //       },
+        //       accountability: {
+        //         required: true
+        //       },
+        //       obligation: {
+        //         required: true
+        //       },
+        //       recurring_obligation: {
+        //         required: true
+        //       },
+        //       recurring_frequency: {
+        //         required: true
+        //       },
+        //       recurring_status: {
+        //         required: true
+        //       },
+        //       due_date: {
+        //         required: true,
+        //         date: true
+        //       },
+        //       completion_date: {
+        //         required: true,
+        //         date: true
+        //       },
+        //       status: {
+        //         required: true
+        //       },
+        //       supporting_information: {
+        //         required: true
+        //       },
+        //       evidence: {
+        //         required: true
+        //       },
+        //       inspections: {
+        //         required: true
+        //       },
+        //       inspection_frequency: {
+        //         required: true
+        //       }
+        //     }
+        //   });
 
-</script>
-<script src="main.js"></script>
+
+        // });
+
+    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
