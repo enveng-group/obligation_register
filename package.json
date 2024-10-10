@@ -1,32 +1,30 @@
 {
-  "name": "ecms",
-  "version": "1.0.0",
-  "description": "To change the locale in Ubuntu 24.04 LTS to en_AU.UTF-8 and update it across all available locales, you can follow these steps:",
+  "name": "Obligation Register",
+  "version": "0.0.1",
+  "description": "Obligation Register for Enveng Group",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Adrian Gallo and Rohan Lonkar",
+  "license": "AGPL-3.0-only",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "chart.js": "^4.4.4",
-    "csv-parser": "^3.0.0",
-    "datatables.net": "^2.1.7",
-    "datatables.net-dt": "^2.1.7",
-    "ejs": "^3.1.10",
-    "express": "^4.21.0",
-    "express-session": "^1.18.0",
-    "jquery": "^3.7.1",
-    "sqlite3": "^5.1.7"
+    "bcrypt": "5.1.1",
+    "datatables.net": "2.1.7",
+    "datatables.net-dt": "2.1.7",
+    "ejs": "3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "jquery": "3.7.1",
+    "sqlite3": "5.1.7"
   },
   "devDependencies": {
-    "body-parser": "^1.20.3",
-    "nodemon": "^3.1.7"
+    "body-parser": "1.20.3",
+    "nodemon": "3.1.7"
+  },
+  "engines": {
+    "node": ">=18.20.4",
+    "npm": ">=10.7.0"
   }
 }
