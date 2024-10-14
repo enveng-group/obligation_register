@@ -1,24 +1,61 @@
-﻿name: Qodana
-on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches: # Specify your branches here
-      - main # The 'main' branch
+﻿name: Code Quality
+
+on: [push, pull_request]
 
 jobs:
-  qodana:
+  lint:
+    name: Lint Code
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      checks: write
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-          fetch-depth: 0  # a full history is required for pull request analysis
-      - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2024.2
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier:check
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest
+        run: npm test
+
+  dependabot:
+    name: Dependabot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Dependabot
+        uses: dependabot/dependabot-script@v1
+        with:
+          package-manager: 'npm_and_yarn'
+          directory: '/'
+          target-branch: 'main'
+          open-pull-requests-limit: 5

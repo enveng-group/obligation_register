@@ -192,3 +192,17 @@ Procfile    text
 ## EXECUTABLES
 *.exe binary
 *.pyc binary
+
+## DATABASE FILES
+*.sqlite3 binary
+*.sqlite3-shm binary
+*.sqlite3-wal binary
+
+## CERTIFICATES
+*.pem binary
+*.crt binary
+*.der binary
+
+## MISCELLANEOUS
+.DS_Store binary
+Thumbs.db binary
