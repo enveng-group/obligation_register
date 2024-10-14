@@ -1,4 +1,4 @@
-// Copyright (C) 2024 Enveng Group
+// Copyright (C) Enveng Group 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -13,11 +13,24 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import express from 'express';
-import { getUsers } from '../controllers/userController.js';
+import path from 'path';
 
-const router = express.Router();
-
-router.get('/', getUsers);
-
-export default router;
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
+  devtool: 'source-map',
+};

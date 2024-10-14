@@ -13,11 +13,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import express from 'express';
-import { getUsers } from '../controllers/userController.js';
-
-const router = express.Router();
-
-router.get('/', getUsers);
-
-export default router;
+export const getUsers = () => {
+  return [
+    {
+      username: 'jdoe',
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'jdoe@example.com',
+      accountability: 'Admin',
+    },
+    // Add more user objects here
+  ];
+};

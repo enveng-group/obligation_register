@@ -13,11 +13,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import express from 'express';
-import { getUsers } from '../controllers/userController.js';
+import { loadHeader } from './loadHeader.js';
 
-const router = express.Router();
+// Call the loadHeader function
+loadHeader();
 
-router.get('/', getUsers);
-
-export default router;
+// Your existing app.js code here

@@ -1,0 +1,7 @@
+# Our security policy
+
+Contact: security@example.com
+Encryption: https://example.com/pgp-key.txt
+Acknowledgements: https://example.com/hall-of-fame.html
+Policy: https://example.com/security-policy.html
+Hiring: https://example.com/careers.html
