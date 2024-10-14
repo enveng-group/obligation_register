@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+ Copyright (C) 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+
+<html lang="en_AU">
+
+<!-- Include the head -->
+<!--#include virtual="head.html" -->
+<!-- Include the header -->
+<!--#include virtual="header.html" -->
+
+<head>
+    <link rel="stylesheet" href="css/users.css">
+</head>
+
+<body>
+    <div class="body">
+        <div class="rectangle"></div>
+
+        <div class="form-list-icons">
+            <div class="rectangle-2"></div>
+
+            <div class="settings-icon">
+                <div class="settings-2">
+                    <img class="img" style="height: 90%;width: auto;;margin:  auto;" src="img/settings-1.svg" />
+                </div>
+            </div>
+
+            <div class="img-wrapper">
+                <img class="search" src="img/search-2.svg" />
+            </div>
+
+            <div class="img-wrapper" onclick="newform()">
+                <img class="img" src="img/plus-2.svg" />
+            </div>
+
+            <div class="img-wrapper">
+                <img class="img" src="img/trash-2-2.svg" />
+            </div>
+
+            <div class="img-wrapper">
+                <img class="img" src="img/refresh-cw-3.svg" />
+            </div>
+        </div>
+
+        <div class="navbar">
+            <div class="checkboxes">
+                <div class="state-layer">
+                    <div class="container"></div>
+                </div>
+            </div>
+            <div class="text-wrapper-7">Title</div>
+            <img class="chevron-down" src="img/chevron-down-4.svg" />
+            <div class="rectangle-3"></div>
+
+            <div class="text-wrapper-7">First Name</div>
+            <img class="chevron-down" src="img/chevron-down-4.svg" />
+            <div class="rectangle-4"></div>
+
+            <div class="text-wrapper-7">Last Name</div>
+            <img class="chevron-down" src="img/chevron-down-4.svg" />
+            <div class="rectangle-5"></div>
+
+            <div class="text-wrapper-7">RspEmail</div>
+            <img class="chevron-down" src="img/chevron-down-4.svg" />
+            <div class="rectangle-6"></div>
+
+            <div class="text-wrapper-7">Accountability</div>
+            <img class="chevron-down" src="img/chevron-down-4.svg" />
+            <div class="rectangle-7"></div>
+        </div>
+
+        <div class="users-container">
+            <!-- User data will be dynamically inserted here by renderUsers.js -->
+        </div>
+    </div>
+    <!-- Include the footer (if applicable) -->
+    <!--#include virtual="footer.html" -->
+    <script src="js/pages/detailedDash.js"></script>
+    <script src="js/pages/users.js"></script>
+</body>
+
+</html>

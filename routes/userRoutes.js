@@ -18,6 +18,12 @@ import { getUsers } from '../controllers/userController.js';
 
 const router = express.Router();
 
-router.get('/', getUsers);
+router.get('/', (req, res, next) => {
+  try {
+    getUsers(req, res);
+  } catch (error) {
+    next(error);
+  }
+});
 
 export default router;

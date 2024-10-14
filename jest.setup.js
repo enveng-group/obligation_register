@@ -13,5 +13,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// jest.setup.js
 import '@testing-library/jest-dom/extend-expect';
+
+// Additional setup can be added here
+// For example, you can mock global objects or set up other testing utilities
+
+// Example: Mocking a global object
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({}),
+  }),
+);

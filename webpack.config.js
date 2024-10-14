@@ -13,24 +13,53 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import path from 'path';
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx', // Updated to TypeScript entry point
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/', // Ensure correct path resolution for assets
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'], // Resolve both JavaScript and TypeScript files
+    alias: {
+      '@src': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+    },
   },
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/, // Add support for TypeScript
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: 'babel-loader',
+      },
+      {
+        test: /\.css$/, // Add support for CSS files
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i, // Add support for image files
+        type: 'asset/resource',
       },
     ],
   },
-  devtool: 'source-map',
+  externals: {
+    jquery: 'jQuery',
+    bootstrap: 'bootstrap',
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'), // Serve static files from the public directory
+    compress: true,
+    port: 9000,
+    historyApiFallback: true, // Enable support for HTML5 History API
+  },
 };

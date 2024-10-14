@@ -13,15 +13,24 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-export const getUsers = () => {
-  return [
-    {
-      username: 'jdoe',
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'jdoe@example.com',
-      accountability: 'Admin',
-    },
-    // Add more user objects here
-  ];
+import logger from '../utils/logger.js';
+
+export const getUsers = (req, res) => {
+  try {
+    const users = [
+      {
+        username: 'jdoe',
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'jdoe@example.com',
+        accountability: 'Admin',
+      },
+      // Add more user objects here
+    ];
+    logger.info('Fetched users successfully');
+    res.json(users);
+  } catch (error) {
+    logger.error('Error fetching users: %s', error.message);
+    res.status(500).send('Internal Server Error');
+  }
 };

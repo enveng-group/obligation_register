@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!--
+ Copyright (C) 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<html lang="en_AU">
+<!-- Include the head -->
+<!--#include virtual="head.html" -->
+<!-- Include the header -->
+<!--#include virtual="header.html" -->
+
+<head>
+    <link rel="stylesheet" href="css/pages/signup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Sign up</h1>
+                        <form method="POST" action="/register">
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-user input-icon"></i>
+                                <input class="form-control" id="fnln" name="fnln" placeholder="First Name & Last Name"
+                                    type="text" />
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-user input-icon"></i>
+                                <input class="form-control" id="username" name="username" placeholder="Username"
+                                    type="text" />
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="email" />
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <select class="form-control" name="accountability" id="">
+                                    <option class="form-control" value="">Select Accountability</option>
+                                    <option class="form-control" value="Perdaman">Perdaman</option>
+                                    <option class="form-control" value="SCJV">SCJV</option>
+                                    <option class="form-control" value="SCJV/Perdaman Operations">SCJV/Perdaman Operations</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input class="form-control" id="password" name="password" placeholder="Password"
+                                    type="password" />
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input class="form-control" id="confirm_password" name="confirm_password"
+                                    placeholder="Repeat your password" type="password" />
+                            </div>
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </form>
+                    </div>
+                    <div class="col-md-5 d-flex align-items-center">
+                        <img class="desk-image" height="300" src="img/enveng group logo_horizontal.png" width="400" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include the footer (if applicable) -->
+    <!--#include virtual="footer.html" -->
+    <script src="js/signup.js"></script>
+</body>
+
+</html>

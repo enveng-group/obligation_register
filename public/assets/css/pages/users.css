@@ -1,0 +1,54 @@
+/**
+ * Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+.body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.rectangle {
+    width: 100%;
+    height: auto;
+}
+
+.form-list-icons .img-wrapper {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.form-list-icons .img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+}
+
+.navbar .text-wrapper-7 {
+    margin: 0 10px;
+}
+
+.users-container {
+    margin-top: 20px;
+}

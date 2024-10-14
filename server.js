@@ -19,10 +19,42 @@ import path from 'path';
 import url from 'url';
 import { getUsers } from './controllers/userController.js';
 import dotenv from 'dotenv';
+import express from 'express';
+import logger from './utils/logger.js';
+import userRoutes from './routes/userRoutes.js';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+const directories = ['tmp', 'cache'];
+
+directories.forEach((dir) => {
+  const dirPath = path.join(__dirname, dir);
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath);
+    logger.info(`Directory created: ${dirPath}`);
+  }
+});
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
+
+app.use('/api/users', userRoutes);
+
+app.use((err, req, res) => {
+  logger.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+app.listen(PORT, () => {
+  logger.info(`Server is running on port ${PORT}`);
+});
 
 dotenv.config();
-
-const port = process.env.PORT || 3000;
 
 const mimeTypes = {
   '.html': 'text/html',
@@ -49,14 +81,14 @@ const server = http.createServer((req, res) => {
   if (pathname.startsWith('./api')) {
     handleApiRequest(req, res, pathname);
   } else {
-    fs.exists(pathname, (exist) => {
-      if (!exist) {
+    fs.stat(pathname, (err, stats) => {
+      if (err) {
         res.statusCode = 404;
         res.end(`File ${pathname} not found!`);
         return;
       }
 
-      if (fs.statSync(pathname).isDirectory()) {
+      if (stats.isDirectory()) {
         pathname += '/index.html';
       }
 
@@ -84,6 +116,6 @@ const handleApiRequest = (req, res, pathname) => {
   }
 };
 
-server.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

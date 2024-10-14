@@ -16,13 +16,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+const CACHE_NAME = 'v1';
+const OFFLINE_URL = '404.html';
+
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open('v1');
+  const cache = await caches.open(CACHE_NAME);
   await cache.addAll(resources);
 };
 
 const putInCache = async (request, response) => {
-  const cache = await caches.open('v1');
+  const cache = await caches.open(CACHE_NAME);
   await cache.put(request, response);
 };
 
@@ -34,11 +37,6 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
   }
 
   // Next try to use the preloaded response, if it's there
-  // NOTE: Chrome throws errors regarding preloadResponse, see:
-  // https://bugs.chromium.org/p/chromium/issues/detail?id=1420515
-  // https://github.com/mdn/dom-examples/issues/145
-  // To avoid those errors, remove or comment out this block of preloadResponse
-  // code along with enableNavigationPreload() and the "activate" listener.
   const preloadResponse = await preloadResponsePromise;
   if (preloadResponse) {
     console.info('using preload response', preloadResponse);
@@ -49,9 +47,6 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
   // Next try to get the resource from the network
   try {
     const responseFromNetwork = await fetch(request.clone());
-    // response may be used only once
-    // we need to save clone to put one copy in cache
-    // and serve second one
     putInCache(request, responseFromNetwork.clone());
     return responseFromNetwork;
   } catch (error) {
@@ -59,9 +54,6 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
     if (fallbackResponse) {
       return fallbackResponse;
     }
-    // when even the fallback response is not available,
-    // there is nothing we can do, but we must always
-    // return a Response object
     return new Response('Network error happened', {
       status: 408,
       headers: { 'Content-Type': 'text/plain' },
@@ -71,7 +63,6 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
 
 const enableNavigationPreload = async () => {
   if (self.registration.navigationPreload) {
-    // Enable navigation preloads!
     await self.registration.navigationPreload.enable();
   }
 };
@@ -84,13 +75,14 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
       '/',
-      'views/index.html',
-      'assets/css/style.css',
-      'assets/js/app.js',
+      '404.html',
+      'public/assets/css/style.css',
+      'public/assets/js/app.js',
+      'public/assets/js/pages/users.js',
       'favicon.ico',
       'icon.png',
       'icon.svg',
-      '.views/404.html',
+      'site.webmanifest',
     ]),
   );
 });
@@ -100,7 +92,7 @@ self.addEventListener('fetch', (event) => {
     cacheFirst({
       request: event.request,
       preloadResponsePromise: event.preloadResponse,
-      fallbackUrl: '404.html',
+      fallbackUrl: OFFLINE_URL,
     }),
   );
 });

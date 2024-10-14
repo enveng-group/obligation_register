@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!--
+ Copyright (C) 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<html lang="en_AU">
+
+<!-- Include the head -->
+<!--#include virtual="head.html" -->
+
+<body>
+  <!-- Include the header -->
+  <!--#include virtual="header.html" -->
+
+  <form id="newUserForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" required>
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="accountability">Accountability:</label>
+    <input type="text" id="accountability" name="accountability" required>
+    <button type="submit">Add User</button>
+  </form>
+
+  <script src="js/pages/newform.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "esversion": 6,
+  "node": true,
+  "browser": true,
+  "globals": {
+    "$": true,
+    "Chart": true,
+    "initSqlJs": true,
+    "db": true,
+    "jest": true,
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "beforeAll": true,
+    "afterAll": true
+  },
+  "undef": true,
+  "unused": true
+}

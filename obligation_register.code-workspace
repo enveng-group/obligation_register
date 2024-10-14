@@ -86,6 +86,30 @@
         },
         "textMateRules": []
     },
-    "dotenv.enableAutocloaking": false
+    "dotenv.enableAutocloaking": false,
+    "github.copilot.enable": {
+        "plaintext": true,
+        "markdown": true,
+        "css": true,
+        "diff": true,
+        "dockerfile": true,
+        "git": true,
+        "html": true,
+        "ini": true,
+        "javascript": true,
+        "javascriptreact": true,
+        "json": true,
+        "jsonc": true,
+        "sql": true,
+        "typescript": true,
+        "typescriptreact": true,
+        "yaml": true
+    },
+    "github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
+    "github.copilot.chat.experimental.inlineChatHint.enabled": true,
+    "git.confirmSync": false,
+    "editor.codeActionsOnSave": {
+    "source.fixAll.shellcheck": "explicit"
+  }
 }
 }

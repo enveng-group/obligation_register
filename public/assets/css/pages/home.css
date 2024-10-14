@@ -1,0 +1,109 @@
+/**
+ * Copyright (C) 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+body {
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a2b18b;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+header img {
+    margin-right: 10px;
+}
+
+header h1 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+nav {
+    background-color: #c2ceb4;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    color: black;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.quick-links {
+    background-color: #d8d0c1;
+    padding: 10px;
+    border-radius: 10px;
+    width: 14%;
+    position: relative;
+}
+
+.quick-links h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.quick-links ul {
+    display: none;
+    position: absolute;
+    background-color: #d8d0c1;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+}
+
+.quick-links ul li {
+    padding: 5px;
+}
+
+.quick-links ul li:hover {
+    background-color: #8d9c74;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.flex-container a {
+    background-color: #a2b18b;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.flex-container button {
+    background-color: #a2b18b;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}

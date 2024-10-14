@@ -5,3 +5,9 @@ Encryption: https://example.com/pgp-key.txt
 Acknowledgements: https://example.com/hall-of-fame.html
 Policy: https://example.com/security-policy.html
 Hiring: https://example.com/careers.html
+
+# Optional: Add preferred languages for communication
+Preferred-Languages: en
+
+# Optional: Add a canonical URL for this file
+Canonical: https://example.com/.well-known/security.txt

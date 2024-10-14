@@ -44,6 +44,7 @@
 *.tsx      text
 *.xml      text
 *.xhtml    text
+*.d.ts     text
 
 ## DOCKER
 *.dockerignore text
@@ -206,3 +207,4 @@ Procfile    text
 ## MISCELLANEOUS
 .DS_Store binary
 Thumbs.db binary
+*.wasm binary
