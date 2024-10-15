@@ -1,3 +1,5 @@
+'use strict';
+
 // Copyright (C) 2024 Enveng Group
 //
 // This program is free software: you can redistribute it and/or modify
@@ -12,27 +14,26 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-  },
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-  ],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  coverageDirectory: './coverage',
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+    transform: {
+        '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     },
-  },
-  verbose: true,
+    moduleFileExtensions: [
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+    ],
+    testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+    coverageDirectory: './coverage',
+    collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
+    setupFilesAfterEnv: ['./jest.setup.js'],
+    globals: {
+        'ts-jest': {
+            tsconfig: 'tsconfig.json',
+        },
+    },
+    verbose: true,
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 // Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett Bachoup
 //
 // This program is free software: you can redistribute it and/or modify
@@ -12,10 +14,13 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 module.exports = {
-  presets: [
-    ['@babel/preset-env', { targets: { node: 'current' } }],
-    '@babel/preset-typescript',
-  ],
+    presets: [
+        ['@babel/preset-env', {
+            targets: {
+                node: 'current',
+            },
+        }],
+        '@babel/preset-typescript',
+    ],
 };

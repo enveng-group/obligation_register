@@ -12,9 +12,8 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import path, { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import path, {dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -27,7 +26,12 @@ export default {
         publicPath: '/', // ensure correct path resolution for assets
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'], // Resolve both JavaScript and TypeScript files
+        extensions: [
+            '.ts',
+            '.tsx',
+            '.js',
+            '.jsx',
+        ], // Resolve both JavaScript and TypeScript files
         alias: {
             '@src': path.resolve(__dirname, 'src'),
             '@components': path.resolve(__dirname, 'src/components'),
@@ -35,21 +39,17 @@ export default {
         },
     },
     module: {
-        rules: [
-            {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
-                use: 'babel-loader',
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i, // add support for image files
-                type: 'asset/resource',
-            },
-        ],
+        rules: [{
+            test: /\.(js|jsx|ts|tsx)$/,
+            exclude: /node_modules/,
+            use: 'babel-loader',
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+        }, {
+            test: /\.(png|svg|jpg|jpeg|gif)$/i, // add support for image files
+            type: 'asset/resource',
+        }],
     },
     externals: {
         jquery: 'jQuery',
@@ -57,7 +57,7 @@ export default {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'), // serve static files from the public directory
+            directory: new URL('public', import.meta.url).pathname, // serve static files from the public directory
         },
         compress: true,
         port: 9000,

@@ -81,26 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const selectedObligations = getSelectedObligations();
         
-        if (!selectedObligations.length) {
+        if (!selectedObligations.length)
             alert('Please select at least one obligation to delete.');
-            return;
-        }
-        
-        if (confirm('Are you sure you want to delete the selected obligations?'))
-            $.ajax({
-                url: '/deleteform',
-                method: 'POST',
-                data: {
-                    obligationIds: selectedObligations,
-                },
-                success: function() {
-                    // Refresh the page or handle success
-                    alert('Obligations deleted successfully');
-                    location.reload(); // Reload the page to see updated list
-                },
-                error: function() {
-                    alert('Error deleting obligations');
-                },
-            });
     });
 });

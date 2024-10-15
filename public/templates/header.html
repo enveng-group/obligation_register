@@ -1,67 +1,87 @@
-<!DOCTYPE html>
-
-<!--
- Copyright (C) 2024 Enveng Group
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License as
- published by the Free Software Foundation, either version 3 of the
- License, or (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+<!DOCTYPE HTML>
 <html lang="en_AU">
-  <!-- public/header.html -->
-  <header class="header">
-    <!-- Main header section -->
-    <div class="overlap">
-      <div class="text-wrapper">Environmental Compliance Management System</div>
-      <!-- Title of the system -->
-      <img class="enveng-logo" src="img/enveng-logo-1.svg" />
-      <!-- Logo of the environmental compliance system -->
-      <div class="overlap-group">
+  <head>
+    <link rel="stylesheet" href="assets/css/criticalStyles.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-top" style="background: #a3b383"></div>
+      <img
+        class="enveng-logo"
+        src="https://via.placeholder.com/112x55"
+        style="
+          background: linear-gradient(0deg, #1d1d1d 0%, #1d1d1d 100%);
+          border-radius: 8px;
+        "
+      />
+      <div class="user-info" style="background: #808d67; border-radius: 8px">
         <div class="avatar-block">
-          <a class="btn btn-warning" href="/logout">Logout</a>
           <div class="avatar">
-            <img src="img/shape-1.png" alt="User Avatar" />
-            <!-- User avatar image -->
+            <img src="https://via.placeholder.com/40x40" alt="User Avatar" />
           </div>
           <div class="info">
-            <div class="text-wrapper-2">Title</div>
-            <!-- Placeholder for user title -->
-            <div class="text-wrapper-3">Description</div>
-            <!-- Placeholder for user description -->
+            <div
+              class="text-wrapper-2"
+              style="
+                color: #1e1e1e;
+                font-size: 16px;
+                font-family: sans-serif;
+                font-weight: 600;
+              "
+            >
+              Title
+            </div>
+            <div
+              class="text-wrapper-3"
+              style="
+                color: #1e1e1e;
+                font-size: 16px;
+                font-family: sans-serif;
+                font-weight: 400;
+              "
+            >
+              Description
+            </div>
           </div>
         </div>
         <div class="settings">
-          <img src="img/settings-1.svg" alt="Settings Icon" />
-          <!-- Settings icon -->
+          <div
+            style="width: 40px; height: 40px; border: 2px #f3f3f3 solid"
+          ></div>
         </div>
-        <i class="fa-regular fa-circle-question help-circle fa-2x"></i>
-        <!-- Help icon -->
+        <div class="help">
+          <div
+            style="width: 33.33px; height: 33.33px; border: 2px #f3f3f3 solid"
+          ></div>
+        </div>
       </div>
-    </div>
-    <div class="navigation-bar-wrapper">
-      <div class="navigation-bar">
-        <div class="overlap-group-2">
-          <div class="div-wrapper">
-            <div class="text-wrapper-4">
-              <a href="/responsible">Responsible</a>
-            </div>
-            <!-- Navigation link to Responsible page -->
+      <div
+        class="system-title"
+        style="
+          color: black;
+          font-size: 26px;
+          font-family: sans-serif;
+          font-weight: 400;
+        "
+      >
+        Environmental Compliance Management System
+      </div>
+      <div class="header-bottom" style="background: #e3e8d9"></div>
+      <div class="navigation-bar-wrapper">
+        <div class="navigation-bar">
+          <div class="nav-item">
+            <a href="/dashboard">Dashboard</a>
           </div>
-          <div class="text-wrapper-5"><a href="/forms">Forms</a></div>
-          <!-- Navigation link to Forms page -->
-          <div class="text-wrapper-6"><a href="/dashboard">Dashboard</a></div>
-          <!-- Navigation link to Dashboard page -->
+          <div class="nav-item">
+            <a href="/forms">Forms</a>
+          </div>
+          <div class="nav-item">
+            <a href="/responsible">Responsible</a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+  </body>
 </html>

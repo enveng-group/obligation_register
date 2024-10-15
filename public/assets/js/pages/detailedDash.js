@@ -1,11 +1,11 @@
-import { initDatabase } from '/public/assets/js/db/db.js';
+import {initDatabase} from '../../../../../../../public/assets/js/db/db.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Detailed Dashboard scripts loaded');
-
+    
     try {
         const db = await initDatabase();
-
+        
         db.run(`
             CREATE TABLE IF NOT EXISTS choices (
                 Project_Name TEXT,
@@ -37,9 +37,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 Obligation_type TEXT
             );
         `);
-
         // Additional code to interact with the database
-    } catch (error) {
+    } catch(error) {
         console.error('Error initializing database:', error);
     }
 });

@@ -1,0 +1,10 @@
+{
+  "ignoreDirs": [
+    "dist",
+    "build"
+  ],
+  "ignoreMatches": [
+    "eslint",
+    "babel-*"
+  ]
+}

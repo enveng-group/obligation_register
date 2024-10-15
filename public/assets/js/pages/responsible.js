@@ -81,7 +81,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Import data from PPM.CSV
     await importCSVData('path/to/PPM.CSV');
     // Query the database and display the data
-    const result = db.exec('SELECT Responsibility, PersonEmail, Accountability FROM choices');
+
+        const result = db.exec('SELECT Responsibility, PersonEmail, Accountability FROM choices');
     
     const tableBody = document.getElementById('responsible-table-body');
     

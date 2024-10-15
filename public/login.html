@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
 <!--
  Copyright (C) 2024 Adrian Gallo, Rohan Lonkar and Rhett Bachoup
@@ -20,60 +20,55 @@
   <!-- Include the head -->
   <!--#include virtual="head.html" -->
 
+  <head>
+    <link rel="stylesheet" href="css/pages/login.css" />
+  </head>
+
   <body>
     <!-- Include the header -->
     <!--#include virtual="header.html" -->
 
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-7">
-              <h1>Login</h1>
-              <!-- Success message alert -->
-              <div
-                id="successAlert"
-                class="alert alert-success"
-                role="alert"
-                style="display: none"
-              >
-                <span id="successMessage"></span>
-              </div>
-              <form method="post" action="/loginuser">
-                <div class="mb-3 position-relative">
-                  <i class="fas fa-envelope input-icon"></i>
-                  <input
-                    class="form-control"
-                    id="email"
-                    name="username"
-                    placeholder="Email OR Username"
-                    type="text"
-                  />
-                </div>
-                <div class="mb-3 position-relative">
-                  <i class="fas fa-lock input-icon"></i>
-                  <input
-                    class="form-control"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                  />
-                </div>
-                <button class="btn btn-primary" type="submit">Login</button>
-                <a class="btn btn-primary" href="/signup">Signup</a>
-              </form>
-            </div>
-            <div class="col-md-5 d-flex align-items-center">
-              <img
-                class="desk-image"
-                height="300"
-                src="img/enveng group logo_horizontal.png"
-                width="400"
-              />
-            </div>
+    <div class="login-container">
+      <div class="header-bar">
+        <div class="logo-placeholder"></div>
+        <div class="logo-text">Logo</div>
+      </div>
+      <div class="login-card">
+        <div class="app-title">App Title</div>
+        <form method="post" action="/loginuser">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              name="username"
+              placeholder="Email OR Username"
+              type="text"
+            />
           </div>
-        </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="project-choice">Project Choice</label>
+            <select
+              class="form-control"
+              id="project-choice"
+              name="project-choice"
+            >
+              <option value="">Select Project</option>
+              <!-- Add project options here -->
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
       </div>
     </div>
 

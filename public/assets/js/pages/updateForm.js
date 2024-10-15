@@ -74,8 +74,8 @@ $(document).ready(() => {
                 .empty()
                 .append('<option value="">Select a status</option>');
             $('#inspection_frequency').append('<option value="">Select a Frequency</option>');
+
             // Map through the response and populate the dropdowns
-            
             for (const choice of data) {
                 if (choice.field === 'ENVIRONMENTAL_ASPECT_CHOICES')
                     $('#environmental_aspect').append($('<option></option>')

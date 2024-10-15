@@ -28,4 +28,169 @@
   justify-content: space-between;
 }
 
-/* Add more page-specific styles here */
+/* Detailed Dashboard Specific Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.text-wrapper,
+.text-wrapper-2,
+.text-wrapper-3,
+.text-wrapper-4,
+.text-wrapper-5,
+.text-wrapper-6 {
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Styles from the provided detailedDash.css */
+.diagram-title {
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 27.8px;
+  word-wrap: break-word;
+}
+
+.one-selection {
+  color: #abb5be;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 12px;
+  word-wrap: break-word;
+}
+
+.select-all,
+.all-project-phases,
+.before-commencement,
+.other-styles {
+  color: #54595e;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 500;
+  line-height: 16px;
+  word-wrap: break-word;
+}
+
+.completed,
+.in-progress,
+.not-started {
+  color: #1e1e1e;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 16px;
+  word-wrap: break-word;
+}
+
+.project-phase-selection {
+  color: white;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 33.36px;
+  word-wrap: break-word;
+}
+
+/* New styles for the detailed dashboard */
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+  padding: 15px 57px;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 80px;
+}
+
+.main-panel {
+  width: 1886px;
+  height: 725px;
+  background: #e2e7dd;
+  border-radius: 8px;
+}
+
+.side-panel {
+  height: 614px;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 80px;
+}
+
+.card {
+  width: 226px;
+  height: 297px;
+  padding: 2px 0;
+  background: #808d67;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.icon-container {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+
+.icon {
+  width: 23.33px;
+  height: 23.33px;
+  position: absolute;
+  left: 2.33px;
+  top: 2.33px;
+  border: 2px #f3f3f3 solid;
+}
+
+.diagram {
+  width: 226px;
+  height: 196px;
+  position: relative;
+  background: #a3b383;
+}
+
+.extra-panel {
+  width: 429px;
+  position: relative;
+}

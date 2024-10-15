@@ -12,12 +12,10 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import { initSqlJsPromise } from '/public/assets/js/criticalScripts.js';
+import {initSqlJsPromise} from '../../../../../../../public/assets/js/criticalScripts.js';
 
 export async function initDatabase() {
     const SQL = await initSqlJsPromise;
-
-    const db = new SQL.Database();
-    return db;
+    
+    return new SQL.Database();
 }

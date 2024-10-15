@@ -15,35 +15,96 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+.login-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: white;
+  border: 1px solid black;
 }
 
-.card {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.input-icon {
+.header-bar {
+  width: 1366px;
+  height: 58px;
+  padding: 5px 8px;
   position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
+  background: #969696;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+}
+
+.logo-placeholder {
+  width: 201px;
+  height: 42px;
+  background: #d9d9d9;
+}
+
+.logo-text {
+  position: absolute;
+  left: 590px;
+  top: 14px;
+  color: black;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.login-card {
+  width: 213px;
+  height: 334px;
+  position: absolute;
+  left: 577px;
+  top: 201px;
+  background: #d9d9d9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.app-title {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: black;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .form-control {
-  padding-left: 30px;
+  width: 100%;
+  padding: 10px;
+  background: #efefef;
+  border: none;
+  border-radius: 5px;
 }
 
-.desk-image {
-  max-width: 100%;
-  height: auto;
+.btn-primary {
+  width: 70px;
+  height: 21px;
+  background: #efefef;
+  color: black;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #d9d9d9;
 }

@@ -12,19 +12,22 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 import http from 'node:http';
 import path from 'node:path';
 import process from 'node:process';
-import express from 'express';
 import fs from 'node:fs';
-import { getUsers } from './controllers/userController.js';
-import logger from './utils/logger.js';
-import userRoutes from './routes/userRoutes.js';
+import express from 'express';
 import dotenv from 'dotenv';
 
 // Use import instead of require for dotenv
-dotenv.config({ path: '.env.vault' });
+import {getUsers} from './controllers/userController.js';
+import logger from './utils/logger.js';
+import userRoutes from './routes/userRoutes.js';
+
+// Use import instead of require for dotenv
+dotenv.config({
+    path: '.env.vault',
+});
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -36,7 +39,7 @@ const directories = [
 
 for (const dir of directories) {
     const dirPath = path.join(process.cwd(), dir);
-
+    
     if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath);
         logger.info(`Directory created: ${dirPath}`);
@@ -54,7 +57,9 @@ app.use('/api/users', userRoutes);
 
 app.use((err, req, res) => {
     logger.error(err.stack);
-    res.status(500).send('Something broke!');
+    res
+        .status(500)
+        .send('Something broke!');
 });
 
 // Comment out or remove this block
@@ -63,7 +68,6 @@ app.listen(PORT, () => {
     logger.info(`Server is running on port ${PORT}`);
 });
 */
-
 const mimeTypes = {
     '.html': 'text/html',
     '.js': 'application/javascript',
@@ -74,19 +78,19 @@ const mimeTypes = {
     '.gif': 'image/gif',
     '.svg': 'image/svg+xml',
     '.ico': 'image/x-icon',
-    '.wasm': 'application/wasm'
+    '.wasm': 'application/wasm',
 };
 
 const server = http.createServer(async (req, res) => {
-    const { URL } = await import('node:url');
+    const {URL} = await import('node:url');
     const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
     let pathname = `.${parsedUrl.pathname}`;
-
+    
     if (pathname === './')
         pathname = './public/index.html';
-
-    const { ext } = path.parse(pathname);
-
+    
+    const {ext} = path.parse(pathname);
+    
     if (pathname.startsWith('./api'))
         handleApiRequest(req, res, pathname);
     else
@@ -96,10 +100,10 @@ const server = http.createServer(async (req, res) => {
                 res.end(`File ${pathname} not found!`);
                 return;
             }
-
+            
             if (stats.isDirectory())
                 pathname += '/index.html';
-
+            
             fs.readFile(pathname, (err, data) => {
                 if (err) {
                     res.statusCode = 500;

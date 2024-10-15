@@ -1,7 +1,7 @@
 Prettier: Format your code for consistency.
 ESLint / standard / putout: Lint your JavaScript code.
 Stylelint / csscomb: Lint and sort your CSS/SCSS.
-HTMLHint / ****html-validate / bootlint: Lint your HTML files.
+HTMLHint / npm install --save-dev retirenpm install --save-dev retirehtml-validate / bootlint: Lint your HTML files.
 W3C HTML Validator: Validate your HTML for standards compliance.
 markdownlint: Lint Markdown files.
 textlint: Lint text files.

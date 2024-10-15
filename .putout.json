@@ -3,7 +3,5 @@
         "remove-unused-variables": "on",
         "remove-console": "off"
     },
-    "ignore": [
-        "public/assets/css/**/*.css"
-    ]
+    "ignore": ["public/assets/css/**/*.css"]
 }

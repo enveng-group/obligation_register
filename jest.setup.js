@@ -14,7 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // additional setup can be added here
 // for example, you can mock global objects or set up other testing utilities
-//; Example: Mocking a global object
+// ; Example: Mocking a global object
 global.fetch = jest.fn(() => Promise.resolve({
     json: () => Promise.resolve({}),
-}))
+}));

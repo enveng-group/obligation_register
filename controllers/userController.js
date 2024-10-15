@@ -22,7 +22,7 @@ export const getUsers = (req, res) => {
             last_name: 'Doe',
             email: 'jdoe@example.com',
             accountability: 'Admin',
-        }        // Add more user objects here
+        } // Add more user objects here
 ];
         
         logger.info('Fetched users successfully');
