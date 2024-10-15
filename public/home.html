@@ -16,98 +16,102 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <html lang="en_AU">
-<!-- home.html -->
+  <!-- home.html -->
 
+  <!-- Include the head -->
+  <!--#include virtual="head.html" -->
 
-<!-- Include the head -->
-<!--#include virtual="head.html" -->
-
-<body class="p-4">
+  <body class="p-4">
     <!-- Include the header -->
     <!--#include virtual="header.html" -->
 
-    <header class="flex justify-between items-center bg-[#a2b18b] p-2 rounded-t-lg">
-        <div class="flex items-center">
-            <img alt="Enveng Group logo" class="mr-2" height="40"
-                src="https://replicate.delivery/yhqm/8sxTDVxEOFZQD9LVOycvCDtfkgRqgypN1smzyetdTdXUMngTA/out-0.png"
-                width="40" />
-            <h1 class="text-white text-xl font-bold">
-                Environmental Compliance Management System
-            </h1>
-        </div>
-        <div class="flex items-center">
-            <button class="text-white mr-2">
-                <i class="fas fa-question-circle"></i>
-            </button>
-            <button class="text-white mr-2">
-                <i class="fas fa-cog"></i>
-            </button>
-            <img alt="User profile picture" class="rounded-full" height="32"
-                src="https://replicate.delivery/yhqm/wFwG4sZHbzIWPRUawda8eQm4BO62nv9d9Y5CpoYsQfqUMngTA/out-0.png"
-                width="32" />
-        </div>
+    <header
+      class="flex justify-between items-center bg-[#a2b18b] p-2 rounded-t-lg"
+    >
+      <div class="flex items-center">
+        <img
+          alt="Enveng Group logo"
+          class="mr-2"
+          height="40"
+          src="https://replicate.delivery/yhqm/8sxTDVxEOFZQD9LVOycvCDtfkgRqgypN1smzyetdTdXUMngTA/out-0.png"
+          width="40"
+        />
+        <h1 class="text-white text-xl font-bold">
+          Environmental Compliance Management System
+        </h1>
+      </div>
+      <div class="flex items-center">
+        <button class="text-white mr-2">
+          <i class="fas fa-question-circle"></i>
+        </button>
+        <button class="text-white mr-2">
+          <i class="fas fa-cog"></i>
+        </button>
+        <img
+          alt="User profile picture"
+          class="rounded-full"
+          height="32"
+          src="https://replicate.delivery/yhqm/wFwG4sZHbzIWPRUawda8eQm4BO62nv9d9Y5CpoYsQfqUMngTA/out-0.png"
+          width="32"
+        />
+      </div>
     </header>
     <nav class="bg-[#c2ceb4] p-2 flex justify-center space-x-4">
-        <a class="text-black" href="#">
-            Dashboard
-        </a>
-        <a class="text-black" href="#">
-            Obligations
-        </a>
-        <a class="text-black" href="#">
-            Responsible
-        </a>
-        <a class="text-black" href="#">
-            GIS Map
-        </a>
+      <a class="text-black" href="#"> Dashboard </a>
+      <a class="text-black" href="#"> Obligations </a>
+      <a class="text-black" href="#"> Responsible </a>
+      <a class="text-black" href="#"> GIS Map </a>
     </nav>
     <main class="mt-4">
-        <div class="flex space-x-4 mb-4">
-            <div class="relative bg-[#d8d0c1] p-2 rounded-lg w-1/7 quick-links">
-                <h2 class="font-bold mb-2 cursor-pointer" id="dropdownButton">
-                    QUICK LINKS
-                </h2>
-                <!-- Dropdown content -->
-                <ul class="space-y-2 hidden absolute bg-[#d8d0c1] rounded-lg w-full mt-2 shadow-md" id="dropdownMenu">
-                    <li class="p-1 hover:bg-[#8d9c74]">Overdue</li>
-                    <li class="p-1 hover:bg-[#8d9c74]">14 Day Lookahead</li>
-                    <li class="p-1 hover:bg-[#8d9c74]">Executive Management</li>
-                    <li class="p-1 hover:bg-[#8d9c74]">Managed Plans</li>
-                </ul>
-            </div>
+      <div class="flex space-x-4 mb-4">
+        <div class="relative bg-[#d8d0c1] p-2 rounded-lg w-1/7 quick-links">
+          <h2 class="font-bold mb-2 cursor-pointer" id="dropdownButton">
+            QUICK LINKS
+          </h2>
+          <!-- Dropdown content -->
+          <ul
+            class="space-y-2 hidden absolute bg-[#d8d0c1] rounded-lg w-full mt-2 shadow-md"
+            id="dropdownMenu"
+          >
+            <li class="p-1 hover:bg-[#8d9c74]">Overdue</li>
+            <li class="p-1 hover:bg-[#8d9c74]">14 Day Lookahead</li>
+            <li class="p-1 hover:bg-[#8d9c74]">Executive Management</li>
+            <li class="p-1 hover:bg-[#8d9c74]">Managed Plans</li>
+          </ul>
         </div>
-        <div class="flex justify-center mb-4 flex-container">
-            <a href="singlepage" class="bg-[#a2b18b] text-black py-2 px-4 rounded">
-                SCJV - Pilbara Ports
-            </a>
-            <a href="https://www.epa.wa.gov.au/proposals/perdaman-urea-project"
-                class="bg-[#a2b18b] text-black py-2 px-4 ml-10 rounded">
-                Perdaman Environmental Approvals (Assessment No. 2148, MS 1180, 24 Jan 2022)
-            </a>
+      </div>
+      <div class="flex justify-center mb-4 flex-container">
+        <a href="singlepage" class="bg-[#a2b18b] text-black py-2 px-4 rounded">
+          SCJV - Pilbara Ports
+        </a>
+        <a
+          href="https://www.epa.wa.gov.au/proposals/perdaman-urea-project"
+          class="bg-[#a2b18b] text-black py-2 px-4 ml-10 rounded"
+        >
+          Perdaman Environmental Approvals (Assessment No. 2148, MS 1180, 24 Jan
+          2022)
+        </a>
+      </div>
+      <div class="bg-[#d8d0c1] p-4 rounded-lg">
+        <h2 class="font-bold mb-4">Approved Environmental_Aspect</h2>
+        <div class="grid grid-cols-3 gap-4" id="buttonContainer">
+          <!-- Dynamic content will be inserted here -->
         </div>
-        <div class="bg-[#d8d0c1] p-4 rounded-lg">
-            <h2 class="font-bold mb-4">
-                Approved Environmental_Aspect
-            </h2>
-            <div class="grid grid-cols-3 gap-4" id="buttonContainer">
-                <!-- Dynamic content will be inserted here -->
-            </div>
-        </div>
-        <div class="flex justify-between mt-4 flex-container">
-            <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
-                SCJV - Part V Works Approval and License Portal
-            </button>
-            <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
-                SCJV Construction Environmental Management Plan
-            </button>
-            <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
-                EPC Schedule 14 Status
-            </button>
-        </div>
+      </div>
+      <div class="flex justify-between mt-4 flex-container">
+        <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
+          SCJV - Part V Works Approval and License Portal
+        </button>
+        <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
+          SCJV Construction Environmental Management Plan
+        </button>
+        <button class="bg-[#a2b18b] text-black py-2 px-4 rounded">
+          EPC Schedule 14 Status
+        </button>
+      </div>
     </main>
     <!-- Include the footer (if applicable) -->
     <!--#include virtual="footer.html" -->
     <script src="js/pages/home.js"></script>
-</body>
-
+  </body>
 </html>

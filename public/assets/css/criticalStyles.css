@@ -16,58 +16,63 @@
  */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 .header {
-    background-color: #f8f9fa;
-    padding: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .footer {
-    background-color: #f8f8f8;
-    padding: 10px;
-    text-align: center;
-    border-top: 1px solid #ddd;
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
 }
 
-.text-wrapper, .text-wrapper-2, .text-wrapper-3, .text-wrapper-4, .text-wrapper-5, .text-wrapper-6 {
-    color: #333;
+.text-wrapper,
+.text-wrapper-2,
+.text-wrapper-3,
+.text-wrapper-4,
+.text-wrapper-5,
+.text-wrapper-6 {
+  color: #333;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    color: white;
-    border: none;
+  background-color: #007bff;
+  color: white;
+  border: none;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    color: white;
-    border: none;
+  background-color: #ffc107;
+  color: white;
+  border: none;
 }
 
 .btn-warning:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
 }

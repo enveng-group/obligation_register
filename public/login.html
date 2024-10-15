@@ -17,51 +17,69 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <html lang="en_AU">
+  <!-- Include the head -->
+  <!--#include virtual="head.html" -->
 
-<!-- Include the head -->
-<!--#include virtual="head.html" -->
-
-<body>
+  <body>
     <!-- Include the header -->
     <!--#include virtual="header.html" -->
 
     <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h1>Login</h1>
-                        <!-- Success message alert -->
-                        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;">
-                            <span id="successMessage"></span>
-                        </div>
-                        <form method="post" action="/loginuser">
-                            <div class="mb-3 position-relative">
-                                <i class="fas fa-envelope input-icon"></i>
-                                <input class="form-control" id="email" name="username" placeholder="Email OR Username"
-                                    type="text" />
-                            </div>
-                            <div class="mb-3 position-relative">
-                                <i class="fas fa-lock input-icon"></i>
-                                <input class="form-control" id="password" name="password" placeholder="Password"
-                                    type="password" />
-                            </div>
-                            <button class="btn btn-primary" type="submit">Login</button>
-                            <a class="btn btn-primary" href="/signup">Signup</a>
-                        </form>
-                    </div>
-                    <div class="col-md-5 d-flex align-items-center">
-                        <img class="desk-image" height="300" src="img/enveng group logo_horizontal.png" width="400" />
-                    </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-7">
+              <h1>Login</h1>
+              <!-- Success message alert -->
+              <div
+                id="successAlert"
+                class="alert alert-success"
+                role="alert"
+                style="display: none"
+              >
+                <span id="successMessage"></span>
+              </div>
+              <form method="post" action="/loginuser">
+                <div class="mb-3 position-relative">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input
+                    class="form-control"
+                    id="email"
+                    name="username"
+                    placeholder="Email OR Username"
+                    type="text"
+                  />
                 </div>
+                <div class="mb-3 position-relative">
+                  <i class="fas fa-lock input-icon"></i>
+                  <input
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                  />
+                </div>
+                <button class="btn btn-primary" type="submit">Login</button>
+                <a class="btn btn-primary" href="/signup">Signup</a>
+              </form>
             </div>
+            <div class="col-md-5 d-flex align-items-center">
+              <img
+                class="desk-image"
+                height="300"
+                src="img/enveng group logo_horizontal.png"
+                width="400"
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Include the footer (if applicable) -->
     <!--#include virtual="footer.html" -->
 
     <script src="js/pages/login.js"></script>
-</body>
-
+  </body>
 </html>

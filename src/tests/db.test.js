@@ -12,11 +12,13 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // src/tests/db.test.js
-const db = require('../db');
+import db from '../db.js';
 
 test('should create a new choice', async () => {
-  const choice = await db.createChoice({ Project_Name: 'Test Project' });
-  expect(choice.Project_Name).toBe('Test Project');
+    const choice = await db.createChoice({
+        Project_Name: 'Test Project',
+    });
+    
+    expect(choice.Project_Name).toBe('Test Project');
 });

@@ -16,76 +16,79 @@
  */
 
 .header {
-    background-color: #f8f9fa;
-    padding: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .overlap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .text-wrapper {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .enveng-logo {
-    height: 50px;
-    width: auto;
+  height: 50px;
+  width: auto;
 }
 
 .overlap-group {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .avatar-block {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .avatar img {
-    height: 50px;
-    width: auto;
-    border-radius: 50%;
-    margin: 0 10px;
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  margin: 0 10px;
 }
 
 .info {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .settings img {
-    height: 30px;
-    width: auto;
-    margin: 0 10px;
+  height: 30px;
+  width: auto;
+  margin: 0 10px;
 }
 
 .help-circle {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .navigation-bar-wrapper {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .navigation-bar {
-    background-color: #343a40;
-    color: white;
-    padding: 10px;
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
 }
 
 .overlap-group-2 {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
-.text-wrapper-4, .text-wrapper-5, .text-wrapper-6 {
-    margin: 0 10px;
+.text-wrapper-4,
+.text-wrapper-5,
+.text-wrapper-6 {
+  margin: 0 10px;
 }
 
-.rectangle-9, .rectangle-10 {
-    display: none; /* Assuming these are decorative elements */
+.rectangle-9,
+.rectangle-10 {
+  display: none; /* Assuming these are decorative elements */
 }

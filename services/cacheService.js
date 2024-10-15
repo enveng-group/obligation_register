@@ -12,33 +12,33 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // services/cacheService.js
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import logger from '../utils/logger.js';
 
-const cacheDir = path.join(__dirname, '../cache');
+const cacheDir = new URL('../cache', import.meta.url).pathname;
 
 export const cacheData = (key, data) => {
-  const cacheFilePath = path.join(cacheDir, `${key}.json`);
-  fs.writeFile(cacheFilePath, JSON.stringify(data), (err) => {
-    if (err) {
-      logger.error('Error writing data to cache directory: %s', err.message);
-    } else {
-      logger.info('Data cached successfully: %s', cacheFilePath);
-    }
-  });
+    const cacheFilePath = path.join(cacheDir, `${key}.json`);
+    
+    fs.writeFile(cacheFilePath, JSON.stringify(data), (err) => {
+        if (err)
+            logger.error('Error writing data to cache directory: %s', err.message);
+        else
+            logger.info('Data cached successfully: %s', cacheFilePath);
+    });
 };
 
 export const getCachedData = (key) => {
-  const cacheFilePath = path.join(cacheDir, `${key}.json`);
-  if (fs.existsSync(cacheFilePath)) {
-    const data = fs.readFileSync(cacheFilePath, 'utf-8');
-    logger.info('Data retrieved from cache: %s', cacheFilePath);
-    return JSON.parse(data);
-  } else {
+    const cacheFilePath = path.join(cacheDir, `${key}.json`);
+    
+    if (fs.existsSync(cacheFilePath)) {
+        const data = fs.readFileSync(cacheFilePath, 'utf-8');
+        logger.info('Data retrieved from cache: %s', cacheFilePath);
+        return JSON.parse(data);
+    }
+    
     logger.info('No cache found for key: %s', key);
     return null;
-  }
 };

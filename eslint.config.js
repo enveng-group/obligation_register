@@ -1,24 +1,22 @@
-import globals from "globals";
+import globals from 'globals';
 
-export default [
-  {
-    files: ["**/*.js", "**/*.jsx"],
+export default [{
+    files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.jest,
-        "$": "readonly",
-        "Chart": "readonly",
-        "initSqlJs": "readonly",
-        "db": "readonly"
-      },
-      ecmaVersion: 2021,
-      sourceType: "module"
+        globals: {
+            ...globals.browser,
+            ...globals.node,
+            ...globals.jest,
+            $: 'readonly',
+            Chart: 'readonly',
+            initSqlJs: 'readonly',
+            db: 'readonly',
+        },
+        ecmaVersion: 2021,
+        sourceType: 'module',
     },
     rules: {
-      "no-unused-vars": "warn",
-      "no-undef": "error"
-    }
-  }
-];
+        'no-unused-vars': 'warn',
+        'no-undef': 'error',
+    },
+}];

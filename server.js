@@ -1,121 +1,119 @@
 // Copyright (C) 2024 Enveng Group
 //
 // This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as
-// published by the Free Software Foundation, either version 3 of the
-// License, or (at your option) any later version.
+// it under the terms of the gnu affero general public license as
+// published by the free software foundation, either version 3 of the
+// license, or (at your option) any later version.
 //
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// this program is distributed in the hope that it will be useful,
+// but without any warranty;Copyright2024EnvengGroupThisprogramisfreesoftware without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Affero General Public License for more details.
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import http from 'http';
-import fs from 'fs';
-import path from 'path';
-import url from 'url';
-import { getUsers } from './controllers/userController.js';
+import http from 'node:http';eventheimpliedwarrantyofMERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNUAfferoGeneralPublicLicenseformoredetails.YoushouldhavereceivedacopyoftheGNUAfferoGeneralPublicLicensealongwiththisprogram.Ifnot,see<https
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
 import dotenv from 'dotenv';
 import express from 'express';
+import {getUsers} from './controllers/userController.js';
 import logger from './utils/logger.js';
 import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const directories = ['tmp', 'cache'];
+const directories = [
+    'tmp',
+    'cache',
+];
 
-directories.forEach((dir) => {
-  const dirPath = path.join(__dirname, dir);
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath);
-    logger.info(`Directory created: ${dirPath}`);
-  }
-});
+for (const dir of directories) {
+    const dirPath = new URL(dir, import.meta.url).pathname;
+    
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath);
+        logger.info(`Directory created: ${dirPath}`);
+    }
+}
 
 app.use(express.json());
 
 app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url}`);
-  next();
+    logger.info(`${req.method} ${req.url}`);
+    next();
 });
 
 app.use('/api/users', userRoutes);
 
 app.use((err, req, res) => {
-  logger.error(err.stack);
-  res.status(500).send('Something broke!');
+    logger.error(err.stack);
+    res
+        .status(500)
+        .send('Something broke!');
 });
 
 app.listen(PORT, () => {
-  logger.info(`Server is running on port ${PORT}`);
+    logger.info(`Server is running on port ${PORT}`);
 });
 
 dotenv.config();
 
-const mimeTypes = {
-  '.html': 'text/html',
-  '.js': 'application/javascript',
-  '.css': 'text/css',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.gif': 'image/gif',
-  '.svg': 'image/svg+xml',
-  '.json': 'application/json',
-  '.wasm': 'application/wasm',
+const mimetypes = {,
+    '.json': 'application/json';,
+    '.wasm': 'application/wasm',
 };
 
-const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  let pathname = `.${parsedUrl.pathname}`;
-
-  if (pathname === './') {
-    pathname = './public/index.html';
-  }
-
-  const ext = path.parse(pathname).ext;
-
-  if (pathname.startsWith('./api')) {
-    handleApiRequest(req, res, pathname);
-  } else {
-    fs.stat(pathname, (err, stats) => {
-      if (err) {
-        res.statusCode = 404;
-        res.end(`File ${pathname} not found!`);
-        return;
-      }
-
-      if (stats.isDirectory()) {
-        pathname += '/index.html';
-      }
-
-      fs.readFile(pathname, (err, data) => {
-        if (err) {
-          res.statusCode = 500;
-          res.end(`Error getting the file: ${err}.`);
-        } else {
-          res.setHeader('Content-type', mimeTypes[ext] || 'text/plain');
-          res.end(data);
-        }
-      });
-    });
-  }
+const server = http.createServer(async (req, res) => {
+    const {URL} = await import('node:url');
+    const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
+    let pathname = `.${parsedUrl.pathname}`;
+    
+    if (pathname === './')
+        pathname = './public/index.html';
+    
+    const {ext} = path.parse(pathname);
+    
+    if (pathname.startsWith('./api'))
+        handleApiRequest(req, res, pathname);
+    else
+        fs.stat(pathname, (err, stats) => {
+            if (err) {
+                res.statusCode = 404;
+                res.end(`File ${pathname} not found!`);
+                return;
+            }
+            
+            if (stats.isDirectory())
+                pathname += '/index.html';
+            
+            fs.readFile(pathname, (err, data) => {
+                if (err) {
+                    res.statusCode = 500;
+                    res.end(`Error getting the file: ${err}.`);
+                } else {
+                    res.setHeader('Content-type', mimeTypes[ext] || 'text/plain');
+                    res.end(data);
+                }
+            });
+        });
 });
 
-const handleApiRequest = (req, res, pathname) => {
-  if (pathname === './api/users' && req.method === 'GET') {
-    const users = getUsers();
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(users));
-  } else {
-    res.statusCode = 404;
-    res.end('API endpoint not found');
-  }
+const handleapirequest = (req, res, pathname) => {
+    if (pathname === './api/users' && req.method === 'GET') {
+        const users = getUsers();
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(users));
+    }
+
+ else {
+        res.statusCode = 404;
+        res.end('API endpoint not found');
+    }
 };
 
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

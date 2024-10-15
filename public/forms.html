@@ -20,139 +20,184 @@
 <!-- forms.html -->
 
 <html lang="en_AU">
-<!-- Include the head -->
-<!--#include virtual="head.html" -->
+  <!-- Include the head -->
+  <!--#include virtual="head.html" -->
 
-<head>
-    <link rel="stylesheet" href="css/pages/forms.css">
-</head>
+  <head>
+    <link rel="stylesheet" href="css/pages/forms.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Include the header -->
     <!--#include virtual="header.html" -->
 
     <!-- Success message placeholder -->
-    <div class="alert alert-success" role="alert" style="display: none;">
-        Success message goes here.
+    <div class="alert alert-success" role="alert" style="display: none">
+      Success message goes here.
     </div>
 
     <div class="forms">
-        <div class="div">
-            <div class="overlap">
-                <div class="text-wrapper">Environmental Compliance Management System</div>
-                <img class="enveng-logo" src="img/enveng-logo-1.svg" />
-                <!-- Logo image for the compliance system -->
-                <div class="overlap-group">
-                    <div class="avatar-block">
-                        <a class="btn btn-warning" href="/logout">Logout</a>
-                    </div>
-                    <div class="settings">
-                        <img class="enveng-logo" style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;" src="img/settings-1.svg" />
-                    </div>
-                    <img class="help-circle" src="img/help-circle.svg" />
-                    <!-- Help icon -->
-                </div>
+      <div class="div">
+        <div class="overlap">
+          <div class="text-wrapper">
+            Environmental Compliance Management System
+          </div>
+          <img class="enveng-logo" src="img/enveng-logo-1.svg" />
+          <!-- Logo image for the compliance system -->
+          <div class="overlap-group">
+            <div class="avatar-block">
+              <a class="btn btn-warning" href="/logout">Logout</a>
             </div>
-            <div class="navigation-bar-wrapper">
-                <div class="navigation-bar">
-                    <div class="overlap-group-2">
-                        <div class="div-wrapper">
-                            <div class="text-wrapper-4"><a href="/form">Obligations</a></div>
-                        </div>
-                        <div class="text-wrapper-5"><a href="/responsible">Responsible</a></div>
-                        <div class="text-wrapper-6"><a href="/">Dashboard</a></div>
-                    </div>
-                </div>
+            <div class="settings">
+              <img
+                class="enveng-logo"
+                style="
+                  height: 90%;
+                  width: auto;
+                  border-radius: 50%;
+                  margin: 4% auto;
+                "
+                src="img/settings-1.svg"
+              />
             </div>
-            <div class="body" style="width: 100%;">
-                <div class="rectangle" style="width: 40%;"></div>
-                <!-- Decorative rectangle -->
-                <div class="form-list-icons">
-                    <div class="rectangle-2"></div>
-                    <!-- Placeholder rectangle for icons -->
-                    <div class="settings-icon">
-                        <a href="#" id="update-selected">
-                            <div class="settings-2"><img class="img" style="height: 90%;width: auto;;margin:  auto;" src="img/settings-1.svg" />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="img-wrapper"><img class="search" src="img/search-2.svg" /></div>
-                    <!-- Search icon -->
-                    <div class="img-wrapper"><a href="/newform"> <img class="img" src="img/plus-2.svg" /> </a></div>
-                    <!-- Plus icon to create a new form -->
-                    <div class="img-wrapper"><a href="#" id="delete-selected"> <img class="img" src="img/trash-2-2.svg" /></a></div>
-                    <!-- Trash icon for deleting items -->
-                    <div class="img-wrapper"><img class="img" src="img/refresh-cw-3.svg" /></div>
-                    <!-- Refresh icon -->
-                </div>
-                <div class="navbar">
-                    <div class="checkboxes">
-                        <div class="state-layer">
-                            <div class="container"></div>
-                        </div>
-                    </div>
-                    <!-- Table headers for displaying obligations -->
-                    <div class="text-wrapper-7">Primary Environmental Mechanism</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Obligation Number</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Due Date</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Status</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Procedure</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Responsibility</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-3"></div>
-                    <div class="text-wrapper-7">Environmental&nbsp;&nbsp;Aspect</div>
-                    <img class="chevron-down" src="img/chevron-down-5.svg" />
-                    <div class="rectangle-4"></div>
-                </div>
-                <!-- Filter buttons -->
-                <div class="filter-buttons">
-                    <button id="overdue-btn">Overdue</button>
-                    <button id="14-day-lookahead-btn">14-Day Look Ahead</button>
-                    <button id="reset-filter-btn">Reset Filter</button>
-                </div>
-                <!-- Placeholder for obligations -->
-                <div class="navbar-2 obligation-row" data-duedate="2024-01-01T00:00:00.000Z">
-                    <div class="checkboxes">
-                        <div class="state-layer">
-                            <input type="checkbox" class="container-2" name="obligationsToDelete" value="1">
-                        </div>
-                    </div>
-                    <div class="text-wrapper-8">Mechanism 1</div>
-                    <div class="obligation-number">12345</div>
-                    <div class="due-date">2024-01-01</div>
-                    <div class="text-wrapper-9">Completed</div>
-                    <div class="text-wrapper-10">John Doe</div>
-                    <div class="responsibility">Aspect 1</div>
-                </div>
-                <div class="navbar-2 obligation-row" data-duedate="2024-01-15T00:00:00.000Z">
-                    <div class="checkboxes">
-                        <div class="state-layer">
-                            <input type="checkbox" class="container-2" name="obligationsToDelete" value="2">
-                        </div>
-                    </div>
-                    <div class="text-wrapper-8">Mechanism 2</div>
-                    <div class="obligation-number">67890</div>
-                    <div class="due-date">2024-01-15</div>
-                    <div class="text-wrapper-9">In Progress</div>
-                    <div class="text-wrapper-10">Jane Smith</div>
-                    <div class="responsibility">Aspect 2</div>
-                </div>
-            </div>
+            <img class="help-circle" src="img/help-circle.svg" />
+            <!-- Help icon -->
+          </div>
         </div>
+        <div class="navigation-bar-wrapper">
+          <div class="navigation-bar">
+            <div class="overlap-group-2">
+              <div class="div-wrapper">
+                <div class="text-wrapper-4">
+                  <a href="/form">Obligations</a>
+                </div>
+              </div>
+              <div class="text-wrapper-5">
+                <a href="/responsible">Responsible</a>
+              </div>
+              <div class="text-wrapper-6"><a href="/">Dashboard</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="body" style="width: 100%">
+          <div class="rectangle" style="width: 40%"></div>
+          <!-- Decorative rectangle -->
+          <div class="form-list-icons">
+            <div class="rectangle-2"></div>
+            <!-- Placeholder rectangle for icons -->
+            <div class="settings-icon">
+              <a href="#" id="update-selected">
+                <div class="settings-2">
+                  <img
+                    class="img"
+                    style="height: 90%; width: auto; margin: auto"
+                    src="img/settings-1.svg"
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="img-wrapper">
+              <img class="search" src="img/search-2.svg" />
+            </div>
+            <!-- Search icon -->
+            <div class="img-wrapper">
+              <a href="/newform"> <img class="img" src="img/plus-2.svg" /> </a>
+            </div>
+            <!-- Plus icon to create a new form -->
+            <div class="img-wrapper">
+              <a href="#" id="delete-selected">
+                <img class="img" src="img/trash-2-2.svg"
+              /></a>
+            </div>
+            <!-- Trash icon for deleting items -->
+            <div class="img-wrapper">
+              <img class="img" src="img/refresh-cw-3.svg" />
+            </div>
+            <!-- Refresh icon -->
+          </div>
+          <div class="navbar">
+            <div class="checkboxes">
+              <div class="state-layer">
+                <div class="container"></div>
+              </div>
+            </div>
+            <!-- Table headers for displaying obligations -->
+            <div class="text-wrapper-7">Primary Environmental Mechanism</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Obligation Number</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Due Date</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Status</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Procedure</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Responsibility</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-3"></div>
+            <div class="text-wrapper-7">Environmental&nbsp;&nbsp;Aspect</div>
+            <img class="chevron-down" src="img/chevron-down-5.svg" />
+            <div class="rectangle-4"></div>
+          </div>
+          <!-- Filter buttons -->
+          <div class="filter-buttons">
+            <button id="overdue-btn">Overdue</button>
+            <button id="14-day-lookahead-btn">14-Day Look Ahead</button>
+            <button id="reset-filter-btn">Reset Filter</button>
+          </div>
+          <!-- Placeholder for obligations -->
+          <div
+            class="navbar-2 obligation-row"
+            data-duedate="2024-01-01T00:00:00.000Z"
+          >
+            <div class="checkboxes">
+              <div class="state-layer">
+                <input
+                  type="checkbox"
+                  class="container-2"
+                  name="obligationsToDelete"
+                  value="1"
+                />
+              </div>
+            </div>
+            <div class="text-wrapper-8">Mechanism 1</div>
+            <div class="obligation-number">12345</div>
+            <div class="due-date">2024-01-01</div>
+            <div class="text-wrapper-9">Completed</div>
+            <div class="text-wrapper-10">John Doe</div>
+            <div class="responsibility">Aspect 1</div>
+          </div>
+          <div
+            class="navbar-2 obligation-row"
+            data-duedate="2024-01-15T00:00:00.000Z"
+          >
+            <div class="checkboxes">
+              <div class="state-layer">
+                <input
+                  type="checkbox"
+                  class="container-2"
+                  name="obligationsToDelete"
+                  value="2"
+                />
+              </div>
+            </div>
+            <div class="text-wrapper-8">Mechanism 2</div>
+            <div class="obligation-number">67890</div>
+            <div class="due-date">2024-01-15</div>
+            <div class="text-wrapper-9">In Progress</div>
+            <div class="text-wrapper-10">Jane Smith</div>
+            <div class="responsibility">Aspect 2</div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Include the footer (if applicable) -->
     <!--#include virtual="footer.html" -->
     <script src="js/pages/forms.js"></script>
-</body>
-
+  </body>
 </html>

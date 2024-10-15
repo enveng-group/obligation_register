@@ -1,20 +1,20 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
     "workbench.startupEditor": "none",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "git.autofetch": true,
     "npm-intellisense.importES6": true,
@@ -33,83 +33,107 @@
     "licenser.useSingleLineStyle": true,
     "licenser.customTermsAndConditions": "Copyright @YEAR@ @AUTHOR@\n\nThese are the terms and conditions...",
     "licenser.excludeFileExtensions": [
-        "txt", "sqlite3", "sql", "md", "jpg", "jpeg", "svg", "png", "ico", "crt", "pem", "der",
-        ".gitignore", ".gitattributes", ".gitmodules", ".gitkeep", ".DS_Store", ".editorconfig",
-        ".eslintrc", ".prettierrc", ".prettierignore", ".vscode", ".eslintrc.json", ".babelrc",
-        ".env", ".nvmrc", ".dockerignore", ".editorconfig, webp"
+      "txt",
+      "sqlite3",
+      "sql",
+      "md",
+      "jpg",
+      "jpeg",
+      "svg",
+      "png",
+      "ico",
+      "crt",
+      "pem",
+      "der",
+      ".gitignore",
+      ".gitattributes",
+      ".gitmodules",
+      ".gitkeep",
+      ".DS_Store",
+      ".editorconfig",
+      ".eslintrc",
+      ".prettierrc",
+      ".prettierignore",
+      ".vscode",
+      ".eslintrc.json",
+      ".babelrc",
+      ".env",
+      ".nvmrc",
+      ".dockerignore",
+      ".editorconfig, webp",
     ],
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+      "source.fixAll.eslint": "explicit",
     },
     "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
     ],
     "prettier.requireConfig": true,
     "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "**/dist": true,
-        "**/coverage": true
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/coverage": true,
     },
     "files.watcherExclude": {
-        "**/node_modules/**": true,
-        "**/dist/**": true,
-        "**/coverage/**": true
+      "**/node_modules/**": true,
+      "**/dist/**": true,
+      "**/coverage/**": true,
     },
     "files.associations": {
-        ".env*": "dotenv"
+      ".env*": "dotenv",
     },
     "editor.tokenColorCustomizations": {
-        "[*Light*]": {
-            "textMateRules": [
-                {
-                    "scope": "ref.matchtext",
-                    "settings": {
-                        "foreground": "#000"
-                    }
-                }
-            ]
-        },
-        "[*Dark*]": {
-            "textMateRules": [
-                {
-                    "scope": "ref.matchtext",
-                    "settings": {
-                        "foreground": "#fff"
-                    }
-                }
-            ]
-        },
-        "textMateRules": []
+      "[*Light*]": {
+        "textMateRules": [
+          {
+            "scope": "ref.matchtext",
+            "settings": {
+              "foreground": "#000",
+            },
+          },
+        ],
+      },
+      "[*Dark*]": {
+        "textMateRules": [
+          {
+            "scope": "ref.matchtext",
+            "settings": {
+              "foreground": "#fff",
+            },
+          },
+        ],
+      },
+      "textMateRules": [],
     },
     "dotenv.enableAutocloaking": false,
     "github.copilot.enable": {
-        "plaintext": true,
-        "markdown": true,
-        "css": true,
-        "diff": true,
-        "dockerfile": true,
-        "git": true,
-        "html": true,
-        "ini": true,
-        "javascript": true,
-        "javascriptreact": true,
-        "json": true,
-        "jsonc": true,
-        "sql": true,
-        "typescript": true,
-        "typescriptreact": true,
-        "yaml": true
+      "plaintext": true,
+      "markdown": true,
+      "css": true,
+      "diff": true,
+      "dockerfile": true,
+      "git": true,
+      "html": true,
+      "ini": true,
+      "javascript": true,
+      "javascriptreact": true,
+      "json": true,
+      "jsonc": true,
+      "sql": true,
+      "typescript": true,
+      "typescriptreact": true,
+      "yaml": true,
     },
     "github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
     "github.copilot.chat.experimental.inlineChatHint.enabled": true,
     "git.confirmSync": false,
     "editor.codeActionsOnSave": {
-    "source.fixAll.shellcheck": "explicit"
-  }
-}
+      "source.fixAll.shellcheck": "explicit",
+    },
+  },
 }

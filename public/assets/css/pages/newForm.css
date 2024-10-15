@@ -16,71 +16,71 @@
  */
 
 .forms-new {
-    padding: 20px;
+  padding: 20px;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #a2b18b;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a2b18b;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .header img {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .header h1 {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: bold;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .navigation-bar {
-    background-color: #c2ceb4;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  background-color: #c2ceb4;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .navigation-bar a {
-    color: black;
+  color: black;
 }
 
 .body {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .new-form-icons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .new-form-icons .img-wrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .button {
-    background-color: #a2b18b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #a2b18b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .button:hover {
-    background-color: #8d9c74;
+  background-color: #8d9c74;
 }

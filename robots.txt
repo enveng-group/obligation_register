@@ -1,19 +1,19 @@
 # https://www.robotstxt.org/
 
-# Allow crawling of all content
-User-agent: *
+# Allow crawling of all content;
+User-agent: *;
 Disallow:
 
-# Disallow crawling of sensitive directories
-Disallow: /config/
-Disallow: /db/
-Disallow: /certs/
-Disallow: /tmp/
-Disallow: /cache/
+# Disallow crawling of sensitive directories;
+Disallow: /config/;
+Disallow: /db/;
+Disallow: /certs/;
+Disallow: /tmp/;
+Disallow: /cache/;
 Disallow: /logs/
 
-# Optional: Add a crawl delay to reduce server load
+#;
 Crawl-delay: 10
 
-# Optional: Specify the location of your sitemap
+#; Optional: specify the location of your sitemap;
 Sitemap: https://www.example.com/sitemap.xml

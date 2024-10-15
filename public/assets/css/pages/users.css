@@ -16,39 +16,39 @@
  */
 
 .body {
-    background-color: #f8f9fa;
-    padding: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .rectangle {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .form-list-icons .img-wrapper {
-    display: inline-block;
-    margin-right: 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .form-list-icons .img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #343a40;
-    color: white;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
 }
 
 .navbar .text-wrapper-7 {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .users-container {
-    margin-top: 20px;
+  margin-top: 20px;
 }

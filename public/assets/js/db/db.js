@@ -12,18 +12,17 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 /// public/assets/js/db.js
 async function initDatabase() {
-  const SQL = await initSqlJs({
-    locateFile: file => `https://cdn.jsdelivr.net/npm/sql.js@1.6.1/dist/${file}`
-  });
-
-  // Create a new database
-  const db = new SQL.Database();
-
-  // Create the choices table
-  db.run(`
+    const SQL = await initSqlJs({
+        locateFile: (file) => `https://cdn.jsdelivr.net/npm/sql.js@1.6.1/dist/${file}`,
+    });
+    
+    // Create a new database
+    const db = new SQL.Database();
+    
+    // Create the choices table
+    db.run(`
     CREATE TABLE IF NOT EXISTS choices (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       Project_Name TEXT,
@@ -56,8 +55,8 @@ async function initDatabase() {
     );
   `);
 
-  // Create the users table
-  db.run(`
+    // Create the users table
+    db.run(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT,
@@ -67,8 +66,10 @@ async function initDatabase() {
       accountability TEXT
     );
   `);
-
-  return db;
+    
+    return db;
 }
 
-export { initDatabase };
+export {
+    initDatabase,
+};

@@ -17,17 +17,17 @@
 
 /* forms.css */
 .forms {
-    padding: 20px;
+  padding: 20px;
 }
 
 .form-list-icons {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Add more page-specific styles here */

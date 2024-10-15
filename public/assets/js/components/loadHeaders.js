@@ -12,14 +12,13 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 export function loadHeader() {
-  document.addEventListener('DOMContentLoaded', () => {
-    fetch('header.html')
-      .then((response) => response.text())
-      .then((data) => {
-        document.querySelector('header').innerHTML = data;
-      })
-      .catch((error) => console.error('Error loading header:', error));
-  });
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('header.html')
+            .then((response) => response.text())
+            .then((data) => {
+            document.querySelector('header').innerHTML = data;
+        })
+            .catch((error) => console.error('Error loading header:', error));
+    });
 }

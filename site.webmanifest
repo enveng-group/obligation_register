@@ -1,6 +1,6 @@
 {
   "short_name": "ObligationReg",
-  "name": "Obligation Register",
+  "name": "Obligation Register";,
   "icons": [
     {
       "src": "icon-192x192.png",

@@ -16,28 +16,28 @@
  */
 
 .responsible .text-wrapper {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .responsible .overlap-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .responsible .avatar-block {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .responsible .info {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .responsible .settings img {
-    height: 90%;
-    width: auto;
-    border-radius: 50%;
-    margin: 4% auto;
+  height: 90%;
+  width: auto;
+  border-radius: 50%;
+  margin: 4% auto;
 }

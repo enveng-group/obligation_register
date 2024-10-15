@@ -12,20 +12,19 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
+// Import critical functions from services.js and helper.js
+import {fetchData} from './services.js';
+import {formatDate, capitalize} from './helper.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Critical scripts loaded');
-  // Add any critical JavaScript code here
+    console.log('Critical scripts loaded');
+    // Add any critical JavaScript code here
 });
-
-// Import critical functions from services.js and helper.js
-import { fetchData } from './services.js';
-import { formatDate, capitalize } from './helper.js';
 
 // Example usage of critical functions
 fetchData('/api/data')
-  .then(data => console.log('Fetched data:', data))
-  .catch(error => console.error('Error fetching data:', error));
+    .then((data) => console.log('Fetched data:', data))
+    .catch((error) => console.error('Error fetching data:', error));
 
 console.log('Formatted date:', formatDate(new Date()));
 console.log('Capitalized string:', capitalize('example'));

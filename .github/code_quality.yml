@@ -1,61 +1,57 @@
-﻿name: Code Quality
-
-on: [push, pull_request]
-
+name: Code Quality
+on:
+  - push
+  - pull_request
 jobs:
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: '18'
-
+          bun-version: latest
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version:
+            - 18.x
+            - 20.x
+            - 22.x
       - name: Install dependencies
-        run: npm install
-
+        run: bun i --no-save
       - name: Run ESLint
         run: npm run lint
-
       - name: Run Prettier
         run: npm run prettier:check
-
   test:
     name: Run Tests
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
+          node-version:
+            - 18.x
+            - 20.x
+            - 22.x
       - name: Install dependencies
-        run: npm install
-
+        run: bun i --no-save
       - name: Run Jest
         run: npm test
-
   dependabot:
     name: Dependabot
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4
       - name: Set up Dependabot
         uses: dependabot/dependabot-script@v1
         with:
-          package-manager: 'npm_and_yarn'
-          directory: '/'
-          target-branch: 'main'
+          package-manager: npm_and_yarn
+          directory: /
+          target-branch: main
           open-pull-requests-limit: 5

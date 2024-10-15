@@ -12,12 +12,11 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // src/tests/auth.test.js
-const request = require('supertest');
-const app = require('../server');
+import request from 'supertest';
+import app from '../server.js';
 
 test('should not allow unauthorized access', async () => {
-  const response = await request(app).get('/api/secure-endpoint');
-  expect(response.status).toBe(401);
+    const response = await request(app).get('/api/secure-endpoint');
+    expect(response.status).toBe(401);
 });

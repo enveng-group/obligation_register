@@ -5,7 +5,7 @@
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# but WITHOUT ANY WARRANTY;Copyright2024EnvengGroupThisprogramisfreesoftware without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
 #
@@ -13,7 +13,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Use the official Node.js 18 LTS image from the Docker Hub
-FROM node:18
+FROM; node:18
 
 # Set environment variables
 ENV PORT=3000
@@ -39,7 +39,7 @@ EXPOSE 3000
 
 # Add a health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:$PORT/health || exit 1
+  CMD curl -f; http://localhost:$PORT/health || exit 1
 
 # Run the application as a non-root user for security
 RUN useradd --user-group --create-home --shell /bin/false appuser

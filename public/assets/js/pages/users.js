@@ -12,28 +12,30 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // public/assets/js/pages/users.js
-import { initDatabase } from '../db.js';
+import {initDatabase} from '../db.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchUsers();
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchUsers();
 });
 
 async function fetchUsers() {
-  const db = await initDatabase();
-  const result = db.exec('SELECT * FROM users');
-  renderUsers(result[0].values);
+    const db = await initDatabase();
+    const result = db.exec('SELECT * FROM users');
+    renderUsers(result[0].values);
 }
 
 function renderUsers(users) {
-  const container = document.querySelector('.users-container');
-  container.innerHTML = ''; // Clear existing content
-
-  users.forEach(user => {
-    const userElement = document.createElement('div');
-    userElement.className = 'user';
-    userElement.innerHTML = `
+    const container = document.querySelector('.users-container');
+    
+    container.innerHTML = '';
+    // Clear existing content
+    
+    for (const user of users) {
+        const userElement = document.createElement('div');
+        
+        userElement.className = 'user';
+        userElement.innerHTML = `
       <div class="user-info">
         <span>${user[1]}</span>
         <span>${user[2]}</span>
@@ -44,37 +46,52 @@ function renderUsers(users) {
         <button onclick="deleteUser(${user[0]})">Delete</button>
       </div>
     `;
-    container.appendChild(userElement);
-  });
+        container.appendChild(userElement);
+    }
 }
 
 async function addUser(user) {
-  const db = await initDatabase();
-  db.run(`
+    const db = await initDatabase();
+    
+    db.run(`
     INSERT INTO users (username, first_name, last_name, email, accountability)
     VALUES (?, ?, ?, ?, ?)
-  `, [user.username, user.first_name, user.last_name, user.email, user.accountability]);
-  fetchUsers();
+  `, [
+        user.username,
+        user.first_name,
+        user.last_name,
+        user.email,
+        user.accountability,
+    ]);
+    await fetchUsers();
 }
 
 async function editUser() {
-  // Fetch user data and populate the form for editing
+    // Fetch user data and populate the form for editing
 }
 
 async function updateUser(user) {
-  const db = await initDatabase();
-  db.run(`
+    const db = await initDatabase();
+    
+    db.run(`
     UPDATE users
     SET username = ?, first_name = ?, last_name = ?, email = ?, accountability = ?
     WHERE id = ?
-  `, [user.username, user.first_name, user.last_name, user.email, user.accountability, user.id]);
-  fetchUsers();
+  `, [
+        user.username,
+        user.first_name,
+        user.last_name,
+        user.email,
+        user.accountability,
+        user.id,
+    ]);
+    await fetchUsers();
 }
 
 async function deleteUser(id) {
-  const db = await initDatabase();
-  db.run('DELETE FROM users WHERE id = ?', [id]);
-  fetchUsers();
+    const db = await initDatabase();
+    db.run('DELETE FROM users WHERE id = ?', [id]);
+    await fetchUsers();
 }
 
 window.addUser = addUser;

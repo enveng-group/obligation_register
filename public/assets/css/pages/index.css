@@ -16,41 +16,49 @@
  */
 
 .dashboard {
-    padding: 20px;
+  padding: 20px;
 }
 
 .diagram-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .diagram-management {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.rectangle, .rectangle-2, .rectangle-3, .rectangle-4, .rectangle-5, .rectangle-6, .rectangle-7, .rectangle-8 {
-    background-color: #e0e0e0;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+.rectangle,
+.rectangle-2,
+.rectangle-3,
+.rectangle-4,
+.rectangle-5,
+.rectangle-6,
+.rectangle-7,
+.rectangle-8 {
+  background-color: #e0e0e0;
+  height: 50px;
+  width: 50px;
+  margin: 5px;
 }
 
-.image-icon, .data-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+.image-icon,
+.data-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  margin: 5px;
 }
 
 .text-wrapper {
-    color: #333;
+  color: #333;
 }
 
 /* Add more page-specific styles here */

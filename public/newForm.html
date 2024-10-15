@@ -18,28 +18,27 @@
 -->
 
 <html lang="en_AU">
+  <!-- Include the head -->
+  <!--#include virtual="head.html" -->
 
-<!-- Include the head -->
-<!--#include virtual="head.html" -->
+  <body>
+    <!-- Include the header -->
+    <!--#include virtual="header.html" -->
 
-<body>
-  <!-- Include the header -->
-  <!--#include virtual="header.html" -->
+    <form id="newUserForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" required />
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="accountability">Accountability:</label>
+      <input type="text" id="accountability" name="accountability" required />
+      <button type="submit">Add User</button>
+    </form>
 
-  <form id="newUserForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" required>
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="accountability">Accountability:</label>
-    <input type="text" id="accountability" name="accountability" required>
-    <button type="submit">Add User</button>
-  </form>
-
-  <script src="js/pages/newform.js"></script>
-</body>
+    <script src="js/pages/newform.js"></script>
+  </body>
 </html>

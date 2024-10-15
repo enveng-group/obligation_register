@@ -1,355 +1,40 @@
-Up to jshint
-npm run lint:js
+Prettier: Format your code for consistency.
+ESLint / standard / putout: Lint your JavaScript code.
+Stylelint / csscomb: Lint and sort your CSS/SCSS.
+HTMLHint / ****html-validate / bootlint: Lint your HTML files.
+W3C HTML Validator: Validate your HTML for standards compliance.
+markdownlint: Lint Markdown files.
+textlint: Lint text files.
+dotenv-linter: Lint .env files.
+csvlint: Validate CSV files.
+dockerfilelint: Lint Dockerfiles.
+shellcheck / shellharden: Lint and harden shell scripts.
+sqlfluff / sqllint: Lint SQL files.
+spectral: Lint OpenAPI/Swagger files.
+dbcritic: Lint database schemas.
+clang-format: Format C/C++ code.
+cppcheck: Analyze C/C++ code for bugs.
+JSDoc: Generate documentation from your JavaScript comments.
+npm audit / Snyk / retire.js: Check for vulnerabilities in your dependencies and code.
+Depcheck: Identify unused dependencies.
+Jest: Run unit tests.
+Cypress: Run end-to-end tests.
+NYC: Generate code coverage reports.
+SonarQube / deepscan / flow: Perform static code analysis and type checking.
+Docker Compose: Manage multi-container Docker applications.
+GitHub Actions: Automate workflows.
+commitlint: Enforce commit message conventions.
+Prometheus: Monitor your application.
+ELK Stack: Collect and analyze logs.
+lockfile-lint: Lint lockfiles.
+npmpackagejsonlint: Lint package.json files.
+
+run to test debug
+
+webpack bable
+
+docker file
 
-
-Yes, HTML can be linted using various tools to ensure code quality and adherence to best practices. Here are some popular HTML linting tools:
-
-### 1. **HTMLHint**
-
-HTMLHint is a static code analysis tool for HTML. It helps you detect errors and potential problems in your HTML code.
-
-#### Installation
-
-```sh
-npm install htmlhint --save-dev
-```
-
-#### Configuration
-
-Create a `.htmlhintrc` file in the root of your project:
-
-```json
-{
-  "tagname-lowercase": true,
-  "attr-lowercase": true,
-  "attr-value-double-quotes": true,
-  "doctype-first": true,
-  "tag-pair": true,
-  "spec-char-escape": true,
-  "id-unique": true,
-  "src-not-empty": true,
-  "attr-no-duplication": true
-}
-```
-
-#### Add Script to
-
-package.json
-
-
-
-Add the following script to your
-
-package.json
-
-:
-
-```json
-"scripts": {
-  "lint:html": "htmlhint 'public/**/*.html'"
-}
-```
-
-#### Run HTMLHint
-
-```sh
-npm run lint:html
-```
-
-### 2. **W3C HTML Validator**
-
-The W3C HTML Validator is an online tool that checks the validity of HTML documents. You can also use it as a command-line tool.
-
-#### Installation
-
-```sh
-npm install vnu-jar --save-dev
-```
-
-#### Add Script to
-
-package.json
-
-
-
-Add the following script to your
-
-package.json
-
-:
-
-```json
-"scripts": {
-  "lint:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only public/"
-}
-```
-
-#### Run W3C HTML Validator
-
-```sh
-npm run lint:html
-```
-
-### 3. **Prettier**
-
-Prettier is an opinionated code formatter that supports HTML. It ensures consistent formatting across your HTML files.
-
-#### Installation
-
-```sh
-npm install prettier --save-dev
-```
-
-#### Add Script to
-
-package.json
-
-
-
-Add the following script to your
-
-package.json
-
-:
-
-```json
-"scripts": {
-  "format:html": "prettier --write 'public/**/*.html'"
-}
-```
-
-#### Run Prettier
-
-```sh
-npm run format:html
-```
-
-### Summary
-
-1. **HTMLHint**: For static code analysis and linting.
-2. **W3C HTML Validator**: For validating HTML documents.
-3. **Prettier**: For consistent formatting.
-
-
-
-Instanbul
-
-JSDOC
-
-npm audit
-
-json5
-
-globals
-
-AirBnb Javascript Style
-
-
-By using these tools, you can ensure that your HTML code is clean, valid, and consistently formatted.
-### 2. Testing
-
-#### Jest
-1. Install Jest:
-   ```sh
-   npm install jest --save-dev
-   ```
-2. Add Jest configuration to
-
-package.json
-
-:
-   ```json
-   "jest": {
-     "testEnvironment": "node"
-   }
-   ```
-3. Add test scripts to
-
-package.json
-
-:
-   ```json
-   "scripts": {
-     "test": "jest",
-     "test:watch": "jest --watch",
-     "test:coverage": "jest --coverage"
-   }
-   ```
-
-#### Cypress
-1. Install Cypress:
-   ```sh
-   npm install cypress --save-dev
-   ```
-2. Open Cypress to create the initial configuration:
-   ```sh
-   npx cypress open
-   ```
-3. Add Cypress script to
-
-package.json
-
-:
-   ```json
-   "scripts": {
-     "cypress:open": "cypress open",
-     "cypress:run": "cypress run"
-   }
-   ```
-
-### 3. Code Coverage
-
-#### Istanbul/NYC
-1. Install NYC:
-   ```sh
-   npm install nyc --save-dev
-   ```
-2. Add NYC configuration to
-
-package.json
-
-:
-   ```json
-   "nyc": {
-     "reporter": ["text", "lcov"],
-     "all": true
-   }
-   ```
-3. Add coverage script to
-
-package.json
-
-:
-   ```json
-   "scripts": {
-     "coverage": "nyc npm test"
-   }
-   ```
-
-### 4. Static Code Analysis
-
-#### SonarQube
-1. Run SonarQube using Docker:
-   ```sh
-   docker run -d --name sonarqube -p 9000:9000 sonarqube
-   ```
-2. Access SonarQube at `http://localhost:9000` and follow the setup instructions.
-
-### 5. Dependency Management
-
-#### Depcheck
-1. Install Depcheck:
-   ```sh
-   npm install depcheck --save-dev
-   ```
-2. Add depcheck script to
-
-package.json
-
-:
-   ```json
-   "scripts": {
-     "depcheck": "depcheck"
-   }
-   ```
-
-### 6. Security
-
-#### Snyk
-1. Install Snyk:
-   ```sh
-   npm install snyk --save-dev
-   ```
-2. Authenticate Snyk:
-   ```sh
-   npx snyk auth
-   ```
-3. Add Snyk test script to
-
-package.json
-
-:
-   ```json
-   "scripts": {
-     "snyk:test": "snyk test"
-   }
-   ```
-
-### 7. Docker
-
-#### Docker Compose
-1. Create a `docker-compose.yml` file:
-   ```yaml
-   version: '3'
-   services:
-     app:
-       build: .
-       ports:
-         - "3000:3000"
-       env_file:
-         - .env
-   ```
-2. Run Docker Compose:
-   ```sh
-   docker-compose up
-   ```
-
-### 8. CI/CD
-
-#### GitHub Actions
-1. Create a `.github/workflows/ci.yml` file:
-   ```yaml
-   name: CI
-   on: [push]
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v2
-         - name: Set up Node.js
-           uses: actions/setup-node@v2
-           with:
-             node-version: '14'
-         - run: npm install
-         - run: npm run lint
-         - run: npm test
-         - run: npm run build
-   ```
-
-### 9. Monitoring and Logging
-
-#### Prometheus
-1. Run Prometheus using Docker:
-   ```sh
-   docker run -d --name prometheus -p 9090:9090 prom/prometheus
-   ```
-
-#### ELK Stack
-1. Create a `docker-compose.yml` file for ELK Stack:
-   ```yaml
-   version: '3'
-   services:
-     elasticsearch:
-       image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
-       environment:
-         - discovery.type=single-node
-       ports:
-         - "9200:9200"
-     logstash:
-       image: docker.elastic.co/logstash/logstash:7.10.1
-       ports:
-         - "5000:5000"
-     kibana:
-       image: docker.elastic.co/kibana/kibana:7.10.1
-       ports:
-         - "5601:5601"
-   ```
-2. Run ELK Stack:
-   ```sh
-   docker-compose up -d
-   ```
-
-By following these steps, you can set up a comprehensive development environment with linting, testing, building, and monitoring tools.
 
 
 cloudflared.exe service install eyJhIjoiYjM0YWJjMzlhZTA5NzlmZWYxOWY3NzNhZmNlMmUyZGYiLCJ0IjoiMDM0YjFlODEtYmE4OS00NTY4LWJlMzktY2I0MDg5MDQ5Mzc5IiwicyI6Ik1qVTBObVk0TTJZdE9HSmhZeTAwWlRBM0xXRTBZMkl0WkdZMFpqUTNPR1prWmpZeiJ9

@@ -16,94 +16,94 @@
  */
 
 body {
-    padding: 20px;
+  padding: 20px;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #a2b18b;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a2b18b;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 header img {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 header h1 {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: bold;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 nav {
-    background-color: #c2ceb4;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  background-color: #c2ceb4;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 nav a {
-    color: black;
+  color: black;
 }
 
 main {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .quick-links {
-    background-color: #d8d0c1;
-    padding: 10px;
-    border-radius: 10px;
-    width: 14%;
-    position: relative;
+  background-color: #d8d0c1;
+  padding: 10px;
+  border-radius: 10px;
+  width: 14%;
+  position: relative;
 }
 
 .quick-links h2 {
-    font-weight: bold;
-    margin-bottom: 10px;
-    cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .quick-links ul {
-    display: none;
-    position: absolute;
-    background-color: #d8d0c1;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  display: none;
+  position: absolute;
+  background-color: #d8d0c1;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 }
 
 .quick-links ul li {
-    padding: 5px;
+  padding: 5px;
 }
 
 .quick-links ul li:hover {
-    background-color: #8d9c74;
+  background-color: #8d9c74;
 }
 
 .flex-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .flex-container a {
-    background-color: #a2b18b;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
+  background-color: #a2b18b;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .flex-container button {
-    background-color: #a2b18b;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
+  background-color: #a2b18b;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
 }

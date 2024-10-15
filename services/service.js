@@ -12,16 +12,16 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 export const fetchData = async (url) => {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    try {
+        const response = await fetch(url);
+        
+        if (!response.ok)
+            throw Error('Network response was not ok');
+        
+        return await response.json();
+    } catch(error) {
+        console.error('Fetch error:', error);
+        throw error;
     }
-    return await response.json();
-  } catch (error) {
-    console.error('Fetch error:', error);
-    throw error;
-  }
 };

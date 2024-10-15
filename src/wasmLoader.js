@@ -12,13 +12,13 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // src/wasmLoader.js
 async function loadWasm() {
-  const response = await fetch('/assets/wasm/encryption.wasm');
-  const buffer = await response.arrayBuffer();
-  const wasmModule = await WebAssembly.instantiate(buffer);
-  return wasmModule.instance.exports;
+    const response = await fetch('/assets/wasm/encryption.wasm');
+    const buffer = await response.arrayBuffer();
+    const wasmModule = await WebAssembly.instantiate(buffer);
+    
+    return wasmModule.instance.exports;
 }
 
 export default loadWasm;

@@ -12,16 +12,16 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/users')
-    .then((response) => response.json())
-    .then((users) => {
-      const usersContainer = document.querySelector('.users-container');
-      users.forEach((user) => {
-        const userDiv = document.createElement('div');
-        userDiv.classList.add('navbar-2');
-        userDiv.innerHTML = `
+    fetch('/api/users')
+        .then((response) => response.json())
+        .then((users) => {
+        const usersContainer = document.querySelector('.users-container');
+        
+        for (const user of users) {
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('navbar-2');
+            userDiv.innerHTML = `
           <div class="checkboxes">
             <div class="state-layer">
               <input type="checkbox" class="container-2" name="" id="">
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="text-wrapper-8">${user.email}</div>
           <div class="text-wrapper-8">${user.accountability}</div>
         `;
-        usersContainer.appendChild(userDiv);
-      });
+            usersContainer.appendChild(userDiv);
+        }
     })
-    .catch((error) => console.error('Error fetching users:', error));
+        .catch((error) => console.error('Error fetching users:', error));
 });

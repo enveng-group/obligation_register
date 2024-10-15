@@ -12,13 +12,12 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 // src/tests/api.test.js
-const request = require('supertest');
-const app = require('../server');
+import request from 'supertest';
+import app from '../server.js';
 
 test('GET /api/choices should return choices', async () => {
-  const response = await request(app).get('/api/choices');
-  expect(response.status).toBe(200);
-  expect(response.body).toBeInstanceOf(Array);
+    const response = await request(app).get('/api/choices');
+    expect(response.status).toBe(200);
+    expect(response.body).toBeInstanceOf(Array);
 });

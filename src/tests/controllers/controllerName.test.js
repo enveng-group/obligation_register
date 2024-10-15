@@ -12,14 +12,15 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-const request = require('supertest');
-const app = require('../../server');
+import request from 'supertest';
+import app from '../../server.js';
 
 describe('ControllerName', () => {
-  it('should return the correct response', async () => {
-    const response = await request(app).get('/api/endpoint');
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual({ key: 'value' });
-  });
+    it('should return the correct response', async () => {
+        const response = await request(app).get('/api/endpoint');
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({
+            key: 'value',
+        });
+    });
 });

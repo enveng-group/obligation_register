@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Head scripts loaded');
     // Add any specific JavaScript for the head section here

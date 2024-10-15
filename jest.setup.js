@@ -1,26 +1,20 @@
 // Copyright (C) 2024 Enveng Group
 //
 // This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as
-// published by the Free Software Foundation, either version 3 of the
-// License, or (at your option) any later version.
+// it under the terms of the gnu affero general public license as
+// published by the free software foundation, either version 3 of the
+// license, or (at your option) any later version.
 //
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// this program is distributed in the hope that it will be useful,
+// but without any warranty;Copyright2024EnvengGroupThisprogramisfreesoftware without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Affero General Public License for more details.
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import '@testing-library/jest-dom/extend-expect';
-
-// Additional setup can be added here
-// For example, you can mock global objects or set up other testing utilities
-
-// Example: Mocking a global object
-global.fetch = jest.fn(() =>
-  Promise.resolve({
+// additional setup can be added here
+// for example, you can mock global objects or set up other testing utilities
+//; Example: Mocking a global object
+global.fetch = jest.fn(() => Promise.resolve({
     json: () => Promise.resolve({}),
-  }),
-);
+}))

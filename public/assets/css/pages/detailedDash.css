@@ -16,16 +16,16 @@
  */
 
 .detailed-dashboard {
-    padding: 20px;
+  padding: 20px;
 }
 
 .project-phase {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .statistics {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Add more page-specific styles here */

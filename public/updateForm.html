@@ -18,65 +18,80 @@
 -->
 
 <html lang="en_AU">
-<!-- Include the head -->
-<!--#include virtual="head.html" -->
-<!-- Include the header -->
-<!--#include virtual="header.html" -->
+  <!-- Include the head -->
+  <!--#include virtual="head.html" -->
+  <!-- Include the header -->
+  <!--#include virtual="header.html" -->
 
-<head>
-    <link rel="stylesheet" href="css/pages/updateForm.css">
-</head>
+  <head>
+    <link rel="stylesheet" href="css/pages/updateForm.css" />
+  </head>
 
-<body>
+  <body>
     <div class="forms-new">
-        <div class="div">
-            <header class="header">
-                <img class="rectangle" src="/img/rectangle-2.svg" />
-                <div class="rectangle-2"></div>
-                <div class="text-wrapper">Environmental Compliance Management System</div>
-                <div class="navigation-bar">
-                    <div class="overlap-group">
-                        <!-- Navigation content -->
-                    </div>
-                </div>
-                <img class="enveng-logo" src="/img/enveng-logo-1.svg" />
-                <div class="rectangle-3"></div>
-                <div class="avatar-block">
-                    <a class="btn btn-warning" href="/logout"> Logout</a>
-                    <div class="avatar">
-                        <img src="/img/avatar.png" alt="Avatar">
-                    </div>
-                    <div class="info">
-                        <!-- User info content -->
-                    </div>
-                </div>
-                <div class="settings">
-                    <img class="enveng-logo" style="height: 90%;width: auto;border-radius: 50%;margin: 4% auto;" />
-                </div>
-                <img class="help-circle" src="/img/help-circle.svg" />
-            </header>
-            <div class="body">
-                <div class="rectangle-4"></div>
-                <div class="new-form-icons">
-                    <div class="rectangle-5"></div>
-                    <div class="img-wrapper"><img class="img" src="/img/external-link-2.svg" /></div>
-                    <div class="img-wrapper"><img class="img" src="/img/save-5.svg" /></div>
-                    <div class="img-wrapper"><img class="img" onclick="newform()" src="/img/plus-2.svg" /></div>
-                </div>
-                <form id="updateForm" method="post" action="/submitupdateform">
-                    <input type="hidden" name="responsibility_id" value="2" />
-                    <input type="hidden" name="modified_by_id" value="2" />
-                    <div class="frame">
-                        <!-- Form fields will be populated by JavaScript -->
-                    </div>
-                </form>
-                <div id="form-response"></div>
+      <div class="div">
+        <header class="header">
+          <img class="rectangle" src="/img/rectangle-2.svg" />
+          <div class="rectangle-2"></div>
+          <div class="text-wrapper">
+            Environmental Compliance Management System
+          </div>
+          <div class="navigation-bar">
+            <div class="overlap-group">
+              <!-- Navigation content -->
             </div>
+          </div>
+          <img class="enveng-logo" src="/img/enveng-logo-1.svg" />
+          <div class="rectangle-3"></div>
+          <div class="avatar-block">
+            <a class="btn btn-warning" href="/logout"> Logout</a>
+            <div class="avatar">
+              <img src="/img/avatar.png" alt="Avatar" />
+            </div>
+            <div class="info">
+              <!-- User info content -->
+            </div>
+          </div>
+          <div class="settings">
+            <img
+              class="enveng-logo"
+              style="
+                height: 90%;
+                width: auto;
+                border-radius: 50%;
+                margin: 4% auto;
+              "
+            />
+          </div>
+          <img class="help-circle" src="/img/help-circle.svg" />
+        </header>
+        <div class="body">
+          <div class="rectangle-4"></div>
+          <div class="new-form-icons">
+            <div class="rectangle-5"></div>
+            <div class="img-wrapper">
+              <img class="img" src="/img/external-link-2.svg" />
+            </div>
+            <div class="img-wrapper">
+              <img class="img" src="/img/save-5.svg" />
+            </div>
+            <div class="img-wrapper">
+              <img class="img" onclick="newform()" src="/img/plus-2.svg" />
+            </div>
+          </div>
+          <form id="updateForm" method="post" action="/submitupdateform">
+            <input type="hidden" name="responsibility_id" value="2" />
+            <input type="hidden" name="modified_by_id" value="2" />
+            <div class="frame">
+              <!-- Form fields will be populated by JavaScript -->
+            </div>
+          </form>
+          <div id="form-response"></div>
         </div>
+      </div>
     </div>
     <!-- Include the footer (if applicable) -->
     <!--#include virtual="footer.html" -->
     <script src="js/pages/updateForm.js"></script>
-</body>
-
+  </body>
 </html>

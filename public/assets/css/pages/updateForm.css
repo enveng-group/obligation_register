@@ -16,36 +16,36 @@
  */
 
 .forms-new {
-    background-color: #f8f9fa;
-    padding: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .rectangle {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .text-wrapper {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .new-form-icons .img-wrapper {
-    display: inline-block;
-    margin-right: 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .new-form-icons .img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .frame {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #form-response {
-    margin-top: 20px;
-    color: red;
+  margin-top: 20px;
+  color: red;
 }

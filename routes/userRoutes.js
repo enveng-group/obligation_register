@@ -12,18 +12,17 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 import express from 'express';
-import { getUsers } from '../controllers/userController.js';
+import tryCatch from 'try-catch';
+import {getUsers} from '../controllers/userController.js';
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  try {
-    getUsers(req, res);
-  } catch (error) {
-    next(error);
-  }
+    const [error] = tryCatch(getUsers, req, res);
+    
+    if (error)
+        next(error);
 });
 
 export default router;
