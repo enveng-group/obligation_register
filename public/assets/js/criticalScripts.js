@@ -16,16 +16,15 @@
 
 import {fetchData} from '../../../services/service.js';
 import {formatDate, capitalize} from '../../../utils/helper.js';
-import { initSqlJs } from 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.js';
-initSqlJs().then((SQL) => {
-  const db = new SQL.Database();
-  // You can now use the `db` object to interact with the database
-  console.log('SQL.js initialized');
+import initSqlJs from 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.js';
+
+export const initSqlJsPromise = initSqlJs({
+    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.11.0/sql-wasm.wasm`
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Critical scripts loaded');
-  // Add any critical JavaScript code here
+    console.log('Critical scripts loaded');
+    // Add any critical JavaScript code here
 });
 
 // Example usage of critical functions
