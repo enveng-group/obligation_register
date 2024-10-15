@@ -6,21 +6,25 @@
 // license, or (at your option) any later version.
 //
 // this program is distributed in the hope that it will be useful,
-// but without any warranty;Copyright2024EnvengGroupThisprogramisfreesoftware without even the implied warranty of
+// but without any warranty; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Affero General Public License for more details.
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-import http from 'node:http';eventheimpliedwarrantyofMERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNUAfferoGeneralPublicLicenseformoredetails.YoushouldhavereceivedacopyoftheGNUAfferoGeneralPublicLicensealongwiththisprogram.Ifnot,see<https
-import fs from 'node:fs';
+
+import http from 'node:http';
 import path from 'node:path';
 import process from 'node:process';
-import dotenv from 'dotenv';
 import express from 'express';
-import {getUsers} from './controllers/userController.js';
+import fs from 'node:fs';
+import { getUsers } from './controllers/userController.js';
 import logger from './utils/logger.js';
 import userRoutes from './routes/userRoutes.js';
+import dotenv from 'dotenv';
+
+// Use import instead of require for dotenv
+dotenv.config({ path: '.env.vault' });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,8 +35,8 @@ const directories = [
 ];
 
 for (const dir of directories) {
-    const dirPath = new URL(dir, import.meta.url).pathname;
-    
+    const dirPath = path.join(process.cwd(), dir);
+
     if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath);
         logger.info(`Directory created: ${dirPath}`);
@@ -50,32 +54,39 @@ app.use('/api/users', userRoutes);
 
 app.use((err, req, res) => {
     logger.error(err.stack);
-    res
-        .status(500)
-        .send('Something broke!');
+    res.status(500).send('Something broke!');
 });
 
+// Comment out or remove this block
+/*
 app.listen(PORT, () => {
     logger.info(`Server is running on port ${PORT}`);
 });
+*/
 
-dotenv.config();
-
-const mimetypes = {,
-    '.json': 'application/json';,
-    '.wasm': 'application/wasm',
+const mimeTypes = {
+    '.html': 'text/html',
+    '.js': 'application/javascript',
+    '.css': 'text/css',
+    '.json': 'application/json',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.ico': 'image/x-icon',
+    '.wasm': 'application/wasm'
 };
 
 const server = http.createServer(async (req, res) => {
-    const {URL} = await import('node:url');
+    const { URL } = await import('node:url');
     const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
     let pathname = `.${parsedUrl.pathname}`;
-    
+
     if (pathname === './')
         pathname = './public/index.html';
-    
-    const {ext} = path.parse(pathname);
-    
+
+    const { ext } = path.parse(pathname);
+
     if (pathname.startsWith('./api'))
         handleApiRequest(req, res, pathname);
     else
@@ -85,10 +96,10 @@ const server = http.createServer(async (req, res) => {
                 res.end(`File ${pathname} not found!`);
                 return;
             }
-            
+
             if (stats.isDirectory())
                 pathname += '/index.html';
-            
+
             fs.readFile(pathname, (err, data) => {
                 if (err) {
                     res.statusCode = 500;
@@ -101,14 +112,12 @@ const server = http.createServer(async (req, res) => {
         });
 });
 
-const handleapirequest = (req, res, pathname) => {
+const handleApiRequest = (req, res, pathname) => {
     if (pathname === './api/users' && req.method === 'GET') {
         const users = getUsers();
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(users));
-    }
-
- else {
+    } else {
         res.statusCode = 404;
         res.end('API endpoint not found');
     }

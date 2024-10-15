@@ -52,7 +52,9 @@
         "body-parser": "^1.20.3",
         "csv-parser": "^3.0.0",
         "dotenv": "^16.4.5",
+        "express": "^4.21.1",
         "fs": "^0.0.1-security",
+        "http": "^0.0.1-security",
         "path": "^0.12.7",
         "puppeteer": "^23.5.3",
         "react": "^18.3.1",
@@ -60,9 +62,9 @@
         "winston": "^3.15.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.21.0",
+        "@babel/core": "^7.25.8",
         "@babel/plugin-transform-runtime": "^7.21.0",
-        "@babel/preset-env": "^7.21.0",
+        "@babel/preset-env": "^7.25.8",
         "@babel/preset-react": "^7.21.0",
         "@babel/preset-typescript": "^7.25.7",
         "@eslint/eslintrc": "^3.1.0",
@@ -87,6 +89,8 @@
         "standard": "^17.1.2",
         "stylelint": "^16.10.0",
         "stylelint-config-standard": "^36.0.1",
+        "supertest": "^7.0.0",
+        "ts-jest": "^29.2.5",
         "webpack": "^5.72.0",
         "webpack-cli": "^4.9.2"
     }

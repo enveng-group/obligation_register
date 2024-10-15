@@ -14,3 +14,8 @@ dist/
 certs/*.pem
 certs/*.crt
 certs/*.der
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
