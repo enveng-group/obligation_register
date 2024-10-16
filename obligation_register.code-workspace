@@ -1,0 +1,104 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../wiki.wiki"
+		}
+	],
+	"settings": {
+		"npm-intellisense.importES6": true,
+		"npm-intellisense.importQuotes": "'",
+		"npm-intellisense.importLinebreak": ";\r\n",
+		"npm-intellisense.importDeclarationType": "const",
+		"npm-intellisense.scanDevDependencies": true,
+		"npm-intellisense.recursivePackageJsonLookup": true,
+		"npm-intellisense.packageSubfoldersIntellisense": false,
+		"explorer.confirmDelete": false,
+		"explorer.confirmDragAndDrop": false,
+		"terminal.integrated.defaultProfile.windows": "Git Bash",
+		"licenser.license": "AGPLv3",
+		"licenser.author": "Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett Bachoup",
+		"licenser.projectName": "Enveng Group - Obligation Register",
+		"licenser.useSingleLineStyle": true,
+		"licenser.customTermsAndConditions": "Copyright @YEAR@ @AUTHOR@\n\nThese are the terms and conditions...",
+		"licenser.excludeFileExtensions": [
+			"txt",
+			"sqlite3",
+			"sql",
+			"md",
+			"jpg",
+			"jpeg",
+			"svg",
+			"png",
+			"ico",
+			"crt",
+			"pem",
+			"der",
+			".gitignore",
+			".gitattributes",
+			".gitmodules",
+			".gitkeep",
+			".DS_Store",
+			".editorconfig",
+			".eslintrc",
+			".prettierrc",
+			".prettierignore",
+			".vscode",
+			".eslintrc.json",
+			".babelrc",
+			".env",
+			".nvmrc",
+			".dockerignore",
+			".editorconfig, webp"
+		],
+		"files.associations": {
+			".env*": "dotenv"
+		},
+		"editor.tokenColorCustomizations": {
+			"[*Light*]": {
+				"textMateRules": [
+					{
+						"scope": "ref.matchtext",
+						"settings": {
+							"foreground": "#000"
+						}
+					}
+				]
+			},
+			"[*Dark*]": {
+				"textMateRules": [
+					{
+						"scope": "ref.matchtext",
+						"settings": {
+							"foreground": "#fff"
+						}
+					}
+				]
+			},
+			"textMateRules": []
+		},
+		"github.copilot.enable": {
+			"plaintext": true,
+			"markdown": true,
+			"css": true,
+			"diff": true,
+			"dockerfile": true,
+			"git": true,
+			"html": true,
+			"ini": true,
+			"javascript": true,
+			"javascriptreact": true,
+			"json": true,
+			"jsonc": true,
+			"sql": true,
+			"typescript": true,
+			"typescriptreact": true,
+			"yaml": true
+		},
+		"github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
+		"github.copilot.chat.experimental.inlineChatHint.enabled": true,
+		"git.confirmSync": false
+	}
+}
