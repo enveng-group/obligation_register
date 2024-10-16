@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Server",
+        "program": "${workspaceFolder}/server.js",
+        "envFile": "${workspaceFolder}/.env.vault",
+        "env": {
+            "NODE_ENV": "development",
+            "PORT": "3000"
+        },
+        "preLaunchTask": "build:webpack",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "sourceMaps": true,
+        "restart": true,
+        "console": "integratedTerminal"
+    }, {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "runtimeExecutable": "C:\\Users\\AdrianGallo\\scoop\\apps\\chromium-dev\\current\\chrome.exe"
+    }]
+}
