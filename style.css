@@ -1,0 +1,524 @@
+*{
+    width: 1920px;
+    height: 1080px;
+    background: #E8EBE4;
+    font-family: Inter;
+}
+.Index{
+    width: 1920px;
+    height: 1080px;
+    background: #E8EBE4;
+}
+
+.Header{
+    width: 1920px;
+    height: 107px;
+    flex-shrink: 0;
+    fill: #A3B383;
+}
+
+.TopBar{
+    width: 1920px;
+    height: 61px;
+    flex-shrink: 0;
+    fill: #A3B383;
+}
+
+.BotBar{
+    width: 1920px;
+    height: 46px;
+    flex-shrink: 0;
+    background: #E3E8D9;
+}
+
+.ECMStitle{
+    width: 594px;
+    height: 31px;
+    flex-shrink: 0;
+    color: var(--Schemes-Shadow, #000);
+    font-family: "Inter", Helvetica;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #A3B383;
+}
+
+.EnvengLogo{
+    width: 112px;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: var(--Radius-200, 8px);
+    background: url(./enveng-logo.svg) lightgray 50% / cover no-repeat, #1D1D1D;
+
+}
+
+.Rectangle14{
+    width: 274px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: var(--Radius-200, 8px);
+    background: #808D67;
+}
+
+.AvatarBlock{
+    width: 145px;
+    height: 43px;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    display: inline-flex;
+}
+
+.Avatar{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.Shape{
+    width: 40px;
+    height: 40px;
+}
+
+.Info{
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2px;
+    display: inline-flex;
+}
+
+.Title{
+    align-self: stretch;
+    color: var(--Schemes-Shadow, #000);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.40px;
+}
+
+.Description{
+    align-self: stretch;
+    color: var(--Schemes-Shadow, #000);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.40px;
+}
+
+.SettingsHeader{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+.Icon{
+    width: 36.67px;
+    height: 36.67px;
+    background: url(.SettingsLarge.svg) lightgray 50% / cover no-repeat, #1D1D1D;
+}
+
+.HelpCircle{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.Icon{
+    width: 33.33px;
+    height: 33.33px;
+    background: url(Help.svg) lightgray 50% / cover no-repeat, #1D1D1D;
+}
+
+.NavigationBar30{
+    display: flex;
+    width: 502px;
+    padding: 7px 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--Radius-200, 8px);
+    background: #DDDDCE;
+}
+.Rectangle40{
+    width: 115px;
+    height: 36px;
+    position: absolute;
+    border-radius: var(--Radius-200, 8px);
+    background: #CCBDAC;
+}
+.Dashboard{
+    color: var(--Schemes-Shadow, #000);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.ObligationRegister{
+    color: var(--Schemes-Shadow, #000);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.Responsible{
+    color: var(--Schemes-Shadow, #000);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Body{
+    display: inline-flex;
+    height: 938px;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 15px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    background: #E2E7DD;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.Listings{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.Filter{
+    display: flex;
+    padding: var(--Space-200, 8px) 10px;
+    align-items: center;
+    gap: var(--Space-400, 16px);
+    border-radius: var(--Radius-200, 8px);
+    background: #808D67;
+}
+
+.PreDefinedFilter{
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 139%; /* 33.36px */
+} 
+
+.ChevronDown{
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+
+.ChevIcon{
+    width: 12.5px;
+    height: 6.25px;
+    stroke: var(--sds-color-icon-neutral-on-neutral);
+}
+
+.Exampleformentry{
+    display: flex;
+    width: 1240px;
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--Radius-200, 8px);
+    background: #808D67;
+}
+
+.Checkboxes{
+    display: flex;
+    padding: 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.state-layer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px;
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 100px;
+}
+  
+.container {
+    border: 2px solid;
+    border-color: #d4cdbd;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+}
+
+.PriEviroMechanism{
+    width: 258px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.ObsNumber{
+    width: 155px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Obligation{
+    width: 93px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Accountability{
+    width: 120px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Responsibility{
+    width: 122px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Date{
+    width: 92px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.Status{
+    width: 73px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+
+.entryText{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 139%; /* 19.46px */
+}
+
+.FormListIcons{
+    display: flex;
+    height: 250px;
+    padding: 5px 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.Rectangle5{
+    width: 48px;
+    height: 250px;
+    position: absolute;
+    border-radius: var(--Radius-200, 8px);
+    background: #D4CDBD;
+}
+
+.SettingsToolBar{
+    display: flex;
+    width: var(--Icon-Large, 40px);
+    height: var(--Icon-Large, 40px);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: var(--Radius-200, 8px);
+    border: 3px solid var(--Icon-Default-Default, #1E1E1E);
+}
+
+.SettingsContainer{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.SettingsIcon{
+  position: relative;
+  width: 27.50px;
+  height: 27.50px;
+  top: 5px;
+  left: 5px;
+  background-image: url(SettingsSmall.svg);
+  background-size: 100% 100%;
+}
+
+.SearchToolBar{
+    display: flex;
+    width: var(--Icon-Large, 40px);
+    height: var(--Icon-Large, 40px);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: var(--Radius-200, 8px);
+    border: 3px solid var(--Icon-Default-Default, #1E1E1E);
+}
+
+.Search{
+    width: var(--Icon-Medium, 32px);
+    height: var(--Icon-Medium, 32px);
+    flex-shrink: 0;
+    background-image: url(Search.svg);
+}
+
+.Newicon{
+    display: flex;
+    width: var(--Icon-Large, 40px);
+    height: var(--Icon-Large, 40px);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: var(--Radius-200, 8px);
+    border: 3px solid var(--Icon-Default-Default, #1E1E1E);
+}
+
+.Plus{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background-image: url(Plus.svg);
+}
+
+.Deleteicon{
+    display: flex;
+    width: var(--Icon-Large, 40px);
+    height: var(--Icon-Large, 40px);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: var(--Radius-200, 8px);
+    border: 3px solid var(--Icon-Default-Default, #1E1E1E);
+}
+
+.Trash{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background-image: url(Trash.svg);
+}
+
+.Refreshicon{
+    display: flex;
+    width: var(--Icon-Large, 40px);
+    height: var(--Icon-Large, 40px);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 2px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: var(--Radius-200, 8px);
+    border: 3px solid var(--Icon-Default-Default, #1E1E1E);
+}
+
+.RefreshCw{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background-image: url(Refresh.svg);
+}
+
+
+:root {
+    --body-strong-font-family: "Inter", Helvetica;
+    --body-strong-font-weight: 600;
+    --body-strong-font-size: 16px;
+    --body-strong-letter-spacing: 0px;
+    --body-strong-line-height: 139.9999976158142%;
+    --body-strong-font-style: normal;
+    --body-base-font-family: "Inter", Helvetica;
+    --body-base-font-weight: 400;
+    --body-base-font-size: 16px;
+    --body-base-letter-spacing: 0px;
+    --body-base-line-height: 139.9999976158142%;
+    --body-base-font-style: normal;
+    --color-text-default-default: var(--color-primitives-gray-900);
+    --color-text-default-secondary: var(--color-primitives-gray-500);
+    --color-text-default-tertiary: var(--color-primitives-gray-400);
+    --size-icon-large: 40px;
+    --size-radius-full: 9999px;
+    --size-space-300: 12px;
+    --color-primitives-gray-900: rgba(30, 30, 30, 1);
+    --color-primitives-white-1000: rgba(255, 255, 255, 1);
+    --color-primitives-gray-500: rgba(117, 117, 117, 1);
+    --color-primitives-gray-400: rgba(179, 179, 179, 1);
+    --color-primitives-white-500: rgba(255, 255, 255, 0.7);
+    --color-primitives-white-400: rgba(255, 255, 255, 0.4);
+    --m3-schemes-primary: rgba(101, 85, 143, 1);
+    --m3-schemes-on-surface-variant: rgba(73, 69, 79, 1);
+    --m3-schemes-on-surface: rgba(29, 27, 32, 1);
+    --m3-state-layers-primary-opacity-08: rgba(101, 85, 143, 0.08);
+    --m3-state-layers-on-surface-opacity-08: rgba(29, 27, 32, 0.08);
+  }
+
+  
+  [data-color-mode="SDS-light"] {
+    --color-text-default-default: var(--color-primitives-gray-900);
+    --color-text-default-secondary: var(--color-primitives-gray-500);
+    --color-text-default-tertiary: var(--color-primitives-gray-400);
+  }
+
+  
+  [data-m3-mode="light"] {
+    --m3-schemes-primary: rgba(101, 85, 143, 1);
+    --m3-schemes-on-surface-variant: rgba(73, 69, 79, 1);
+    --m3-schemes-on-surface: rgba(29, 27, 32, 1);
+    --m3-state-layers-primary-opacity-08: rgba(101, 85, 143, 0.08);
+    --m3-state-layers-on-surface-opacity-08: rgba(29, 27, 32, 0.08);
+  }
