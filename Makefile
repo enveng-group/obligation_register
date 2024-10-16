@@ -13,15 +13,15 @@ WASM_TARGET = wasm/main.js
 TARGET = simple_server
 
 $(TARGET): $(OBJ)
-    $(CC) -o $(TARGET) $(OBJ) $(LIBS)
+  $(CC) -o $(TARGET) $(OBJ) $(LIBS)
 
 $(OBJ): $(SRC)
-    $(CC) -c $(SRC) $(CFLAGS)
+  $(CC) -c $(SRC) $(CFLAGS)
 
 $(WASM_TARGET): $(WASM_SRC)
-    $(EMCC) $(WASM_SRC) -o $(WASM_TARGET) $(EMCC_FLAGS)
+  $(EMCC) $(WASM_SRC) -o $(WASM_TARGET) $(EMCC_FLAGS)
 
 all: $(TARGET) $(WASM_TARGET)
 
 clean:
-    rm -f $(OBJ) $(TARGET) $(WASM_TARGET)
+  rm -f $(OBJ) $(TARGET) $(WASM_TARGET)
