@@ -19,11 +19,9 @@
 
 #include <microhttpd.h>
 
-// Function to get the content type based on the file extension
-const char *get_content_type (const char *path);
-
-// Function to send a file response
-int send_file_response (struct MHD_Connection *connection, const char *path);
+// Function to send a response
+int send_response (struct MHD_Connection *connection, const char *message,
+                   const char *content_type);
 
 // Function to handle incoming connections
 int answer_to_connection (void *cls, struct MHD_Connection *connection,
