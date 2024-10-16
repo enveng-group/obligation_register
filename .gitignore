@@ -91,7 +91,6 @@ dist/
 .tern-port
 
 # VS Code directories
-.vscode/
 .history/
 
 # IntelliJ IDEA directories
@@ -124,3 +123,38 @@ coverage
 .flaskenv*
 !.env.project
 !.env.vault
+
+# C/C++ specific ignores
+*.o
+*.obj
+*.so
+*.exe
+*.out
+*.a
+*.d
+*.dSYM/
+
+# WebAssembly specific ignores
+*.wasm
+*.wat
+*.wast
+
+# CMake build directory
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Code::Blocks workspace files
+*.workspace
+*.layout
+*.cbp
+
+# Qt Creator files
+*.pro.user
+*.qmake.stash
+*.qmake.cache
+
+# CLion files
+.idea/
+cmake-build-debug/
+cmake-build-release/

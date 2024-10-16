@@ -8,13 +8,6 @@
 		}
 	],
 	"settings": {
-		"npm-intellisense.importES6": true,
-		"npm-intellisense.importQuotes": "'",
-		"npm-intellisense.importLinebreak": ";\r\n",
-		"npm-intellisense.importDeclarationType": "const",
-		"npm-intellisense.scanDevDependencies": true,
-		"npm-intellisense.recursivePackageJsonLookup": true,
-		"npm-intellisense.packageSubfoldersIntellisense": false,
 		"explorer.confirmDelete": false,
 		"explorer.confirmDragAndDrop": false,
 		"terminal.integrated.defaultProfile.windows": "Git Bash",
@@ -97,8 +90,26 @@
 			"typescriptreact": true,
 			"yaml": true
 		},
-		"github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
+	  "github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
 		"github.copilot.chat.experimental.inlineChatHint.enabled": true,
-		"git.confirmSync": false
-	}
+		"git.confirmSync": false,
+    "clang-format.executable": "clang-format",
+  "clang-format.style": "file",
+  "editor.formatOnSave": true,
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+	},
+	"clang-format.language.c.enable": true,
+  "editor.codeActionsOnSave": {
+	"source.fixAll": "explicit"
+},
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  }
 }

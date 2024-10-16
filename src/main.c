@@ -1,5 +1,6 @@
 /**
- * Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+ * Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett
+ * Bachoup
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -15,16 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <stdio.h>
 #include <emscripten/emscripten.h>
+#include <stdio.h>
 
 EMSCRIPTEN_KEEPALIVE
-int add(int a, int b) {
-    return a + b;
+const char *
+hello_world ()
+{
+    return "Hello, World!";
 }
 
-int main() {
-    printf("WebAssembly module loaded\n");
+int
+main ()
+{
+    printf ("WebAssembly module loaded\n");
     return 0;
 }
-

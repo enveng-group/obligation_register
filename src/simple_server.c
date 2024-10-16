@@ -1,5 +1,6 @@
 /**
- * Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett Bachoup
+ * Copyright (C) 2024 Enveng Group - Adrian Gallo, Rohan Lonkar and Rhett
+ * Bachoup
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -15,72 +16,124 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <microhttpd.h>
+#include "simple_server.h"
+#include "stb_http.h"
+#include <fcntl.h>
+#include <openssl/err.h>
+#include <openssl/ssl.h>
 #include <stdio.h>
 #include <string.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <sys/stat.h>
-#include "simple_server.h"
-
+#include <unistd.h>
 
 #define PORT 443
 
-static const char *get_content_type(const char *path) {
-    if (strstr(path, ".html")) return "text/html";
-    if (strstr(path, ".js")) return "application/javascript";
-    if (strstr(path, ".wasm")) return "application/wasm";
+const char *
+get_content_type (const char *path)
+{
+    if (strstr (path, ".html"))
+        return "text/html";
+    if (strstr (path, ".js"))
+        return "application/javascript";
+    if (strstr (path, ".wasm"))
+        return "application/wasm";
     return "text/plain";
 }
 
-static int send_file_response(struct MHD_Connection *connection, const char *path) {
+int
+send_file_response (struct http_request *request, const char *path)
+{
     int fd;
     struct stat sb;
-    struct MHD_Response *response;
-    int ret;
+    char buffer[4096];
+    ssize_t bytes_read;
 
-    fd = open(path, O_RDONLY);
-    if (fd == -1) return MHD_NO;
-    if (fstat(fd, &sb) == -1) {
-        close(fd);
-        return MHD_NO;
-    }
+    fd = open (path, O_RDONLY);
+    if (fd == -1)
+        return -1;
+    if (fstat (fd, &sb) == -1)
+        {
+            close (fd);
+            return -1;
+        }
 
-    const char *content_type = get_content_type(path);
-    response = MHD_create_response_from_fd(sb.st_size, fd);
-    if (!response) {
-        close(fd);
-        return MHD_NO;
-    }
+    const char *content_type = get_content_type (path);
+    http_response_status (request, 200);
+    http_response_header (request, "Content-Type", content_type);
 
-    MHD_add_response_header(response, MHD_HTTP_HEADER_CONTENT_TYPE, content_type);
-    ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
-    MHD_destroy_response(response);
-    return ret;
+    while ((bytes_read = read (fd, buffer, sizeof (buffer))) > 0)
+        {
+            http_response_body (request, buffer, bytes_read);
+        }
+
+    close (fd);
+    return 0;
 }
 
-static int answer_to_connection(void *cls, struct MHD_Connection *connection,
-                                const char *url, const char *method, const char *version,
-                                const char *upload_data, size_t *upload_data_size, void **con_cls) {
+void
+answer_to_connection (struct http_request *request)
+{
     char filepath[256];
-    snprintf(filepath, sizeof(filepath), "/home/ubuntu/obligation_register%s", url);
-    return send_file_response(connection, filepath);
+    snprintf (filepath, sizeof (filepath), "/home/ubuntu/obligation_register%s",
+              request->path);
+    send_file_response (request, filepath);
 }
 
-int main() {
-    struct MHD_Daemon *daemon;
-    const char *key_pem = "/home/ubuntu/obligation_register/certs/enssol.com.au.key.pem";
-    const char *cert_pem = "/home/ubuntu/obligation_register/certs/enssol.com.au.pem";
+int
+main ()
+{
+    SSL_CTX *ctx;
+    SSL *ssl;
+    struct http_server server;
+
+    // Initialize OpenSSL
+    SSL_load_error_strings ();
+    OpenSSL_add_ssl_algorithms ();
+
+    ctx = SSL_CTX_new (TLS_server_method ());
+    if (!ctx)
+        {
+            fprintf (stderr, "Failed to create SSL context\n");
+            return 1;
+        }
+
+    // Load certificates
+    const char *key_pem
+        = "/home/ubuntu/obligation_register/certs/enssol.com.au.key.pem";
+    const char *cert_pem
+        = "/home/ubuntu/obligation_register/certs/enssol.com.au.pem";
     const char *ca_pem = "/usr/share/ca-certificates/Cloudflare_CA.crt";
 
-    daemon = MHD_start_daemon(MHD_USE_SELECT_INTERNALLY | MHD_USE_SSL, PORT, NULL, NULL,
-                              &answer_to_connection, NULL, MHD_OPTION_HTTPS_MEM_KEY, key_pem,
-                              MHD_OPTION_HTTPS_MEM_CERT, cert_pem, MHD_OPTION_HTTPS_MEM_TRUST, ca_pem,
-                              MHD_OPTION_END);
-    if (NULL == daemon) return 1;
+    if (SSL_CTX_use_certificate_file (ctx, cert_pem, SSL_FILETYPE_PEM) <= 0)
+        {
+            ERR_print_errors_fp (stderr);
+            return 1;
+        }
 
-    printf("Server running on port %d\n", PORT);
-    getchar(); // Wait to terminate
-    MHD_stop_daemon(daemon);
+    if (SSL_CTX_use_PrivateKey_file (ctx, key_pem, SSL_FILETYPE_PEM) <= 0)
+        {
+            ERR_print_errors_fp (stderr);
+            return 1;
+        }
+
+    if (!SSL_CTX_load_verify_locations (ctx, ca_pem, NULL))
+        {
+            ERR_print_errors_fp (stderr);
+            return 1;
+        }
+
+    if (http_server_init (&server, PORT, answer_to_connection) != 0)
+        {
+            fprintf (stderr, "Failed to initialize server\n");
+            return 1;
+        }
+
+    printf ("Server running on port %d\n", PORT);
+    http_server_run (&server);
+    http_server_cleanup (&server);
+
+    SSL_CTX_free (ctx);
+    EVP_cleanup ();
+
     return 0;
 }

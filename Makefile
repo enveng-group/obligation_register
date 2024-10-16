@@ -1,14 +1,14 @@
 CC = gcc
-CFLAGS = -Wall
-LIBS = -lmicrohttpd
+CFLAGS = -Wall -O2 -march=armv8-a -mtune=native
+LIBS = -lssl -lcrypto -pthread
 
 EMCC = emcc
-EMCC_FLAGS = -s EXPORTED_FUNCTIONS="['_add']" -s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']"
+EMCC_FLAGS = -O3 --closure 1 -s EXPORTED_FUNCTIONS="['_hello_world']" -s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" -msimd128 -flto
 
 SRC = src/simple_server.c
 OBJ = simple_server.o
 WASM_SRC = src/main.c
-WASM_TARGET = wasm/index.html
+WASM_TARGET = wasm/main.js
 
 TARGET = simple_server
 
