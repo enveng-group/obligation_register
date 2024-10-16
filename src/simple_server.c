@@ -22,7 +22,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define PORT 80 // Change the port to 80 for HTTP
+#define PORT 8080
 
 int
 send_response (struct MHD_Connection *connection, const char *message,
