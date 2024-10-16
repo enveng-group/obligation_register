@@ -17,8 +17,8 @@
  */
 
 #include "simple_server.h"
-#include "stb_http.h"
 #include <fcntl.h>
+#include <microhttpd.h>
 #include <openssl/err.h>
 #include <openssl/ssl.h>
 #include <stdio.h>
@@ -41,42 +41,49 @@ get_content_type (const char *path)
 }
 
 int
-send_file_response (struct http_request *request, const char *path)
+send_file_response (struct MHD_Connection *connection, const char *path)
 {
     int fd;
     struct stat sb;
     char buffer[4096];
     ssize_t bytes_read;
+    struct MHD_Response *response;
+    int ret;
 
     fd = open (path, O_RDONLY);
     if (fd == -1)
-        return -1;
+        return MHD_NO;
     if (fstat (fd, &sb) == -1)
         {
             close (fd);
-            return -1;
+            return MHD_NO;
         }
 
     const char *content_type = get_content_type (path);
-    http_response_status (request, 200);
-    http_response_header (request, "Content-Type", content_type);
-
-    while ((bytes_read = read (fd, buffer, sizeof (buffer))) > 0)
+    response = MHD_create_response_from_fd_at_offset (sb.st_size, fd, 0);
+    if (!response)
         {
-            http_response_body (request, buffer, bytes_read);
+            close (fd);
+            return MHD_NO;
         }
 
+    MHD_add_response_header (response, "Content-Type", content_type);
+    ret = MHD_queue_response (connection, MHD_HTTP_OK, response);
+    MHD_destroy_response (response);
     close (fd);
-    return 0;
+    return ret;
 }
 
-void
-answer_to_connection (struct http_request *request)
+int
+answer_to_connection (void *cls, struct MHD_Connection *connection,
+                      const char *url, const char *method, const char *version,
+                      const char *upload_data, size_t *upload_data_size,
+                      void **con_cls)
 {
     char filepath[256];
     snprintf (filepath, sizeof (filepath), "/home/ubuntu/obligation_register%s",
-              request->path);
-    send_file_response (request, filepath);
+              url);
+    return send_file_response (connection, filepath);
 }
 
 int
@@ -84,7 +91,7 @@ main ()
 {
     SSL_CTX *ctx;
     SSL *ssl;
-    struct http_server server;
+    struct MHD_Daemon *daemon;
 
     // Initialize OpenSSL
     SSL_load_error_strings ();
@@ -122,16 +129,20 @@ main ()
             return 1;
         }
 
-    if (http_server_init (&server, PORT, answer_to_connection) != 0)
+    daemon = MHD_start_daemon (
+        MHD_USE_SSL, PORT, NULL, NULL, &answer_to_connection, NULL,
+        MHD_OPTION_HTTPS_MEM_KEY, key_pem, MHD_OPTION_HTTPS_MEM_CERT, cert_pem,
+        MHD_OPTION_END);
+    if (NULL == daemon)
         {
             fprintf (stderr, "Failed to initialize server\n");
             return 1;
         }
 
     printf ("Server running on port %d\n", PORT);
-    http_server_run (&server);
-    http_server_cleanup (&server);
+    getchar (); // Keep the server running until a key is pressed
 
+    MHD_stop_daemon (daemon);
     SSL_CTX_free (ctx);
     EVP_cleanup ();
 

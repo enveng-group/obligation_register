@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -O2 -march=armv8-a -mtune=native
-LIBS = -lssl -lcrypto -pthread
+LIBS = -lssl -lcrypto -pthread -lmicrohttpd
 
 EMCC = emcc
 EMCC_FLAGS = -O3 --closure 1 -s EXPORTED_FUNCTIONS="['_hello_world']" -s "EXTRA_EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" -msimd128 -flto

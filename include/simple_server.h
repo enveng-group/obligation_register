@@ -17,15 +17,18 @@
 #ifndef SIMPLE_SERVER_H
 #define SIMPLE_SERVER_H
 
-#include "stb_http.h"
+#include <microhttpd.h>
 
 // Function to get the content type based on the file extension
 const char *get_content_type (const char *path);
 
 // Function to send a file response
-int send_file_response (struct http_request *request, const char *path);
+int send_file_response (struct MHD_Connection *connection, const char *path);
 
 // Function to handle incoming connections
-void answer_to_connection (struct http_request *request);
+int answer_to_connection (void *cls, struct MHD_Connection *connection,
+                          const char *url, const char *method,
+                          const char *version, const char *upload_data,
+                          size_t *upload_data_size, void **con_cls);
 
 #endif // SIMPLE_SERVER_H
