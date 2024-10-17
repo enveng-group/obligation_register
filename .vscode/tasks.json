@@ -13,7 +13,7 @@
     {
       "label": "Run Clang-Format",
       "type": "shell",
-      "command": "clang-format -i src/*.c include/*.h",
+      "command": "clang-format -i src/*.c",
       "group": "test",
       "problemMatcher": []
     },
@@ -27,7 +27,7 @@
     {
       "label": "Run Cppcheck",
       "type": "shell",
-      "command": "cppcheck --enable=all --inconclusive --std=c11 --language=c --suppress=missingIncludeSystem --include=include src/",
+      "command": "cppcheck --enable=all --inconclusive --std=c11 --language=c --suppress=missingIncludeSystem --include=include --checkers-report=checkers_report.txt src/ include/",
       "group": "test",
       "problemMatcher": ["$gcc"]
     }

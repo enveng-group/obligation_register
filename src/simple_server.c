@@ -16,68 +16,136 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "simple_server.h"
-#include <microhttpd.h>
+#include <arpa/inet.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
 #define PORT 8080
+#define BUFFER_SIZE 1024
 
-int
-send_response (struct MHD_Connection *connection, const char *message,
-               const char *content_type)
+const char *
+get_mime_type (const char *file_path)
 {
-    struct MHD_Response *response;
-    int ret;
+    const char *ext = strrchr (file_path, '.');
+    if (!ext)
+        return "application/octet-stream"; // Default MIME type
 
-    response = MHD_create_response_from_buffer (
-        strlen (message), (void *)message, MHD_RESPMEM_PERSISTENT);
-    if (!response)
-        {
-            perror ("Failed to create response");
-            return MHD_NO;
-        }
+    if (strcmp (ext, ".html") == 0)
+        return "text/html";
+    if (strcmp (ext, ".css") == 0)
+        return "text/css";
+    if (strcmp (ext, ".js") == 0)
+        return "application/javascript";
+    if (strcmp (ext, ".png") == 0)
+        return "image/png";
+    if (strcmp (ext, ".jpg") == 0 || strcmp (ext, ".jpeg") == 0)
+        return "image/jpeg";
+    if (strcmp (ext, ".gif") == 0)
+        return "image/gif";
 
-    MHD_add_response_header (response, "Content-Type", content_type);
-    ret = MHD_queue_response (connection, MHD_HTTP_OK, response);
-    MHD_destroy_response (response);
-    return ret;
+    return "application/octet-stream"; // Default MIME type
 }
 
-int
-answer_to_connection (void *cls, struct MHD_Connection *connection,
-                      const char *url, const char *method, const char *version,
-                      const char *upload_data, size_t *upload_data_size,
-                      void **con_cls)
+void
+send_http_response (int client_socket, const char *file_path)
 {
-    if (strcmp (url, "/") == 0)
+    FILE *file = fopen (file_path, "r");
+    if (file == NULL)
         {
-            return send_response (connection, "Hello, World!", "text/plain");
+            char *not_found_response
+                = "HTTP/1.1 404 Not Found\r\n"
+                  "Content-Type: text/html; charset=UTF-8\r\n"
+                  "Content-Length: 22\r\n"
+                  "\r\n"
+                  "<h1>404 Not Found</h1>";
+            send (client_socket, not_found_response,
+                  strlen (not_found_response), 0);
+            return;
         }
-    else
+
+    // Determine the MIME type
+    const char *mime_type = get_mime_type (file_path);
+
+    // Send HTTP headers with the correct MIME type
+    char header[BUFFER_SIZE];
+    snprintf (header, sizeof (header),
+              "HTTP/1.1 200 OK\r\n"
+              "Content-Type: %s\r\n\r\n",
+              mime_type);
+    send (client_socket, header, strlen (header), 0);
+
+    // Send the content of the file
+    char buffer[BUFFER_SIZE];
+    while (fgets (buffer, BUFFER_SIZE, file) != NULL)
         {
-            return send_response (connection, "Not Found", "text/plain");
+            send (client_socket, buffer, strlen (buffer), 0);
         }
+
+    fclose (file);
 }
 
 int
 main ()
 {
-    struct MHD_Daemon *daemon;
+    int server_fd, client_socket;
+    struct sockaddr_in server_addr, client_addr;
+    socklen_t addr_len = sizeof (client_addr);
+    char buffer[BUFFER_SIZE] = { 0 };
 
-    daemon = MHD_start_daemon (MHD_USE_SELECT_INTERNALLY, PORT, NULL, NULL,
-                               &answer_to_connection, NULL, MHD_OPTION_END);
-    if (NULL == daemon)
+    // Create a socket
+    if ((server_fd = socket (AF_INET, SOCK_STREAM, 0)) == -1)
         {
-            fprintf (stderr, "Failed to initialize server\n");
-            return 1;
+            perror ("Socket failed");
+            exit (EXIT_FAILURE);
         }
 
-    printf ("Server running on port %d\n", PORT);
-    getchar (); // Keep the server running until a key is pressed
+    // Bind the socket to port 8080
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+    server_addr.sin_port = htons (PORT);
 
-    MHD_stop_daemon (daemon);
+    if (bind (server_fd, (struct sockaddr *)&server_addr, sizeof (server_addr))
+        < 0)
+        {
+            perror ("Bind failed");
+            close (server_fd);
+            exit (EXIT_FAILURE);
+        }
+
+    // Listen for incoming connections
+    if (listen (server_fd, 10) < 0)
+        {
+            perror ("Listen failed");
+            close (server_fd);
+            exit (EXIT_FAILURE);
+        }
+
+    printf ("Server listening on port %d...\n", PORT);
+
+    while (1)
+        {
+            // Accept an incoming connection
+            client_socket = accept (server_fd, (struct sockaddr *)&client_addr,
+                                    &addr_len);
+            if (client_socket < 0)
+                {
+                    perror ("Accept failed");
+                    continue;
+                }
+
+            // Read the request from the client
+            read (client_socket, buffer, BUFFER_SIZE);
+
+            // Serve the requested file
+            // Assuming the request is for the root directory and serving
+            // index.html
+            send_http_response (client_socket, "index.html");
+
+            // Close the connection
+            close (client_socket);
+        }
 
     return 0;
 }

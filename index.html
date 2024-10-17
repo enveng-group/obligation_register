@@ -1,10 +1,276 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to Enssol</title>
-</head>
-<body>
-    <h1>Welcome to Enssol</h1>
-    <p>This is the default page.</p>
-</body>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Index Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+    />
+    <style>
+      .navbar-custom {
+        background-color: #a3b383;
+      }
+
+      .navbar-end {
+        background-color: #808d67;
+      }
+
+      .navbar-icons i {
+        font-size: 1.5rem;
+        margin: 0 10px;
+        background-color: #808d67;
+      }
+
+      .profile-img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+      .title-description {
+        line-height: 1;
+      }
+
+      .title-description span:first-child {
+        font-weight: bold;
+      }
+
+      /* Custom styles for page links */
+      .nav-item .nav-link {
+        color: #000;
+        /* Text color */
+        background-color: transparent;
+        border-radius: 8px;
+      }
+
+      .nav-item .nav-link:hover {
+        background-color: #ccbdac;
+        /* Hover background color */
+      }
+
+      .nav-item .nav-link.active {
+        background-color: #ccbdac;
+        /* Active (clicked) link background */
+      }
+
+      .filter-section {
+        background-color: #808d67;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .filter-section select {
+        width: 200px;
+        padding: 5px;
+        border-radius: 8px;
+        background-color: #d4cdbd;
+        border: none;
+      }
+
+      .table-custom {
+        background-color: #808d67;
+        border-radius: 8px;
+      }
+
+      .table-custom th,
+      .table-custom td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      .table-custom th {
+        background-color: #808d67;
+        color: #fff;
+        position: relative;
+      }
+
+      .table-custom td {
+        background-color: #d4cdbd;
+      }
+
+      .table-row-spacing {
+        margin-bottom: 10px;
+      }
+
+      .table-custom tr {
+        border-radius: 8px;
+      }
+
+      .icon-vertical {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-left: 10px;
+      }
+
+      .icon-vertical i {
+        background-color: #d4cdbd;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .icon-vertical i:hover {
+        background-color: #b5ae9b;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: #e8ebe4">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom p-0">
+      <div class="container-fluid">
+        <!-- Logo and System Name -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="img/enveng_logo.png"
+            alt="Logo"
+            width="112px"
+            height="55px"
+            style="border-radius: 8px"
+            class="navbar-logo me-3"
+          />
+          <span>Environmental Compliance Management System</span>
+        </a>
+
+        <!-- Toggler for responsive behaviour -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Right-side icons and text -->
+        <div class="navbar-end d-flex align-items-center p-2">
+          <div
+            class="navbar-icons d-flex align-items-center p-2"
+            style="background-color: #808d67; border-radius: 8px"
+          >
+            <i class="fas fa-circle-question"></i>
+            <i class="fas fa-cog"></i>
+            <img src="img/profile.png" alt="Profile" class="profile-img me-3" />
+            <div class="title-description">
+              <span>Title</span><br />
+              <span>Description</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Links Navigation Bar -->
+    <div class="page-links m-0 p-0 mt-2">
+      <div
+        class="container"
+        style="width: fit-content; background: #ddddce; border-radius: 8px"
+      >
+        <ul class="nav justify-content-center m-0 p-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Obligation Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Responsible</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="container" > -->
+    <!-- Filter Dropdown -->
+    <div class="container mt-4" style="background-color: #e2e7dd">
+      <select class="filter-section" id="filterSelect" name="filterSelect">
+        <option value="14DayLookahead">Pre-defined Filter</option>
+        <option value="14DayLookahead">14 Day Lookahead</option>
+        <option value="Overdue">Overdue</option>
+        <option value="AllForms">All Forms</option>
+      </select>
+
+      <!-- Table Section -->
+      <div class="d-flex">
+        <table class="table table-borderless table-custom">
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>
+                Primary Environment Mechanism
+                <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Obligation Number <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>Obligation <i class="fa-solid fa-chevron-down"></i></th>
+              <th>Accountability <i class="fa-solid fa-chevron-down"></i></th>
+              <th>Responsibility <i class="fa-solid fa-chevron-down"></i></th>
+              <th>Due Date <i class="fa-solid fa-chevron-down"></i></th>
+              <th>Status <i class="fa-solid fa-chevron-down"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row-spacing">
+              <td><input type="checkbox" /></td>
+              <td>Soil Quality</td>
+              <td>12347</td>
+              <td>Soil restoration</td>
+              <td>Alice Brown</td>
+              <td>Paul White</td>
+              <td>2024-12-01</td>
+              <td>Completed</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Vertical Icons -->
+        <div class="icon-vertical">
+          <i class="fas fa-cog"></i>
+          <i class="fas fa-search"></i>
+          <i class="fas fa-plus"></i>
+          <i class="fas fa-trash"></i>
+          <i class="fas fa-sync"></i>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- Bootstrap 5 JS and Popper -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+      integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+      integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
