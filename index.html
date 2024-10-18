@@ -26,10 +26,6 @@
         background-color: #a3b383;
       }
 
-      .navbar-end {
-        background-color: #808d67;
-      }
-
       .navbar-icons i {
         font-size: 1.5rem;
         margin: 0 10px;
@@ -67,6 +63,7 @@
       .nav-item .nav-link.active {
         background-color: #ccbdac;
         /* Active (clicked) link background */
+
       }
 
       .filter-section {
@@ -84,9 +81,12 @@
         border: none;
       }
 
-      .table-custom {
+      .table {
         background-color: #808d67;
-        border-radius: 8px;
+        border-collapse: separate; /* Ensure borders don't collapse */
+        border-spacing: 0; /* Remove spacing between cells */
+        border-radius: 8px; /* Add border radius */
+        overflow: hidden; /* Ensure rounded corners are visible */
       }
 
       .table-custom th,
@@ -169,11 +169,11 @@
         <div class="navbar-end d-flex align-items-center p-2">
           <div
             class="navbar-icons d-flex align-items-center p-2"
-            style="background-color: #808d67; border-radius: 8px"
+            style="background-color: #808d67; border-radius: 8px;"
           >
-            <i class="fas fa-circle-question"></i>
-            <i class="fas fa-cog"></i>
-            <img src="img/profile.png" alt="Profile" class="profile-img me-3" />
+            <i class="fas fa-circle-question p-2"></i>
+            <i class="fas fa-cog p-2"></i>
+            <img src="img/profile.png" alt="Profile" class="profile-img me-3 " />
             <div class="title-description">
               <span>Title</span><br />
               <span>Description</span>
@@ -185,10 +185,10 @@
     <!-- Page Links Navigation Bar -->
     <div class="page-links m-0 p-0 mt-2">
       <div
-        class="container"
+        class="container mt-2"
         style="width: fit-content; background: #ddddce; border-radius: 8px"
       >
-        <ul class="nav justify-content-center m-0 p-0">
+        <ul class="nav justify-content-center m-0 p-2">
           <li class="nav-item">
             <a class="nav-link active" href="#">Dashboard</a>
           </li>
@@ -203,9 +203,8 @@
     </div>
     <!-- <div class="container" > -->
     <!-- Filter Dropdown -->
-    <div class="container mt-4" style="background-color: #e2e7dd">
-      <select class="filter-section" id="filterSelect" name="filterSelect">
-        <option value="14DayLookahead">Pre-defined Filter</option>
+    <div class="container mt-4" style="background-color: #e2e7dd;height: fill; border-radius: 8px; padding-top: 15px;">
+      <select class="filter-section" id="filterSelect" name="filterSelect" style="color: #fff">
         <option value="14DayLookahead">14 Day Lookahead</option>
         <option value="Overdue">Overdue</option>
         <option value="AllForms">All Forms</option>
@@ -246,7 +245,7 @@
         </table>
 
         <!-- Vertical Icons -->
-        <div class="icon-vertical">
+        <div class="icon-vertical" style="padding-bottom: 5px;">
           <i class="fas fa-cog"></i>
           <i class="fas fa-search"></i>
           <i class="fas fa-plus"></i>
