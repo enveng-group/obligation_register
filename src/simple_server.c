@@ -51,7 +51,7 @@ get_mime_type (const char *file_path)
 void
 send_http_response (int client_socket, const char *file_path)
 {
-    FILE *file = fopen (file_path, "r");
+    FILE *file = fopen (file_path, "rb");
     if (file == NULL)
         {
             char *not_found_response
@@ -78,9 +78,10 @@ send_http_response (int client_socket, const char *file_path)
 
     // Send the content of the file
     char buffer[BUFFER_SIZE];
-    while (fgets (buffer, BUFFER_SIZE, file) != NULL)
+    size_t bytes_read;
+    while ((bytes_read = fread (buffer, 1, BUFFER_SIZE, file)) > 0)
         {
-            send (client_socket, buffer, strlen (buffer), 0);
+            send (client_socket, buffer, bytes_read, 0);
         }
 
     fclose (file);
@@ -138,10 +139,29 @@ main ()
             // Read the request from the client
             read (client_socket, buffer, BUFFER_SIZE);
 
-            // Serve the requested file
-            // Assuming the request is for the root directory and serving
-            // index.html
-            send_http_response (client_socket, "index.html");
+            // Parse the requested file path from the HTTP request
+            char method[16], file_path[256];
+            sscanf (buffer, "%s %s", method, file_path);
+
+            // Remove the leading '/' from the file path
+            if (file_path[0] == '/')
+                memmove (file_path, file_path + 1, strlen (file_path));
+
+            // Serve the requested file, default to "index.html" if no file is specified
+            if (strlen (file_path) == 0)
+                strcpy (file_path, "index.html");
+
+            // Prepend "img/" to the file path if it starts with "img/"
+            if (strncmp (file_path, "img/", 4) == 0)
+                {
+                    char img_path[256] = "img/";
+                    strcat (img_path, file_path + 4);
+                    send_http_response (client_socket, img_path);
+                }
+            else
+                {
+                    send_http_response (client_socket, file_path);
+                }
 
             // Close the connection
             close (client_socket);
