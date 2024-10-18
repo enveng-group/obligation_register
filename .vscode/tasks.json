@@ -1,14 +1,14 @@
 {
     "version": "2.0.0",
     "tasks": [{
-        "label": "Build with Make",
+        "label": "Build with TCC",
         "type": "shell",
-        "command": "make",
+        "command": "tcc -o output_executable src/*.c",
         "group": {
             "kind": "build",
             "isDefault": true
         },
-        "problemMatcher": ["$gcc"]
+        "problemMatcher": []
     },
     {
       "label": "Run Clang-Format",
@@ -22,14 +22,14 @@
       "type": "shell",
       "command": "clang-tidy src/*.c --",
       "group": "test",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": []
     },
     {
       "label": "Run Cppcheck",
       "type": "shell",
       "command": "cppcheck --enable=all --inconclusive --std=c11 --language=c --suppress=missingIncludeSystem --include=include --checkers-report=checkers_report.txt src/ include/",
       "group": "test",
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": []
     }
   ]
 }

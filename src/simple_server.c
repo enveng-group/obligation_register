@@ -17,13 +17,40 @@
  */
 
 #include <arpa/inet.h>
+#include <fcntl.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/sendfile.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
+
+const char *root_directory
+    = "/home/ubuntu/obligation_register/"; // Define a base root directory for
+                                           // your files
+int server_fd; // Declare server_fd globally to access it in the signal handler
+
+void
+sanitize_file_path (char *file_path)
+{
+    char *p;
+    while ((p = strstr (file_path, "..")) != NULL)
+        {
+            if (p == file_path || *(p - 1) == '/')
+                {
+                    // Move the path forward to remove the ".."
+                    memmove (p, p + 2, strlen (p + 2) + 1);
+                }
+            else
+                {
+                    break; // Found a ".." in a non-dangerous position
+                }
+        }
+}
 
 const char *
 get_mime_type (const char *file_path)
@@ -44,6 +71,8 @@ get_mime_type (const char *file_path)
         return "image/jpeg";
     if (strcmp (ext, ".gif") == 0)
         return "image/gif";
+    if (strcmp (ext, ".csv") == 0)
+        return "text/csv";
 
     return "application/octet-stream"; // Default MIME type
 }
@@ -51,57 +80,77 @@ get_mime_type (const char *file_path)
 void
 send_http_response (int client_socket, const char *file_path)
 {
-    FILE *file = fopen (file_path, "r");
-    if (file == NULL)
+    int file_fd = open (file_path, O_RDONLY);
+    if (file_fd == -1)
         {
-            char *not_found_response
+            const char *not_found_response
                 = "HTTP/1.1 404 Not Found\r\n"
                   "Content-Type: text/html; charset=UTF-8\r\n"
                   "Content-Length: 22\r\n"
                   "\r\n"
                   "<h1>404 Not Found</h1>";
-            send (client_socket, not_found_response,
-                  strlen (not_found_response), 0);
+            if (send (client_socket, not_found_response,
+                      strlen (not_found_response), 0)
+                == -1)
+                {
+                    perror ("Send failed");
+                }
             return;
         }
 
-    // Determine the MIME type
     const char *mime_type = get_mime_type (file_path);
 
-    // Send HTTP headers with the correct MIME type
     char header[BUFFER_SIZE];
     snprintf (header, sizeof (header),
-              "HTTP/1.1 200 OK\r\n"
-              "Content-Type: %s\r\n\r\n",
-              mime_type);
-    send (client_socket, header, strlen (header), 0);
-
-    // Send the content of the file
-    char buffer[BUFFER_SIZE];
-    while (fgets (buffer, BUFFER_SIZE, file) != NULL)
+              "HTTP/1.1 200 OK\r\nContent-Type: %s\r\n\r\n",
+              mime_type); // Use standard snprintf
+    if (send (client_socket, header, strlen (header), 0) == -1)
         {
-            send (client_socket, buffer, strlen (buffer), 0);
+            perror ("Send failed");
+            close (file_fd);
+            return;
         }
 
-    fclose (file);
+    struct stat file_stat;
+    if (fstat (file_fd, &file_stat) == -1)
+        {
+            perror ("fstat failed");
+            close (file_fd);
+            return;
+        }
+    size_t file_size = file_stat.st_size;
+
+    off_t offset = 0;
+    if (sendfile (client_socket, file_fd, &offset, file_size) == -1)
+        {
+            perror ("sendfile failed");
+        }
+
+    close (file_fd);
+}
+
+void
+handle_signal (int signal)
+{
+    close (server_fd);
+    exit (EXIT_SUCCESS);
 }
 
 int
 main ()
 {
-    int server_fd, client_socket;
     struct sockaddr_in server_addr, client_addr;
     socklen_t addr_len = sizeof (client_addr);
     char buffer[BUFFER_SIZE] = { 0 };
 
-    // Create a socket
+    signal (SIGINT, handle_signal);
+
     if ((server_fd = socket (AF_INET, SOCK_STREAM, 0)) == -1)
         {
             perror ("Socket failed");
             exit (EXIT_FAILURE);
         }
 
-    // Bind the socket to port 8080
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons (PORT);
@@ -114,7 +163,6 @@ main ()
             exit (EXIT_FAILURE);
         }
 
-    // Listen for incoming connections
     if (listen (server_fd, 10) < 0)
         {
             perror ("Listen failed");
@@ -126,26 +174,45 @@ main ()
 
     while (1)
         {
-            // Accept an incoming connection
-            client_socket = accept (server_fd, (struct sockaddr *)&client_addr,
-                                    &addr_len);
+            int client_socket = accept (
+                server_fd, (struct sockaddr *)&client_addr, &addr_len);
             if (client_socket < 0)
                 {
                     perror ("Accept failed");
                     continue;
                 }
 
-            // Read the request from the client
-            read (client_socket, buffer, BUFFER_SIZE);
+            ssize_t bytes_read = read (client_socket, buffer, BUFFER_SIZE - 1);
+            if (bytes_read < 0)
+                {
+                    perror ("Read failed");
+                    close (client_socket);
+                    continue;
+                }
+            buffer[bytes_read] = '\0';
 
-            // Serve the requested file
-            // Assuming the request is for the root directory and serving
-            // index.html
-            send_http_response (client_socket, "index.html");
+            char method[16], file_path[256];
+            sscanf (buffer, "%15s %255s", method,
+                    file_path); // Use standard sscanf
 
-            // Close the connection
+            if (file_path[0] == '/')
+                memmove (file_path, file_path + 1,
+                         strlen (file_path) + 1); // Use memmove without _s
+
+            if (strlen (file_path) == 0)
+                strcpy (file_path, "index.html");
+
+            char sanitized_path[512];
+            snprintf (sanitized_path, sizeof (sanitized_path), "%s%s",
+                      root_directory, file_path);
+            sanitize_file_path (sanitized_path);
+            printf ("Requesting file: %s\n", sanitized_path); // Add debug print
+
+            send_http_response (client_socket, sanitized_path);
+
             close (client_socket);
         }
 
+    close (server_fd);
     return 0;
 }

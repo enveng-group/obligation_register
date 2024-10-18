@@ -3,8 +3,6 @@
         "ms-vscode.cpptools",
         "ms-vscode.cpptools-extension-pack",
         "ms-vscode.cpptools-themes",
-        "twxs.cmake",
-        "ms-vscode.cmake-tools",
         "dotenv.dotenv-vscode",
         "editorconfig.editorconfig",
         "github.copilot",
@@ -13,8 +11,8 @@
         "visualstudioexptteam.intellicode-api-usage-examples",
         "visualstudioexptteam.vscodeintellicode-completions",
         "ymotongpoo.licenser",
-        "ms-vscode.makefile-tools",
         "davidanson.vscode-markdownlint",
-        "snyk-security.snyk-vulnerability-scanner"
+        "snyk-security.snyk-vulnerability-scanner",
+        "mechatroner.rainbow-csv"
     ]
 }
