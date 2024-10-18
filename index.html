@@ -13,156 +13,38 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
-    <!-- Preload critical CSS (Bootstrap) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style" />
+    <!-- Preload Critical CSS (Bootstrap and Font Awesome) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" />
 
-    <!-- Preload important font-awesome icons CSS -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" />
+    <!-- Load Bootstrap and Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" />
 
-    <!-- Load Bootstrap CSS early -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-      crossorigin="anonymous"
-    />
-
-    <!-- Font Awesome for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-    />
-
-    <!-- Preload Normalize.css -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" as="style" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-    />
-
-    <!-- Preload DataTables CSS for quick table rendering -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" as="style" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css"
-      integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA=="
-      crossorigin="anonymous"
-    />
+    <!-- Include Custom Styles -->
+    <link rel="stylesheet" href="styles/reset.css" />
 
     <style>
-      .navbar-custom {
-        background-color: #a3b383;
-      }
-
-      .navbar-icons i {
-        font-size: 1.5rem;
-        margin: 0 10px;
-        background-color: #808d67;
-      }
-
-      .profile-img {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-      }
-
-      .title-description {
-        line-height: 1;
-      }
-
-      .title-description span:first-child {
-        font-weight: bold;
-      }
-
-      /* Custom styles for page links */
-      .nav-item .nav-link {
-        color: #000;
-        /* Text color */
-        background-color: transparent;
-        border-radius: 8px;
-      }
-
-      .nav-item .nav-link:hover {
-        background-color: #ccbdac;
-        /* Hover background color */
-      }
-
-      .nav-item .nav-link.active {
-        background-color: #ccbdac;
-        /* Active (clicked) link background */
-      }
-
-      .filter-section {
-        background-color: #808d67;
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-      }
-
-      .filter-section select {
-        width: 200px;
-        padding: 5px;
-        border-radius: 8px;
-        background-color: #d4cdbd;
-        border: none;
-      }
-
-      .table {
-        background-color: #808d67;
-        border-collapse: separate; /* Ensure borders don't collapse */
-        border-spacing: 0; /* Remove spacing between cells */
-        border-radius: 8px; /* Add border radius */
-        overflow: hidden; /* Ensure rounded corners are visible */
-      }
-
-      .table-custom th,
-      .table-custom td {
-        padding: 10px;
-        text-align: left;
-      }
-
-      .table-custom th {
-        background-color: #808d67;
-        color: #fff;
-        position: relative;
-      }
-
-      .table-custom td {
-        background-color: #d4cdbd;
-      }
-
-      .table-row-spacing {
-        margin-bottom: 10px;
-      }
-
-      .table-custom tr {
-        border-radius: 8px;
-      }
-
-      .icon-vertical {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin-left: 10px;
-      }
-
-      .icon-vertical i {
-        background-color: #d4cdbd;
-        padding: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      .icon-vertical i:hover {
-        background-color: #b5ae9b;
-      }
+      .navbar-custom { background-color: #a3b383; }
+      .navbar-icons i { font-size: 1.5rem; margin: 0 10px; background-color: #808d67; }
+      .navbar-end { display: flex; justify-content: flex-end; align-items: center; }
+      .profile-img { border-radius: 50%; width: 40px; height: 40px; object-fit: cover; }
+      .title-description { line-height: 1; }
+      .title-description span:first-child { font-weight: bold; }
+      .nav-item .nav-link { color: #000; background-color: transparent; border-radius: 8px; }
+      .nav-item .nav-link:hover { background-color: #ccbdac; }
+      .nav-item .nav-link.active { background-color: #ccbdac; }
+      .filter-section { background-color: #808d67; padding: 10px; border-radius: 8px; margin-bottom: 15px; }
+      .filter-section select { width: 200px; padding: 5px; border-radius: 8px; background-color: #d4cdbd; }
+      .table { background-color: #808d67; border-collapse: separate; border-spacing: 0; border-radius: 8px; }
+      .table-custom th, .table-custom td { padding: 10px; text-align: left; }
+      .table-custom th { background-color: #808d67; color: #fff; }
+      .table-custom td { background-color: #d4cdbd; }
+      .table-row-spacing { margin-bottom: 10px; }
+      .table-custom tr { border-radius: 8px; }
+      .icon-vertical { display: flex; flex-direction: column; align-items: center; position: fixed; top: 50%; right: 10px; transform: translateY(-50%); z-index: 9999; }
+      .icon-vertical i { margin: 10px 0; font-size: 24px; cursor: pointer; padding: 10px; background-color: #808d67; color: white; border-radius: 50%; transition: background-color 0.3s ease; }
+      .icon-vertical i:hover { background-color: #b5ae9b; }
     </style>
   </head>
 
@@ -172,42 +54,21 @@
       <div class="container-fluid">
         <!-- Logo and System Name -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-          <img
-            src="img/logo.png"
-            alt="Logo"
-            style="border-radius: 8px; height: auto; max-height: 55px; width: auto;"
-            class="navbar-logo me-3"
-            loading="lazy"
-          />
+          <img src="images/logo.png" alt="Logo" class="navbar-logo me-3" style="border-radius: 8px; height: auto; max-height: 55px;" loading="lazy" />
           <span>Environmental Compliance Management System</span>
         </a>
 
         <!-- Toggler for responsive behaviour -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Right-side icons and text -->
         <div class="navbar-end d-flex align-items-center p-2">
-          <div
-            class="navbar-icons d-flex align-items-center p-2"
-            style="background-color: #808d67; border-radius: 8px;"
-          >
+          <div class="navbar-icons d-flex align-items-center p-2" style="background-color: #808d67; border-radius: 8px;">
             <i class="fas fa-circle-question p-2"></i>
             <i class="fas fa-cog p-2"></i>
-            <img src="img/profile.png"
-              alt="Profile"
-              class="profile-img me-3"
-              loading="lazy"
-              />
+            <img src="images/profile.png" alt="Profile" class="profile-img me-3" loading="lazy" />
             <div class="title-description">
               <span>Title</span><br />
               <span>Description</span>
@@ -216,87 +77,104 @@
         </div>
       </div>
     </nav>
-    <!-- Page Links Navigation Bar -->
-    <div class="page-links m-0 p-0 mt-2">
-      <div
-        class="container mt-2"
-        style="width: fit-content; background: #ddddce; border-radius: 8px"
-      >
-        <ul class="nav justify-content-center m-0 p-2">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Obligation Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Responsible</a>
-          </li>
-        </ul>
-      </div>
+
+    <!-- Vertical Icons -->
+    <div class="icon-vertical">
+      <i class="fas fa-cog" title="Update"></i>
+      <i class="fas fa-search" title="Search"></i>
+      <i class="fas fa-plus" title="Create"></i>
+      <i class="fas fa-trash" title="Delete"></i>
+      <i class="fas fa-sync" title="Sync"></i>
     </div>
-    <!-- <div class="container" > -->
-    <!-- Filter Dropdown -->
-    <div class="container mt-4" style="background-color: #e2e7dd;height: fill; border-radius: 8px; padding-top: 15px;">
-      <select class="filter-section" id="filterSelect" name="filterSelect" style="color: #fff">
-        <option value="14DayLookahead">14 Day Lookahead</option>
-        <option value="Overdue">Overdue</option>
-        <option value="AllForms">All Forms</option>
-      </select>
+
+    <!-- Main Content -->
+    <div class="container mt-3">
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <label for="categorySelect" class="d-inline-block me-3">Select Category:</label>
+        <select id="categorySelect">
+          <option value="category1">14 Day Lookahead</option>
+          <option value="category2">Overdue</option>
+          <option value="category3">All Forms</option>
+        </select>
+      </div>
 
       <!-- Table Section -->
       <div class="d-flex">
         <table class="table table-borderless table-custom">
           <thead>
             <tr>
-              <th><input type="checkbox" /></th>
+              <th><input type="checkbox" id="headerCheckbox" /></th>
               <th>
                 Primary Environment Mechanism
                 <i class="fa-solid fa-chevron-down"></i>
               </th>
               <th>
-                Obligation Number <i class="fa-solid fa-chevron-down"></i>
+                Obligation <i class="fa-solid fa-chevron-down"></i>
               </th>
-              <th>Obligation <i class="fa-solid fa-chevron-down"></i></th>
-              <th>Accountability <i class="fa-solid fa-chevron-down"></i></th>
-              <th>Responsibility <i class="fa-solid fa-chevron-down"></i></th>
-              <th>Due Date <i class="fa-solid fa-chevron-down"></i></th>
-              <th>Status <i class="fa-solid fa-chevron-down"></i></th>
+              <th>
+                Accountability <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Responsibility <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Project Phase <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Action Due Date <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Status <i class="fa-solid fa-chevron-down"></i>
+              </th>
+              <th>
+                Compliance Comments <i class="fa-solid fa-chevron-down"></i>
+              </th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="table-row-spacing">
-              <td><input type="checkbox" /></td>
-              <td>Soil Quality</td>
-              <td>12347</td>
-              <td>Soil restoration</td>
-              <td>Alice Brown</td>
-              <td>Paul White</td>
-              <td>2024-12-01</td>
-              <td>Completed</td>
-            </tr>
+          <tbody id="tableBody">
+            <!-- Data will be populated here -->
           </tbody>
         </table>
+<!-- Vertical Icons -->
+<div class="icon-vertical" style="padding-bottom: 5px; position: sticky; top: 20px; right: 10px; z-index: 10;">
+  <i class="fas fa-cog"></i>
+  <i class="fas fa-search"></i>
+  <i class="fas fa-plus"></i>
+  <i class="fas fa-trash"></i>
+  <i class="fas fa-sync"></i>
+</div>
 
-        <!-- Vertical Icons -->
-        <div class="icon-vertical" style="padding-bottom: 5px;">
-          <i class="fas fa-cog"></i>
-          <i class="fas fa-search"></i>
-          <i class="fas fa-plus"></i>
-          <i class="fas fa-trash"></i>
-          <i class="fas fa-sync"></i>
-        </div>
-      </div>
-    </div>
+
+
     <!-- </div> -->
 
     <!-- jQuery (required by DataTables and other scripts) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" as="script" />
+    <link rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      as="script"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
     ></script>
+
+    <!-- Fittext adjusts font size based on the container's width -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"
+      integity="sha512-e2WVdoOGqKU97DHH6tYamn+eAwLDpyHKqPy4uSv0aGlwDXZKGwyS27sfiIUT8gpZ88/Lr4UZpbRt93QkGRgpug=="
+      crossorigin="anonymous"
+     ></script>
+
+    <!-- Autosize for resizing font dybamically in textareas -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js"
+      integrity="sha512-OjjaC+tijryqhyPqy7jWSPCRj7fcosu1zreTX1k+OWSwu6uSqLLQ2kxaqL9UpR7xFaPsCwhMf1bQABw2rCxMbg=="
+      crossorigin="anonymous"
+      ></script>
 
     <!-- DataTables JavaScript for enhanced tables -->
     <script
@@ -305,11 +183,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Preload Chart.js for future data visualizations -->
-    <link rel="prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" as="script" />
+    <!-- Papaparse for csv parsing -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
-      integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"
+      integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ=="
       crossorigin="anonymous"
     ></script>
 
@@ -329,44 +206,42 @@
       // Initialize DataTables for your table
       $(document).ready(function () {
         $(".table").DataTable();
-      });
 
-      // Example for using Chart.js
-      const ctx = document.getElementById('myChart');
-      const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
+        // Fetch and parse the CSV file
+        Papa.parse("assets/ppm.csv", {
+          download: true,
+          header: true,
+          complete: function(results) {
+            const data = results.data;
+            const tableBody = document.getElementById("tableBody");
+
+            data.forEach((row, index) => {
+              const tr = document.createElement("tr");
+
+              tr.innerHTML = `
+                <td><input type="checkbox" id="checkbox-${index}" name="checkbox-${index}" /></td>
+                <td>${row.Primary_Environmental_Mechanism}</td>
+                <td class="obligation-cell">${row.Obligation}</td>
+                <td>${row.Accountability}</td>
+                <td>${row.Responsibility}</td>
+                <td>${row.ProjectPhase}</td>
+                <td>${row.Action_DueDate}</td>
+                <td>${row.Status}</td>
+                <td>${row.Compliance_Comments}</td>
+              `;
+
+              tableBody.appendChild(tr);
+            });
+
+            // Apply FitText to "Obligation" column for dynamic font resizing
+            $(".obligation-cell").fitText();
+
+            // Apply Autosize to dynamically adjust text in multi-line cells
+            autosize($('.obligation-cell'));
           }
-        }
+        });
       });
     </script>
+
   </body>
 </html>

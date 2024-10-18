@@ -12,6 +12,7 @@
         "visualstudioexptteam.vscodeintellicode-completions",
         "ymotongpoo.licenser",
         "davidanson.vscode-markdownlint",
-        "snyk-security.snyk-vulnerability-scanner"
+        "snyk-security.snyk-vulnerability-scanner",
+        "mechatroner.rainbow-csv"
     ]
 }

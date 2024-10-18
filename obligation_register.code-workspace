@@ -167,5 +167,10 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-  }
+},
+"extensions": {
+    "recommendations": [
+        "mechatroner.rainbow-csv"
+    ]
+}
 }
