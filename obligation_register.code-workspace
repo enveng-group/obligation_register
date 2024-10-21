@@ -129,12 +129,12 @@
   "window.confirmSaveUntitledWorkspace": false,
   "git.openRepositoryInParentFolders": "always",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "C_Cpp.intelliSenseEngine": "disabled",
   "clangd.path": "/home/agallo/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd",
   "diffEditor.ignoreTrimWhitespace": false,
   "[makefile]": {
         "editor.insertSpaces": false,
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false
     },
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
@@ -172,5 +172,5 @@
     "recommendations": [
         "mechatroner.rainbow-csv"
     ]
-}
+},
 }

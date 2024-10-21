@@ -39,3 +39,18 @@ indent_size = 4
 [*.h]
 indent_style = space
 indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[*.mk]
+indent_style = tab
+
+[*.sh]
+indent_style = tab
+
+[*.c]
+indent_style = tab
+
+[*.h]
+indent_style = tab
