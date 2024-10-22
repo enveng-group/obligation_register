@@ -7,11 +7,9 @@
 
     <!-- Preconnect to external CDNs -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
     <!-- DNS Prefetch to resolve domains earlier -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Preload Critical CSS (Bootstrap and Font Awesome) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" as="style" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" />
@@ -42,6 +40,16 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Include Modernizr -->
+    <script src="scripts/modernizr-custom.js"></script>
+
+    <!-- Core-js for browser compatibility -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.38.1/minified.js"
+      integrity="sha512-b8krffU0zqWuDS//oxIA+5zHORDT/ABwzITYfZhNhE2so5uMR/1WYAGMx6A84UjnfSj7VXI5eqCRQXppNYhMig=="
+      crossorigin="anonymous"
+      ></script>
 
     <style>
       .navbar-custom { background-color: #a3b383; }
@@ -155,6 +163,8 @@
             <!-- Data will be populated here -->
           </tbody>
         </table>
+      </div> <!-- Closing the d-flex div -->
+    </div> <!-- Closing the container div -->
 <!-- Vertical Icons -->
 <div class="icon-vertical" style="padding-bottom: 5px; position: sticky; top: 20px; right: 10px; z-index: 10;">
   <i class="fas fa-cog"></i>
@@ -209,15 +219,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Modernizr for HTML5 and CSS3 feature detection -->
-    <script src="scripts/modernizr-custom.js"></script>
-
-    <!-- Polyfill.io for browser compatibility -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/polyfill@0.1.0/index.min.js"
-      crossorigin="anonymous"
-    ></script>
-
     <script>
       // Initialize DataTables for your table
       $(document).ready(function () {
@@ -258,6 +259,7 @@
         });
       });
     </script>
+    <script src="scripts/init.js"></script>
 
   </body>
 </html>

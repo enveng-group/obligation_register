@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "ms-vscode.cpptools-extension-pack",
         "dotenv.dotenv-vscode",
         "editorconfig.editorconfig",
         "github.copilot",
@@ -11,6 +10,14 @@
         "ymotongpoo.licenser",
         "davidanson.vscode-markdownlint",
         "snyk-security.snyk-vulnerability-scanner",
-        "mechatroner.rainbow-csv"
+        "mechatroner.rainbow-csv",
+        "xaver.clang-format",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "nathanj.cppcheck-plugin",
+        "github.vscode-pull-request-github",
+        "htmlhint.vscode-htmlhint",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.makefile-tools",
+        "ms-vscode-remote.remote-wsl"
     ]
 }

@@ -15,24 +15,24 @@
 
 # Check if /etc/make.conf exists
 ifneq ("$(wildcard /etc/make.conf)","")
-	include /etc/make.conf
+		include /etc/make.conf
 else
-	CFLAGS += -O2 -Wall
-	LDFLAGS +=
-	CPPFLAGS += -DDEBUG -DVERSION=1.0
+		CFLAGS += -O2 -Wall
+		LDFLAGS +=
+		CPPFLAGS += -DDEBUG -DVERSION=1.0
 endif
 
 # Directories
 DEPS_DIR = deps
 OBJ_DIR = obj
 SRC_DIR = src
-INCLUDE_DIR = /opt/homebrew/include  # Homebrew include directory
-LIB_DIR = /opt/homebrew/lib          # Homebrew library directory
+INCLUDE_DIR = /usr/include
+LIB_DIR = /usr/lib /usr/lib/x86_64-linux-gnu
 
 # Compiler and flags
 CC = gcc
 CFLAGS += -I$(INCLUDE_DIR) -MMD -MF $(DEPS_DIR)/$*.d -O3 -march=native
-LDFLAGS += -L$(LIB_DIR) -lgcrypt -Wl,-rpath,$(LIB_DIR)
+LDFLAGS += $(addprefix -L, $(LIB_DIR)) -lgcrypt -Wl,-rpath,/usr/lib/x86_64-linux-gnu
 
 # Source files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
@@ -51,24 +51,24 @@ all: $(TARGET)
 
 # Link the target executable
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $^ $(LDFLAGS)
+		$(CC) -o $@ $^ $(LDFLAGS)
 
 # Compile source files into object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(DEPS_DIR) $(OBJ_DIR)
-	$(CC) -c -o $@ $< $(CFLAGS) $(CPPFLAGS)
+		$(CC) -c -o $@ $< $(CFLAGS) $(CPPFLAGS)
 
 # Create directories if they don't exist
 $(DEPS_DIR):
-	mkdir -p $(DEPS_DIR)
+		mkdir -p $(DEPS_DIR)
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+		mkdir -p $(OBJ_DIR)
 
 # Include dependency files
 -include $(DEPS)
 
 # Clean up
 clean:
-	rm -rf $(OBJ_DIR) $(DEPS_DIR) $(TARGET)
+		rm -rf $(OBJ_DIR) $(DEPS_DIR) $(TARGET)
 
 .PHONY: all clean
