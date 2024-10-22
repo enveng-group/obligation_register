@@ -1,4 +1,3 @@
 # obligation_register
 
-gcc -o simple_server src/simple_server.c
-tcc -o simple_server src/simple_server.c
+gcc -o server src/main.c src/utils.c src/http.c src/signal_handler.c -Iinclude -Wall -Wextra

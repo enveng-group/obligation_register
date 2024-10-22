@@ -1,0 +1,9 @@
+{
+    "git.verboseCommit": true,
+    "git.enableCommitSigning": true,
+    "git.autofetch": true,
+    "git.rebaseWhenSync": true,
+    "git.pruneOnFetch": true,
+    "git.replaceTagsWhenPull": true,
+    "git.requireGitUserConfig": true
+}
