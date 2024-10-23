@@ -21,7 +21,7 @@
 #include "../include/http.h"
 #include "../include/signal_handler.h"
 
-const char *root_directory = "/home/agallo/obligation_register/";
+const char *root_directory = "/home/ubuntu/obligation_register/";
 int server_fd;
 
 int
