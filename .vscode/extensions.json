@@ -18,6 +18,6 @@
         "htmlhint.vscode-htmlhint",
         "visualstudioexptteam.vscodeintellicode",
         "ms-vscode.makefile-tools",
-        "ms-vscode-remote.remote-wsl"
+        "ms-vscode.vscode-github-issue-notebooks"
     ]
 }
