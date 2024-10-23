@@ -37,6 +37,7 @@ send_http_response (int client_socket, const char *file_path)
         "HTTP/1.1 404 Not Found\r\n"
         "Content-Type: text/html; charset=UTF-8\r\n"
         "Content-Length: 22\r\n"
+        "X-Frame-Options: SAMEORIGIN\r\n"
         "\r\n"
         "<h1>404 Not Found</h1>";
       if (send (client_socket, not_found_response, strlen (not_found_response), 0) == -1)
@@ -50,7 +51,11 @@ send_http_response (int client_socket, const char *file_path)
   char buffer[BUFFER_SIZE];
 
   char header[BUFFER_SIZE];
-  snprintf (header, sizeof (header), "HTTP/1.1 200 OK\r\nContent-Type: %s\r\n\r\n", mime_type);
+  snprintf (header, sizeof (header),
+            "HTTP/1.1 200 OK\r\n"
+            "Content-Type: %s\r\n"
+            "X-Frame-Options: SAMEORIGIN\r\n"
+            "\r\n", mime_type);
   if (send (client_socket, header, strlen (header), 0) == -1)
     {
       perror ("Send failed");
