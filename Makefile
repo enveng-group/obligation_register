@@ -69,6 +69,8 @@ $(OBJ_DIR):
 
 # Clean up
 clean:
-		rm -rf $(OBJ_DIR) $(DEPS_DIR) $(TARGET)
+		rm -f $(OBJ_DIR)/*.o
+		rm -f $(DEPS_DIR)/*.d
+		rm -rf $(TARGET)
 
 .PHONY: all clean
