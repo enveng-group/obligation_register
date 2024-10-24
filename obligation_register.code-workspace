@@ -1,24 +1,24 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../wiki.wiki"
-		}
-	],
-	"settings": {
-      "workbench.preferredHighContrastColorTheme": "Default Dark Modern",
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../wiki.wiki"
+    }
+  ],
+  "settings": {
+    "workbench.preferredHighContrastColorTheme": "Default Dark Modern",
     "workbench.startupEditor": "none",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "git.autofetch": true,
     "explorer.confirmDelete": false,
@@ -30,142 +30,136 @@
     "licenser.useSingleLineStyle": true,
     "licenser.customTermsAndConditions": "Copyright @YEAR@ @AUTHOR@\n\nThese are the terms and conditions...",
     "licenser.excludeFileExtensions": [
-        "txt", "sqlite3", "sql", "md", "jpg", "jpeg", "svg", "png", "ico", "crt", "pem", "der",
-        ".gitignore", ".gitattributes", ".gitmodules", ".gitkeep", ".DS_Store", ".editorconfig",
-        ".eslintrc", ".prettierrc", ".prettierignore", ".vscode", ".eslintrc.json", ".babelrc",
-        ".env", ".nvmrc", ".dockerignore", ".editorconfig, webp"
+      "txt", "sqlite3", "sql", "md", "jpg", "jpeg", "svg", "png", "ico", "crt", "pem", "der",
+      ".gitignore", ".gitattributes", ".gitmodules", ".gitkeep", ".DS_Store", ".editorconfig",
+      ".eslintrc", ".prettierrc", ".prettierignore", ".vscode", ".eslintrc.json", ".babelrc",
+      ".env", ".nvmrc", ".dockerignore", ".editorconfig", "webp"
     ],
     "prettier.requireConfig": true,
     "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "**/dist": true,
-        "**/coverage": true
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/coverage": true
     },
     "files.watcherExclude": {
-        "**/node_modules/**": true,
-        "**/dist/**": true,
-        "**/coverage/**": true
+      "**/node_modules/**": true,
+      "**/dist/**": true,
+      "**/coverage/**": true
     },
     "files.associations": {
-        ".env*": "dotenv"
+      ".env*": "dotenv"
     },
     "editor.tokenColorCustomizations": {
-        "[*Light*]": {
-            "textMateRules": [
-                {
-                    "scope": "ref.matchtext",
-                    "settings": {
-                        "foreground": "#000"
-                    }
-                }
-            ]
-        },
-        "[*Dark*]": {
-            "textMateRules": [
-                {
-                    "scope": "ref.matchtext",
-                    "settings": {
-                        "foreground": "#fff"
-                    }
-                }
-            ]
-        },
-        "textMateRules": []
+      "[*Light*]": {
+        "textMateRules": [
+          {
+            "scope": "ref.matchtext",
+            "settings": {
+              "foreground": "#000"
+            }
+          }
+        ]
+      },
+      "[*Dark*]": {
+        "textMateRules": [
+          {
+            "scope": "ref.matchtext",
+            "settings": {
+              "foreground": "#fff"
+            }
+          }
+        ]
+      },
+      "textMateRules": []
     },
     "dotenv.enableAutocloaking": false,
     "github.copilot.enable": {
-        "plaintext": true,
-        "markdown": true,
-        "css": true,
-        "diff": true,
-        "dockerfile": true,
-        "git": true,
-        "html": true,
-        "ini": true,
-        "javascript": true,
-        "javascriptreact": true,
-        "json": true,
-        "jsonc": true,
-        "sql": true,
-        "typescript": true,
-        "typescriptreact": true,
-        "yaml": true
+      "plaintext": true,
+      "markdown": true,
+      "css": true,
+      "diff": true,
+      "dockerfile": true,
+      "git": true,
+      "html": true,
+      "ini": true,
+      "javascript": true,
+      "javascriptreact": true,
+      "json": true,
+      "jsonc": true,
+      "sql": true,
+      "typescript": true,
+      "typescriptreact": true,
+      "yaml": true
     },
     "github.copilot.chat.experimental.inlineChatCompletionTrigger.enabled": true,
     "github.copilot.chat.experimental.inlineChatHint.enabled": true,
     "git.confirmSync": true,
     "editor.codeActionsOnSave": {
-    "source.fixAll.shellcheck": "explicit"
-},
-"snyk.folderConfigs": [
-    {
+      "source.fixAll.shellcheck": "explicit"
+    },
+    "snyk.folderConfigs": [
+      {
         "folderPath": "/home/agallo/obligation_register",
         "baseBranch": "main",
         "localBranches": [
-            "main"
+          "main"
         ]
-    },
-    {
+      },
+      {
         "folderPath": "",
         "baseBranch": ""
-    }
-],
-"snyk.trustedFolders": [
-    "/home/agallo/obligation_register",
-    "d:\\obligation_register",
-    "/home/agallo/wiki.wiki",
-    "/home/agallo/wiki.wiki",
-    "/Users/adriangallo/obligation_register",
-    "/Users/adriangallo/wiki.wiki",
-    "/Users/adriangallo",
-    "/Users/wiki.wiki"
-],
-"git.enableSmartCommit": true,
-"window.confirmSaveUntitledWorkspace": false,
-"git.openRepositoryInParentFolders": "always",
-"terminal.integrated.enableMultiLinePasteWarning": "never",
-"diffEditor.ignoreTrimWhitespace": false,
-"[makefile]": {
-        "editor.insertSpaces": false,
-        "editor.tabSize": 4,
-        "editor.detectIndentation": false
+      }
+    ],
+    "snyk.trustedFolders": [
+      "/home/agallo/obligation_register",
+      "d:\\obligation_register",
+      "/home/agallo/wiki.wiki",
+      "/home/agallo/wiki.wiki",
+      "/Users/adriangallo/obligation_register",
+      "/Users/adriangallo/wiki.wiki",
+      "/Users/adriangallo",
+      "/Users/wiki.wiki"
+    ],
+    "git.enableSmartCommit": true,
+    "window.confirmSaveUntitledWorkspace": false,
+    "git.openRepositoryInParentFolders": "always",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[makefile]": {
+      "editor.tabSize": 4,
     },
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "editor.trimAutoWhitespace": true,
     "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash"
-        },
-        "Ubuntu (WSL)": {
-            "path": "C:\\WINDOWS\\System32\\wsl.exe",
-            "args": [
-                "-d",
-                "Ubuntu"
-            ]
-        },
-        "remote.WSL.env": {
-        "remote.WSL.env": {
-            "LANG": "en_AU.UTF-8",
-            "LC_ALL": "en_AU.UTF-8"
-        }
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Git Bash": {
+        "source": "Git Bash"
+      },
+      "Ubuntu (WSL)": {
+        "path": "C:\\WINDOWS\\System32\\wsl.exe",
+        "args": [
+          "-d",
+          "Ubuntu"
+        ]
+      }
     },
     "workbench.editorAssociations": {
-        "*.copilotmd": "vscode.markdown.preview.editor",
-        "*.csv": "default"
+      "*.copilotmd": "vscode.markdown.preview.editor"
     },
-    "snyk.advanced.autoScanOpenSourceSecurity": true,
     "makefile.configureOnOpen": false,
     "git.postCommitCommand": "sync",
     "git.rebaseWhenSync": true,
@@ -177,6 +171,14 @@
     "git.inputValidation": true,
     "git.enableCommitSigning": true,
     "git.closeDiffOnOperation": true,
-    "git.alwaysSignOff": false
+    "git.alwaysSignOff": false,
+    "terminal.integrated.profiles.linux": {
+      "yash": {
+        "path": "/usr/bin/yash"
+      }
+	},
+	"terminal.integrated.shellIntegration.enabled": false,
+	"terminal.integrated.allowChords": false,
+	"terminal.integrated.shellIntegration.showCommandGuide": false
   }
 }

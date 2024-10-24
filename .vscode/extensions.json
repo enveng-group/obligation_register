@@ -17,7 +17,6 @@
         "github.vscode-pull-request-github",
         "htmlhint.vscode-htmlhint",
         "visualstudioexptteam.vscodeintellicode",
-        "ms-vscode.makefile-tools",
-        "ms-vscode.vscode-github-issue-notebooks"
+		"ms-vscode.vscode-github-issue-notebooks"
     ]
 }
