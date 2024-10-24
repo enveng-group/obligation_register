@@ -1,5 +1,5 @@
-simple_server
-simple_server.o
+server
+server.o
 
 # Node.js dependencies
 node_modules/
